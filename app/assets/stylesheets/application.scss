@@ -1,0 +1,19 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "welcome";
+@import "students";
+
+
+.test {
+
+  height: 1000px;
+  background-color: blue;
+
+}
+
+.logout_button{
+
+  position: fixed;
+  margin-left: -15px;
+
+}

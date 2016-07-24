@@ -1,0 +1,43 @@
+
+$blue: #2980b9;
+
+.welcome_title {
+  margin-top: 100px;
+
+  small{
+
+      color: lighten($blue, 10%)
+  }
+}
+
+.sign_in_title{
+  margin-top: 70px;
+
+  small{
+
+      color: lighten($blue, 10%)
+  }
+
+}
+
+.sign_in_form {
+  margin-top: 30px;
+
+  .sign_in_buttons {
+
+      margin-top: 15px;
+
+  }
+
+}
+
+.sign_up_form{
+
+  margin-top: 25px;
+
+  .sign_up_buttons{
+    margin-top: 15px;
+
+  }
+
+}

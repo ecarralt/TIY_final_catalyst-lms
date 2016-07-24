@@ -8,7 +8,29 @@
 </head>
 <body>
 
+<div class="row">
+  <div class="col-sm-10 col-sm-offset-1">
+    <% if notice %>
+      <div class="alert alert-warning">  <%= notice %>  </p>
+    <% end %>
+    </div>
+  </div>
+</div>
+
+
+  <div class="row">
+    <div class="col-sm-1 col-sm-offset-11">
+      <div class="logout_button btn">
+        <%= link_to "Log Out", sign_out_path, class: "btn btn-warning" %>
+      </div>
+    </div>
+  </div>
+
 <%= yield %>
+
+<div class="test">
+
+</div>
 
 </body>
 </html>

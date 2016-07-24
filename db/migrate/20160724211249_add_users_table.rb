@@ -9,7 +9,7 @@ class AddUsersTable < ActiveRecord::Migration
       t.string :username, unique: true
       t.string :password_digest, null: false
       t.string :photofile_id
-      t.string :type
+      t.string :usertype
       t.timestamps null: false
     end
   end

@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use postgresql as the database for Active Record
-gem 'pg', '~> 0.15'
+# gem 'pg', '~> 0.15'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -46,3 +46,12 @@ group :development do
 end
 
 gem 'bootstrap-sass'
+ruby '2.3.1'
+
+group :production do
+  	gem 'pg', '~> 0.15' #(only if using postgres db)
+ 		gem 'rails_12factor'
+end
+group :development, :test do #(if local db is sqlite3)
+  			gem 'sqlite3'
+		end

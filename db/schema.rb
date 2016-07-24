@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20160724211249) do
     t.string   "username"
     t.string   "password_digest", null: false
     t.string   "photofile_id"
-    t.string   "type"
+    t.string   "usertype"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end

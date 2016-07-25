@@ -7,7 +7,7 @@
 .test {
 
   height: 1000px;
-  background-color: blue;
+  background-color: $blue;
 
 }
 
@@ -15,5 +15,21 @@
 
   position: fixed;
   margin-left: -15px;
+
+}
+
+.creditsbar {
+  font-family: "Trirong", serif;
+
+  background-color: $blue;
+  text-align: center;
+  color: #ffffff;
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+  h6 {
+    margin: 0px;
+
+  }
 
 }

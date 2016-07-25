@@ -5,9 +5,9 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to dashboard_path, notice: "Welcome to VacationPics @#{user.username}!"
+      redirect_to dashboard_path, notice: "Welcome to Catlyst #{user.first_name}!"
     else
-      redirect_to welcome_path, notice: "Something is wrong with your username and/or password. Please try again, you can do it!!"
+      redirect_to welcome_path, notice: "Something is wrong with your username and/or password. Please try again!"
     end
   end
 
@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
   def delete
 
     session.delete :user_id # session[:username] = nil (should also work)
-    redirect_to welcome_path, notice: "Thanks! Come back later to share more vacation memories!"
+    redirect_to welcome_path, notice: "See you soon!"
 
   end
 

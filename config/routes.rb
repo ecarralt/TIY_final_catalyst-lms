@@ -9,6 +9,11 @@ Rails.application.routes.draw do
   get 'students/dashboard' => 'students#dashboard', as: :dashboard
 
   get 'lessons/dashboard' => 'lessons#dashboard', as: :lessons
+  get 'lessons/new' => 'lessons#new', as: :new_lesson
+  post 'lessons/create' => 'lessons#create', as: :create_lesson
+  get 'lessons/:id' => 'lessons#show', as: :lesson
+  get 'lessons/:id/edit' => 'lessons#edit', as: :edit_lesson
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

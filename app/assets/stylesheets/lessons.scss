@@ -1,3 +1,10 @@
+.new_lesson_btn{
+  position: fixed;
+  left: 40px;
+  top: 120px;
+
+}
+
 .lesson_content{
   // position: relative;
   //      width: 100%;
@@ -8,4 +15,28 @@
     width: 200px;
     // background-color: #b0e0e6;
   }
+}
+
+.space_margin{
+  p{
+    height: 20px;
+  }
+}
+
+.release_radio_btns{
+
+  margin-top: 15px;
+
+}
+
+.create_lesson_buttons{
+
+  margin-top: 20px;
+
+}
+
+.lesson_title{
+
+  text-align: center;
+
 }

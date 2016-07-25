@@ -1,0 +1,42 @@
+
+
+
+<div class="row">
+  <div class="col-sm-9 col-sm-offset-3 sign_in_title">
+    <h2>New lesson... <small> let's do it!</small>
+    </h2 >
+  </div>
+</div>
+
+
+
+<div class="row">
+  <div class="col-sm-7 col-sm-offset-3">
+    <div class="sign_up_form form-group">
+
+      <%= form_for @lesson, url: create_lesson_path do |f| %>
+
+        <div class="">
+          <%= f.text_field :title, class: 'form-control', placeholder: "Lesson Title"  %>
+        </div>
+        <div class="release_radio_btns">
+          <%= f.radio_button :released, '0', :checked => true %> Do not release this lesson yet
+          <br />
+          <%= f.radio_button :released, '1', :checked => false %> Release as soon as created
+        </div>
+        <div class="space_margin">
+          <p>  </p>
+        </div>
+        <div class="">
+          <%= f.text_area :content,class: 'form-control', placeholder: "Content here...", size: "10x20"%>
+        </div>
+        <div class="create_lesson_buttons">
+          <%= f.submit "Create Lesson", class: "btn btn-warning"%>
+          or
+          <%= link_to 'Cancel', :back %>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -4,21 +4,18 @@
 @import "students";
 @import "lessons";
 
+
 $white: #ffffff;
 $blue: #2980b9;
 
 
 .menusection {
-  font-family: "Trirong", serif;
-  margin-top: 0;
-  background-color: #2980b9;
-  // margin-right: -15px;
-   display:flex;
-   flex-direction: row;
-   flex-wrap: nowrap;
-   justify-content: space-around;
-   align-content: flex-start;
-   align-items: center;
+   font-family: "Trirong", serif;
+   background-color: $blue;
+   position: fixed;
+   z-index: +1;
+   width: 100%;
+
    .menuitem {
      width: 33%;
      text-align: center;
@@ -34,38 +31,41 @@ $blue: #2980b9;
          color: lighten($blue, 50%);
        }
      }
-
    }
-
-
 }
 
-.test {
-
-  height: 100px;
-  background-color: $blue;
+.menusection_placeholder{
+  height: 70px;
 
 }
 
 .logout_button{
 
   position: fixed;
-  margin-left: -15px;
+  right: 15px;
+  top: 65px;
 
 }
 
-.creditsbar {
-  font-family: "Trirong", serif;
+// .test2{
+//
+//   width: 100%;
+// }
 
+.test {
+  height: 100px;
+  // width: 1300px;
+  // width: 100%;
   background-color: $blue;
-  text-align: center;
-  color: #ffffff;
-  padding-top: 5px;
-  padding-bottom: 5px;
-
-  h6 {
-    margin: 0px;
-
+  .creditsbar {
+    font-family: "Trirong", serif;
+    background-color: $blue;
+    text-align: center;
+    color: #ffffff;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    h6 {
+      margin: 0px;
+    }
   }
-
 }

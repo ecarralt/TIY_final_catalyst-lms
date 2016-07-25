@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+
+
+  root 'welcome#catalyst', as: :welcome
+
+  post '/' => 'sessions#create', as: :create_sign_in
+  get "/logout" => "sessions#delete", as: :sign_out
+
+  get 'students/dashboard' => 'students#dashboard', as: :dashboard
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

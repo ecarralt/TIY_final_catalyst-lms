@@ -1,0 +1,35 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "welcome";
+@import "students";
+
+
+.test {
+
+  height: 1000px;
+  background-color: $blue;
+
+}
+
+.logout_button{
+
+  position: fixed;
+  margin-left: -15px;
+
+}
+
+.creditsbar {
+  font-family: "Trirong", serif;
+
+  background-color: $blue;
+  text-align: center;
+  color: #ffffff;
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+  h6 {
+    margin: 0px;
+
+  }
+
+}

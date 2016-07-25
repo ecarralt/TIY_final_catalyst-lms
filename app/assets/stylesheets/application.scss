@@ -2,11 +2,47 @@
 @import "bootstrap";
 @import "welcome";
 @import "students";
+@import "lessons";
 
+$white: #ffffff;
+$blue: #2980b9;
+
+
+.menusection {
+  font-family: "Trirong", serif;
+  margin-top: 0;
+  background-color: #2980b9;
+  // margin-right: -15px;
+   display:flex;
+   flex-direction: row;
+   flex-wrap: nowrap;
+   justify-content: space-around;
+   align-content: flex-start;
+   align-items: center;
+   .menuitem {
+     width: 33%;
+     text-align: center;
+     h1 a {
+       color: $white;
+       margin-top: 0;
+       margin-bottom: 0;
+       padding-top: 10px;
+       padding-bottom: 10px;
+       color: #ffffff;
+       &:hover {
+         text-decoration: none;
+         color: lighten($blue, 50%);
+       }
+     }
+
+   }
+
+
+}
 
 .test {
 
-  height: 1000px;
+  height: 100px;
   background-color: $blue;
 
 }

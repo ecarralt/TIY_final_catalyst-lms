@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <h1>Lessons</h1>
+  </div>
+</div>
+
+<% @lessons.each do |lesson| %>
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <div class="well lesson_content">
+        <h3><%= lesson.title %> </h3>
+        <p>
+          <%= lesson.content[0,200] %>...
+        </p>
+        <small> created on <%= time_ago_in_words(lesson.created_at)%> ago</small>
+      </div>
+    </div>
+  </div>
+<%end %>

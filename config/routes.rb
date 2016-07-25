@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   get 'students/dashboard' => 'students#dashboard', as: :dashboard
 
+  get 'lessons/dashboard' => 'lessons#dashboard', as: :lessons
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -17,10 +17,16 @@
           <p>
             <%= lesson.content[0,200] %>...
           </p>
-          <small> created <%= time_ago_in_words(lesson.created_at)%> ago</small>
+          <% if @current_user.usertype == "teacher" %>
+            <div class="">
+              <small> Released to students? <%= lesson.released_display %></small>
+            </div>
+          <% end %>
+          <small class= "timestamp">
+            created <%= time_ago_in_words(lesson.created_at)%> ago
+          </small>
           <%= link_to "View", lesson_path(id: lesson.id) %>
           <%= link_to "Edit", edit_lesson_path(id: lesson.id) %>
-
         </div>
       <%end %>
     </div>

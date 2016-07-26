@@ -1,7 +1,11 @@
 class LessonsController < ApplicationController
 
   def dashboard
-    @lessons = Lesson.all.order(lesson_number: :asc)
+    if @current_user.usertype == "student"
+      @lessons = Lesson.all.where(released: "1")
+    else
+      @lessons = Lesson.all.order(lesson_number: :asc)
+    end
   end
 
   def show

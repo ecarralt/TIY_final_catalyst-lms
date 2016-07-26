@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   post 'lessons/create' => 'lessons#create', as: :create_lesson
   get 'lessons/:id' => 'lessons#show', as: :lesson
   get 'lessons/:id/edit' => 'lessons#edit', as: :edit_lesson
-
+  patch 'lessons/:id/update' => 'lessons#update', as: :update_lesson
+  delete 'lessons/:id/delete' => 'lessons#delete', as: :delete_lesson
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

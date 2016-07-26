@@ -13,7 +13,12 @@
       </div>
     </div>
     <div class="col-sm-8">
-      <p>  <%=   @lesson.content %> </p>
+    <p>
+      <% if false %>
+      <%= simple_format("#{@lesson.content}") %>
+      <% end %>
+      <%= markdown(@lesson.content) %>
+    </p>
 
     </div>
 

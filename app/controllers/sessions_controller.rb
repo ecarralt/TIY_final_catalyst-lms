@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       if user.usertype == "student"
-        redirect_to dashboard_path, notice: "Welcome to Catlyst #{user.first_name}!"
+        redirect_to dashboard_path, notice: "Welcome to Catalyst #{user.first_name}!"
       else
         redirect_to lessons_path, notice: "Welcome to Catalyst, Mr. #{user.last_name}!"
       end

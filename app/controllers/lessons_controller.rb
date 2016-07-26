@@ -1,7 +1,7 @@
 class LessonsController < ApplicationController
 
   def dashboard
-    @lessons = Lesson.all
+    @lessons = Lesson.all.order(lesson_number: :asc)
   end
 
   def show
@@ -14,7 +14,8 @@ class LessonsController < ApplicationController
 
   def create
     @lesson = Lesson.new
-    @lesson.title = params[:lesson][:title]
+    @lesson.lesson_number = params[:lesson][:lesson_number]
+    @lesson.title = params[:lesson][:title].to_i
     @lesson.content = params[:lesson][:content]
     @lesson.author = @current_user.full_name
     @lesson.released = params[:lesson][:released]
@@ -32,7 +33,8 @@ class LessonsController < ApplicationController
   end
 
   def update
-    @lesson = Lesson.new
+    @lesson = Lesson.find_by id: params[:id]
+    @lesson.lesson_number = params[:lesson][:lesson_number].to_i
     @lesson.title = params[:lesson][:title]
     @lesson.content = params[:lesson][:content]
     @lesson.author = @current_user.full_name

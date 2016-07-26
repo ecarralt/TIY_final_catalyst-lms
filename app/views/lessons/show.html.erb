@@ -1,5 +1,5 @@
 <div class="lesson_title">
-  <h1> <%=@lesson.title %></h1>
+  <h1><%=@lesson.lesson_number %>. <%=@lesson.title %></h1>
 </div>
 
 <div class="container">
@@ -7,6 +7,9 @@
     <div class="col-sm-2">
       <div class="delete_lesson_btn btn">
         <%= link_to "Delete Lesson", delete_lesson_path, method: :delete, class: "btn btn-danger" %>
+      </div>
+      <div class="update_lesson_btn btn">
+        <%= link_to "Update Lesson", edit_lesson_path(id: @lesson.id), method: :get, class: "btn btn-warning" %>
       </div>
     </div>
     <div class="col-sm-8">

@@ -19,21 +19,24 @@
   }
 }
 
-.space_margin{
-  p{
-    height: 20px;
-  }
+// New
+
+
+.f_lesson_number{
+
+  margin-bottom: 10px;
 }
 
-.release_radio_btns{
+.f_release_radio_btns{
 
   margin-top: 15px;
 
 }
 
-.create_lesson_buttons{
+.f_create_lesson_buttons{
 
   margin-top: 20px;
+  margin-bottom: 20px;
 
 }
 
@@ -49,6 +52,10 @@
   position: fixed;
   left: 40px;
   top: 120px;
+}
 
-
+.update_lesson_btn{
+  position: fixed;
+  left: 40px;
+  top: 160px;
 }

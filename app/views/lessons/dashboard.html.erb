@@ -13,11 +13,11 @@
     <div class="col-sm-8">
       <% @lessons.each do |lesson| %>
         <div class="well lesson_content">
-          <h3><%= lesson.title %> </h3>
+          <h3><%= lesson.lesson_number %>. <%= lesson.title %> </h3>
           <p>
             <%= lesson.content[0,200] %>...
           </p>
-          <small> created on <%= time_ago_in_words(lesson.created_at)%> ago</small>
+          <small> created <%= time_ago_in_words(lesson.created_at)%> ago</small>
           <%= link_to "View", lesson_path(id: lesson.id) %>
           <%= link_to "Edit", edit_lesson_path(id: lesson.id) %>
 

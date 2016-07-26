@@ -1,41 +1,71 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>CatalystLms</title>
+  <title>CatalystLMS</title>
+  <link rel="stylesheet" type="text/css"
+      href="https://fonts.googleapis.com/css?family=Trirong">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<div class="row">
-  <div class="col-sm-10 col-sm-offset-1">
-    <% if notice %>
-      <div class="alert alert-warning">  <%= notice %>  </p>
-    <% end %>
+<div class="menusection">
+  <div class="row">
+    <div class="col-sm-4 menuitem">
+      <h1><%= link_to "Lessons", lessons_path %></h1>
+    </div>
+    <div class="col-sm-4 menuitem">
+      <h1><%= link_to "Assignments", lessons_path %></h1>
+    </div>
+    <div class="col-sm-4 menuitem">
+      <h1><%= link_to "Student Tracking", lessons_path%></h1>
     </div>
   </div>
 </div>
 
+<div class="row menusection_placeholder">
+</div>
 
   <div class="row">
-    <div class="col-sm-1 col-sm-offset-11">
-      <div class="logout_button btn">
-        <%= link_to "Log Out", sign_out_path, class: "btn btn-warning" %>
+    <div class="col-xs-10 col-xs-offset-1">
+      <div class="menulinks_top">
+        <% if @current_user %>
+          <inline>Signed in as <%= @current_user.usertype %> <%= @current_user.username %> </inline>
+        <% end  %>
       </div>
     </div>
   </div>
 
-<%= yield %>
 
-<div class="test">
-  <footer>
-    <div class="creditsbar">
-        <h6>Enrique Carral Trevino</h6>
-        <h6>Copyright 2016</h6>
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <% if notice %>
+        <div class="alert alert-warning">  <%= notice %>  </p>
+      <% end %>
+      </div>
     </div>
-  </footer>
-</div>
+  </div>
+
+
+  <div class="logout_button btn">
+    <%= link_to "Log Out", sign_out_path, class: "btn btn-warning" %>
+  </div>
+
+
+  <%= yield %>
+
+  <div class="row test">
+    <div class="col-sm-12">
+          <div class="creditsbar">
+              <h6>Catalyst</h6>
+              <h6>Enrique Carral Trevino</h6>
+              <h6>Copyright 2016</h6>
+          </div>
+      </div>
+    </div>
+
+
 
 </body>
 </html>

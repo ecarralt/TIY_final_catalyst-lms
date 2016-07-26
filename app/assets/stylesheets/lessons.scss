@@ -1,0 +1,61 @@
+///Dashboard
+
+.new_lesson_btn{
+  position: fixed;
+  left: 40px;
+  top: 120px;
+
+}
+
+.lesson_content{
+  // position: relative;
+  //      width: 100%;
+  small {
+    // font-size: 33px;
+    position: absolute;
+    right: 0px;
+    width: 200px;
+    // background-color: #b0e0e6;
+  }
+}
+
+// New
+
+
+.f_lesson_number{
+
+  margin-bottom: 10px;
+}
+
+.f_release_radio_btns{
+
+  margin-top: 15px;
+
+}
+
+.f_create_lesson_buttons{
+
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+}
+
+.lesson_title{
+
+  text-align: center;
+
+}
+
+////show
+
+.delete_lesson_btn{
+  position: fixed;
+  left: 40px;
+  top: 120px;
+}
+
+.update_lesson_btn{
+  position: fixed;
+  left: 40px;
+  top: 160px;
+}

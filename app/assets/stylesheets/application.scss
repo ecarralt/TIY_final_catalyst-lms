@@ -2,34 +2,70 @@
 @import "bootstrap";
 @import "welcome";
 @import "students";
+@import "lessons";
 
 
-.test {
+$white: #ffffff;
+$blue: #2980b9;
 
-  height: 1000px;
-  background-color: $blue;
+
+.menusection {
+   font-family: "Trirong", serif;
+   background-color: $blue;
+   position: fixed;
+   z-index: +1;
+   width: 100%;
+
+   .menuitem {
+     width: 33%;
+     text-align: center;
+     h1 a {
+       color: $white;
+       margin-top: 0;
+       margin-bottom: 0;
+       padding-top: 10px;
+       padding-bottom: 10px;
+       color: #ffffff;
+       &:hover {
+         text-decoration: none;
+         color: lighten($blue, 50%);
+       }
+     }
+   }
+}
+
+.menusection_placeholder{
+  height: 70px;
 
 }
 
 .logout_button{
 
   position: fixed;
-  margin-left: -15px;
+  right: 15px;
+  top: 65px;
 
 }
 
-.creditsbar {
-  font-family: "Trirong", serif;
+// .test2{
+//
+//   width: 100%;
+// }
 
+.test {
+  height: 100px;
+  // width: 1300px;
+  // width: 100%;
   background-color: $blue;
-  text-align: center;
-  color: #ffffff;
-  padding-top: 5px;
-  padding-bottom: 5px;
-
-  h6 {
-    margin: 0px;
-
+  .creditsbar {
+    font-family: "Trirong", serif;
+    background-color: $blue;
+    text-align: center;
+    color: #ffffff;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    h6 {
+      margin: 0px;
+    }
   }
-
 }

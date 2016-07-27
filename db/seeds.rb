@@ -44,6 +44,57 @@ he paragraph element consists of the start tag '<p>' and the closing tag '</p>'.
 <p>You are beginning to learn HTML.</p>"
 lesson3.save!
 
+Assignment.delete_all
+
+assignment = Assignment.new assignment_number: 1, title: "Basic HTML Display Features", released: "1", user_id: user3.id, author: "American University", content: "A basic page needs only a bare minimum of programming. Graphics are an important part of Web pages but so too are words. I look upon the Web as a medium for ideas and the use of new technologies, but not the other way around. A Web page tells a great story with great graphical and analytical presentation.
+
+Using the 'View' option look at the source code for this document. The background color and the text declared in the body refer to a coding system that combines a system of numbers and letters to create thousands of possible color choices. The body color indicates white and the text as being black. I could have just written in 'white' and 'black' instead of these codes.
+
+Here is an example of a horizontal rule:
+
+To begin, we can change the
+header size
+and color of letters seen on the screen. The font sizecan be changed as well, and actually gives more choices.
+
+We can also change the appearance of words on the screen. This shows some differing word types in a blocked quote.
+
+    Now is the time for all good people to come to the aid of their country.
+
+That was also an example of a nested command."
+assignment.save!
+
+assignment2 = Assignment.new assignment_number: 2, title: "Create a website", released: "1", user_id: user3.id, author: "Harry Potter", content: "Your job is to create a web site that shows the following elements.  Make sure all of your code is arranged properly and cleanly.  This is comparable to a test so I will NOT be giving very much help if any. For this first assignment you will have the tutorial to use for help, so it will be your main tool.
+
+
+-ALL of this information can be found in HTML Chapters 1-7
+-Make sure your page has some kind of common theme/topic, not just random stuff!
+
+Your page must contain the following:
+
+1. Basic Tags: Make sure you have your document set as HTML and have a body of the page defined.
+
+2. Background: Set a background color or a background image
+
+3. Font = Font in bold, italics and underlined as well as showing different types of fonts and different font colors and sizes.  You can do this as you fill out your page content.
+
+4. Headings: Your page should have at least TWO different headings of different types. The main heading should be aligned to the center of the page.
+
+5. Images: You need a MINIMUM of 4 images. For the first 3, align one left, one center and one right.  Use the image size tags to resize your images as needed. The fourth image needs to be turned into a link.
+
+6. Pre-format Text: Use the <Pre> tag too set up some text to appear exactly as it does in your code.
+
+7. Links: Have at least THREE links on your page.
+
+8. Lists: You need ONE of each type of list on your page.  Ordered, unordered, and definition list.
+
+8. Misc: I want to see at least TWO different horizontal dividing lines. Also use line breaks <Br> when necessary."
+
+assignment2.save!
+
+
+
+
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #

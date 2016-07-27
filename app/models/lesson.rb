@@ -6,5 +6,29 @@ class Lesson < ActiveRecord::Base
   validates :released, presence: true
 
   belongs_to :user
-  
+
+  def released_display
+    if self.released == "1"
+      return "Yes"
+    elsif self.released == "0"
+      return "No"
+    end
+  end
+
+  def release_true?
+    if self.released == "1"
+      return true
+    else
+      return false
+    end
+  end
+
+  def release_false?
+    if self.released == "0"
+      return true
+    else
+      return false
+    end
+  end
+
 end

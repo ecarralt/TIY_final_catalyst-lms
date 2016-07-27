@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   post '/' => 'sessions#create', as: :create_sign_in
   get "/logout" => "sessions#delete", as: :sign_out
 
-  get 'students/dashboard' => 'students#dashboard', as: :dashboard
+  # get 'students/dashboard' => 'students#dashboard', as: :dashboard
 
   get 'lessons/dashboard' => 'lessons#dashboard', as: :lessons
   get 'lessons/new' => 'lessons#new', as: :new_lesson

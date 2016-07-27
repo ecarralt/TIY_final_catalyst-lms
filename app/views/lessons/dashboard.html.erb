@@ -1,7 +1,11 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
+      <% if @current_user.usertype == "teacher" %> %>
       <h1>Lessons</h1>
+      <% else %>
+      <h1>Dashboard</h1>
+      <% end %>
     </div>
   </div>
   <div class="row">

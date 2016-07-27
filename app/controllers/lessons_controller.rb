@@ -18,8 +18,8 @@ class LessonsController < ApplicationController
 
   def create
     @lesson = Lesson.new
-    @lesson.lesson_number = params[:lesson][:lesson_number]
-    @lesson.title = params[:lesson][:title].to_i
+    @lesson.lesson_number = params[:lesson][:lesson_number].to_i
+    @lesson.title = params[:lesson][:title]
     @lesson.content = params[:lesson][:content]
     @lesson.author = @current_user.full_name
     @lesson.released = params[:lesson][:released]

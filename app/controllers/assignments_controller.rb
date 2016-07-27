@@ -1,5 +1,8 @@
 class AssignmentsController < ApplicationController
 
+  layout :resolve_layout
+
+
   def index
     if @current_user.usertype == "student"
       @assignments = Assignment.all.where(released: "1").order(assignment_number: :asc)
@@ -54,7 +57,7 @@ class AssignmentsController < ApplicationController
   end
 
   def delete
-    @assignment = Lesson.find_by id: params[:id]
+    @assignment = Assignment.find_by id: params[:id]
     @assignment.destroy
     redirect_to assignments_path, notice: "Assignment deleted successfully"
   end

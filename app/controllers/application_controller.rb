@@ -6,4 +6,15 @@ class ApplicationController < ActionController::Base
   before_action do
     @current_user = User.find_by(id: session[:user_id])
   end
+
+  def resolve_layout
+    case @current_user.usertype
+    when "student"
+      "application"
+    else
+      "teachers"
+    end
+  end
+
+
 end

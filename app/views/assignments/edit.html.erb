@@ -1,0 +1,47 @@
+
+
+
+<div class="row">
+  <div class="col-sm-9 col-sm-offset-3 sign_in_title">
+    <h2>Edit assignment... <small></small>
+    </h2 >
+  </div>
+</div>
+
+
+
+<div class="row">
+  <div class="col-sm-2">
+    <div class="delete_assignment_btn btn">
+      <%= link_to "Delete assignment", delete_assignment_path, method: :delete, class: "btn btn-danger" %>
+    </div>
+  </div>
+
+  <div class="col-sm-7 col-sm-offset-1">
+    <div class="sign_up_form form-group">
+
+      <%= form_for(@assignment, url: update_assignment_path) do |f| %>
+        <div class="f_assignment_number">
+          <%= f.text_field :assignment_number, class: 'form-control', placeholder: "Assignment number (e.g. '1')"  %>
+        </div>
+        <div class="">
+          <%= f.text_field :title, class: 'form-control', placeholder: "Assignment Title"  %>
+        </div>
+        <div class="f_release_radio_btns">
+          <%= f.radio_button :released, '0', :checked => @assignment.release_false? %> Do not release this assignment yet
+          <br />
+          <%= f.radio_button :released, '1', :checked => @assignment.release_true? %> Release right after this update
+        </div>
+        <div class="">
+          <%= f.text_area :content,class: 'form-control', placeholder: "Content here...", size: "10x20"%>
+        </div>
+        <div class="f_create_assignment_buttons">
+          <%= f.submit "Update Assignment", class: "btn btn-warning"%>
+          or
+          <%= link_to 'Cancel', :back %>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>

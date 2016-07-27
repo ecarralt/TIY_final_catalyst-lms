@@ -61,14 +61,4 @@ class LessonsController < ApplicationController
     redirect_to lessons_path, notice: "Lesson deleted successfully"
   end
 
-  def resolve_layout
-    case @current_user.usertype
-    when "student"
-      "application"
-    when "teacher"
-      "teachers"
-    else
-    end
-  end
-
 end

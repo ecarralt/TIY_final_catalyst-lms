@@ -1,11 +1,11 @@
 class LessonsController < ApplicationController
-    # layout "teachers"
+
+  layout :resolve_layout
 
   def dashboard
     if @current_user.usertype == "student"
       @lessons = Lesson.all.where(released: "1").order(lesson_number: :asc)
     else
-      layout
       @lessons = Lesson.all.order(lesson_number: :asc)
     end
   end
@@ -59,6 +59,16 @@ class LessonsController < ApplicationController
     @lesson = Lesson.find_by id: params[:id]
     @lesson.destroy
     redirect_to lessons_path, notice: "Lesson deleted successfully"
+  end
+
+  def resolve_layout
+    case @current_user.usertype
+    when "student"
+      "application"
+    when "teacher"
+      "teachers"
+    else
+    end
   end
 
 end

@@ -1,10 +1,10 @@
-class Lesson < ActiveRecord::Base
+class Assignment < ActiveRecord::Base
   validates :title, presence: true
   validates :content, presence: true
 
   validates :author, presence: true
   validates :released, presence: true
-  validates :lesson_number, presence: true
+  validates :assignment_number, presence: true
 
   belongs_to :user
 

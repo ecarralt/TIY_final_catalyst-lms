@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CatalystLMS</title>
+  <link rel="stylesheet" type="text/css"
+      href="https://fonts.googleapis.com/css?family=Trirong">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="menusection">
+  <div class="row">
+    <div class="col-sm-4 menuitem_welcome">
+      <h1></h1>
+    </div>
+    <div class="col-sm-4 menuitem_welcome">
+      <h1></h1>
+    </div>
+    <div class="col-sm-4 menuitem_welcome">
+      <h1></h1>
+    </div>
+  </div>
+</div>
+
+<div class="row menusection_placeholder">
+</div>
+
+
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <% if notice %>
+        <div class="alert alert-warning">  <%= notice %>  </p>
+      <% end %>
+      </div>
+    </div>
+  </div>
+
+  <%= yield %>
+
+</body>
+</html>

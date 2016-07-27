@@ -46,7 +46,7 @@ lesson3.save!
 
 Assignment.delete_all
 
-assignment = Assignment.new assignment_number: 1, title: "Assignment 1: Basic HTML Display Features", released: "1", user_id: user3.id, author: "American University", content: "A basic page needs only a bare minimum of programming. Graphics are an important part of Web pages but so too are words. I look upon the Web as a medium for ideas and the use of new technologies, but not the other way around. A Web page tells a great story with great graphical and analytical presentation.
+assignment = Assignment.new assignment_number: 1, title: "Basic HTML Display Features", released: "1", user_id: user3.id, author: "American University", content: "A basic page needs only a bare minimum of programming. Graphics are an important part of Web pages but so too are words. I look upon the Web as a medium for ideas and the use of new technologies, but not the other way around. A Web page tells a great story with great graphical and analytical presentation.
 
 Using the 'View' option look at the source code for this document. The background color and the text declared in the body refer to a coding system that combines a system of numbers and letters to create thousands of possible color choices. The body color indicates white and the text as being black. I could have just written in 'white' and 'black' instead of these codes.
 
@@ -63,7 +63,7 @@ We can also change the appearance of words on the screen. This shows some differ
 That was also an example of a nested command."
 assignment.save!
 
-assignment2 = Assignment.new assignment_number: 2, title: "Assignment 2: Create a website", released: "1", user_id: user3.id, author: "Harry Potter", content: "Your job is to create a web site that shows the following elements.  Make sure all of your code is arranged properly and cleanly.  This is comparable to a test so I will NOT be giving very much help if any. For this first assignment you will have the tutorial to use for help, so it will be your main tool.
+assignment2 = Assignment.new assignment_number: 2, title: "Create a website", released: "1", user_id: user3.id, author: "Harry Potter", content: "Your job is to create a web site that shows the following elements.  Make sure all of your code is arranged properly and cleanly.  This is comparable to a test so I will NOT be giving very much help if any. For this first assignment you will have the tutorial to use for help, so it will be your main tool.
 
 
 -ALL of this information can be found in HTML Chapters 1-7

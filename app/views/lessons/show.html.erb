@@ -5,12 +5,14 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-2">
-      <div class="delete_lesson_btn btn">
-        <%= link_to "Delete Lesson", delete_lesson_path, method: :delete, class: "btn btn-danger" %>
-      </div>
-      <div class="update_lesson_btn btn">
-        <%= link_to "Update Lesson", edit_lesson_path(id: @lesson.id), method: :get, class: "btn btn-warning" %>
-      </div>
+      <% if @current_user.usertype == "teacher" %>
+        <div class="delete_lesson_btn btn">
+          <%= link_to "Delete Lesson", delete_lesson_path, method: :delete, class: "btn btn-danger" %>
+        </div>
+        <div class="update_lesson_btn btn">
+          <%= link_to "Update Lesson", edit_lesson_path(id: @lesson.id), method: :get, class: "btn btn-warning" %>
+        </div>
+      <% end %>
     </div>
     <div class="col-sm-8">
     <p>

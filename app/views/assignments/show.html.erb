@@ -51,7 +51,7 @@
       <% end %>
       <%= form_for @assignmentrecord, url: create_assignmentrecord_path(id: @assignment.id) do |f| %>
         <div class="f_assignmentrecord_file">
-          <%= f.label :contentfile, "Upload a .doc or .pdf file here:" %>
+          <%= f.label :contentfile, "Upload a MS Word or PDF file here:" %>
           <%= f.attachment_field :contentfile %>
         </div>
         <div class="f_assignmentrecord_link">

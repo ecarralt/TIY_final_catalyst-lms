@@ -75,8 +75,9 @@ class AssignmentsController < ApplicationController
     if @assignmentrecord.save
       redirect_to lessons_path, notice: "Assignment submitted successfully"
     else
-      flash[:notice] = "Something went wrong saving your assingment, please try again."
-      re
+      # flash[:notice] = "Something went wrong saving your assingment, please try again."
+      # render :show
+      redirect_to assignment_path(id: params[:id]), notice: "Please try again"
     end
 
   end

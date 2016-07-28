@@ -43,7 +43,7 @@
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
       <h3 class = "assignment_submit_title">Submit:</h3>
-      <%= form_for @assignmentrecord, url: create_assignmentrecord_path do |f| %>
+      <%= form_for @assignmentrecord, url: create_assignmentrecord_path(id: @assignment.id) do |f| %>
         <div class="f_assignmentrecord_file">
           <%= f.label :contentfile, "Upload a .doc or .pdf file here:" %>
           <%= f.attachment_field :contentfile %>

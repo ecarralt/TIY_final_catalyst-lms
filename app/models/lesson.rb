@@ -4,7 +4,7 @@ class Lesson < ActiveRecord::Base
 
   validates :author, presence: true
   validates :released, presence: true
-  validates :lesson_number, presence: true
+  validates :lesson_number, numericality: {only_integer: true}
 
   belongs_to :user
 

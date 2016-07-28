@@ -4,7 +4,7 @@ class Assignment < ActiveRecord::Base
 
   validates :author, presence: true
   validates :released, presence: true
-  validates :assignment_number, presence: true
+  validates :assignment_number, numericality: {only_integer: true}
 
   belongs_to :user
 

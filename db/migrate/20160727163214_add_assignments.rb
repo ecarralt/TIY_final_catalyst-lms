@@ -5,7 +5,7 @@ class AddAssignments < ActiveRecord::Migration
       t.text :content
       t.string :author
       t.string :released, default: "0"
-      t.integer :assignment_number
+      t.integer :assignment_number, numericality: true
 
       t.references :user, index: true
 

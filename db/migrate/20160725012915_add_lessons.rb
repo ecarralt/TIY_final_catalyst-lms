@@ -4,6 +4,7 @@ class AddLessons < ActiveRecord::Migration
       t.string :title
       t.text :content
       t.string :author
+      t.integer :lesson_number
       t.string :released, default: "0"
 
       t.references :user, index: true

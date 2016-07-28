@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   patch 'assignments/:id/update' => 'assignments#update', as: :update_assignment
   delete 'assignments/:id/delete' => 'assignments#delete', as: :delete_assignment
 
+  get 'assignments/grade' => ''
 
   post 'assignments/:id/create_record' => 'assignments#create_record', as: :create_assignmentrecord
 

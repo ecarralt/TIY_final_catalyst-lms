@@ -66,6 +66,16 @@
 
 }
 
+.well, .notice_box{
+  background-color: lighten($red, 50%);
+  .submitted_assignment_notice{
+    color: lighten($red, 10%);
+    text-align: center;
+
+  }
+}
+
+
 .f_assignmentrecord_link,
 .f_assignmentrecord_comments,
 .f_assignmentrecord_buttons {

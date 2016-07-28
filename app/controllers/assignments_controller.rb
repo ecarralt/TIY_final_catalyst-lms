@@ -14,6 +14,12 @@ class AssignmentsController < ApplicationController
   def show
     @assignment = Assignment.find_by id: params[:id]
     @assignmentrecord = Assignmentrecord.new
+    @existing_record = Assignmentrecord.find_by(assignment_id: params[:id],  user_id: @current_user.id)
+    # if existing_record
+    #   @alreadysubmitted = true
+    # else
+    #   @alreadysubmitted = false
+    # end
   end
 
   def new
@@ -65,9 +71,9 @@ class AssignmentsController < ApplicationController
 
   def create_record
     @assignmentrecord = Assignmentrecord.new
+    @assignmentrecord.contentfile = params[:assignmentrecord][:contentfile]
     @assignmentrecord.comments = params[:assignmentrecord][:comments]
     @assignmentrecord.url_link = params[:assignmentrecord][:url_link]
-    @assignmentrecord.contentfile = params[:assignmentrecord][:contentfile]
 
     @assignmentrecord.user_id = @current_user.id
     @assignmentrecord.assignment_id = params[:id]

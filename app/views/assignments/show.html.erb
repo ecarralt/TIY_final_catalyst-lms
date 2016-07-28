@@ -43,6 +43,12 @@
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
       <h3 class = "assignment_submit_title">Submit:</h3>
+      <% if @existing_record %>
+        <div class="well notice_box">
+          <h4 class ="submitted_assignment_notice">You have already submitted this assignment. To replace it with a new submission, you can re-submit
+          below</h4>
+        </div>
+      <% end %>
       <%= form_for @assignmentrecord, url: create_assignmentrecord_path(id: @assignment.id) do |f| %>
         <div class="f_assignmentrecord_file">
           <%= f.label :contentfile, "Upload a .doc or .pdf file here:" %>

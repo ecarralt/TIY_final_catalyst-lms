@@ -1,16 +1,18 @@
 <div class="assignment_title">
-  <h1><%=@assignment.assignment_number %>. <%=@assignment.title %></h1>
+  <h1>Assignment <%=@assignment.assignment_number%>: <%=@assignment.title %></h1>
 </div>
 
 <div class="container">
   <div class="row">
     <div class="col-sm-2">
-      <div class="delete_assignment_btn btn">
-        <%= link_to "Delete Assignment", delete_assignment_path, method: :delete, class: "btn btn-danger" %>
-      </div>
-      <div class="update_assignment_btn btn">
-        <%= link_to "Update Assignment", edit_assignment_path(id: @assignment.id), method: :get, class: "btn btn-warning" %>
-      </div>
+      <% if @current_user.usertype == "teacher" %>
+        <div class="delete_assignment_btn btn">
+          <%= link_to "Delete Assignment", delete_assignment_path, method: :delete, class: "btn btn-danger" %>
+        </div>
+        <div class="update_assignment_btn btn">
+          <%= link_to "Update Assignment", edit_assignment_path(id: @assignment.id), method: :get, class: "btn btn-warning" %>
+        </div>
+      <% end %>
     </div>
     <div class="col-sm-8">
     <p>

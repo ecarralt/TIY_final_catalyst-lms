@@ -5,6 +5,7 @@ class LessonsController < ApplicationController
   def dashboard
     if @current_user.usertype == "student"
       @lessons = Lesson.all.where(released: "1").order(lesson_number: :asc)
+      @assignments = Assignment.all.where(released: "1").order(assignment_number: :asc)
     else
       @lessons = Lesson.all.order(lesson_number: :asc)
     end

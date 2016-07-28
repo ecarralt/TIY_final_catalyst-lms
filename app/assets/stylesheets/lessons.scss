@@ -1,4 +1,11 @@
+$red: #c0392b;
+
+
 ///Dashboard
+
+.dashboard_title{
+  text-align: center;
+}
 
 .new_lesson_btn{
   position: fixed;
@@ -17,6 +24,10 @@
     width: 200px;
     // background-color: #b0e0e6;
   }
+}
+
+.assignment_due_title{
+  color: $red;
 }
 
 // New

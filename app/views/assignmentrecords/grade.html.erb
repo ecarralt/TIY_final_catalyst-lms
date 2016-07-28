@@ -1,0 +1,30 @@
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <h1>Grade</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <% @arecords.each do |arecord| %>
+        <div class="well arecord_content">
+          <h3>A<%= arecord.assignment.assignment_number %>. <%= arecord.assignment.title %> </h3>
+          <p> Submitted by: <%= arecord.user.full_name %></p>
+            <div class="">
+            </div>
+          <small class= "timestamp">
+            submitted <%= time_ago_in_words(arecord.created_at)%> ago
+          </small>
+          <%= link_to "Grade", arecord_path(arecord.id) %>
+        </div>
+      <%end %>
+    </div>
+    <div class="col-sm-2">
+      <div class="new_assignment_btn btn">
+        <%= link_to "By Student", student_records_path, class: "btn btn-warning" %>
+      </div>
+    </div>
+  </div>
+</div>

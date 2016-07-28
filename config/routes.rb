@@ -24,9 +24,12 @@ Rails.application.routes.draw do
   patch 'assignments/:id/update' => 'assignments#update', as: :update_assignment
   delete 'assignments/:id/delete' => 'assignments#delete', as: :delete_assignment
 
-  get 'assignments/grade' => ''
-
   post 'assignments/:id/create_record' => 'assignments#create_record', as: :create_assignmentrecord
+
+  get 'assignmentrecords/grade' => 'assignmentrecords#grade', as: :arecords
+  get 'assignmentrecords/grade/:id' => 'assignmentrecords#grade_arecord', as: :arecord
+  get 'assignmentrecords/bystudent' => 'assignmentrecords#student_records', as: :student_records
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

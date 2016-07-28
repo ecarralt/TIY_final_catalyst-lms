@@ -3,5 +3,6 @@ class Assignmentrecord < ActiveRecord::Base
   attachment :contentfile, extension: ["pdf", "doc", "docx"]
 
   belongs_to :user
+  belongs_to :assignment
 
 end

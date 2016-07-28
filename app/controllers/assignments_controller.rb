@@ -85,7 +85,6 @@ class AssignmentsController < ApplicationController
       # render :show
       redirect_to assignment_path(id: params[:id]), notice: "Please try again"
     end
-
   end
 
 end

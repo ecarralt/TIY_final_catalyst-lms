@@ -7,6 +7,7 @@ class Assignment < ActiveRecord::Base
   validates :assignment_number, numericality: {only_integer: true}
 
   belongs_to :user
+  has_many :assignmentrecords
 
   def released_display
     if self.released == "1"

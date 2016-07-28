@@ -20,9 +20,11 @@
       <% @lessons.each do |lesson| %>
         <div class="well lesson_content">
           <% if @current_user.usertype == "teacher" %>
-            <h3>L<%= lesson.lesson_number %>.</h3>
+              <h3>L<%= lesson.lesson_number %>.
+            <% else %>
+              <h3>
           <% end %>
-          <h3><%= lesson.title %> </h3>
+          <%= lesson.title %> </h3>
           <p>
             <%= lesson.content[0,200] %>...
           </p>

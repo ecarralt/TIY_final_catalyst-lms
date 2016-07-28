@@ -13,6 +13,7 @@ class AssignmentsController < ApplicationController
 
   def show
     @assignment = Assignment.find_by id: params[:id]
+    @assignmentrecord = Assignmentrecord.new
   end
 
   def new
@@ -60,6 +61,24 @@ class AssignmentsController < ApplicationController
     @assignment = Assignment.find_by id: params[:id]
     @assignment.destroy
     redirect_to assignments_path, notice: "Assignment deleted successfully"
+  end
+
+  def create_record
+    @assignmentrecord = Assignmentrecord.new
+    @assignmentrecord.comments = params[:assignmentrecord][:comments]
+    @assignmentrecord.url_link = params[:assignmentrecord][:url_link]
+    @assignmentrecord.contentfile = params[:assignmentrecord][:contentfile]
+
+    @assignmentrecord.user_id = @current_user.id
+    @assignmentrecord.assignment_id = params[:id]
+
+    if @assignmentrecord.save
+      redirect_to lessons_path, notice: "Assignment submitted successfully"
+    else
+      flash[:notice] = "Something went wrong saving your assingment, please try again."
+      re
+    end
+
   end
 
 end

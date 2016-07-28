@@ -57,3 +57,5 @@ group :development, :test do #(if local db is sqlite3)
 		end
 
 gem 'redcarpet'
+gem "refile", require: "refile/rails"
+gem "refile-mini_magick"

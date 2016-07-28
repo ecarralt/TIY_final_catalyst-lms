@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20160728003208) do
   create_table "assignmentrecords", force: :cascade do |t|
     t.text     "comments"
     t.string   "url_link"
+    t.string   "contentfile_id"
     t.string   "score"
     t.text     "instructor_feedback"
     t.string   "graded_by"

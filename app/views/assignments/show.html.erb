@@ -1,8 +1,8 @@
-<% if @assignmentrecord.errors.any? %>
+<% if @arecord.errors.any? %>
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
       <div class="errors">
-        <% @assignmentrecord.errors.full_messages.each do |msg| %>
+        <% @asrecord.errors.full_messages.each do |msg| %>
           <p>
             <%= msg %>
           </p>

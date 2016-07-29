@@ -66,7 +66,7 @@
 
 <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
-      <h3 class = "grading_title">Your grade:</h3>
+      <h3 class = "grading_title">Grade this assignment:</h3>
       <% if @existing_grade %>
         <div class="well notice_box">
           <h4 class ="submitted_grade_notice">You have already submitted a grade for this student's assignment. To replace it with a new grade, you can re-submit
@@ -78,7 +78,7 @@
           </div>
         </div>
       <% end %>
-      <%= form_for(@arecord, url: update_arecord_path(id: @arecord.id)) do |f| %>
+      <%= form_for(@arecord, url: update_arecord_path) do |f| %>
         <div class="f_arecordrecord_file">
           <%= f.text_field :score, class: 'form-control', placeholder: "Grade (e.g. '90%', 'satisfactory', etc.)" %>
         </div>
@@ -91,7 +91,7 @@
         <div class="f_arecord_buttons">
           <%= f.submit "Submit Grade", class: "btn btn-warning"%>
           or
-          <%= link_to 'Cancel', :back %>
+          <%= link_to 'Cancel', arecords_path %>
         </div>
       <% end %>
 

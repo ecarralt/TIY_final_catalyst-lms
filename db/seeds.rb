@@ -100,7 +100,7 @@ File.open("#{Rails.root}/app/assets/others/20160726_AssignmentSubmit_ecarralt.do
 end
 arecord.save!
 
-arecord2 = Assignmentrecord.new user_id: user3.id, assignment_id: assignment.id, comments: "This is the 2nd submission. Looking forward to my feedback!", url_link: "https://www.youtube.com"
+arecord2 = Assignmentrecord.new user_id: user2.id, assignment_id: assignment.id, comments: "This is the 2nd submission. Looking forward to my feedback!", url_link: "https://www.youtube.com"
 File.open("#{Rails.root}/app/assets/others/20160728_AssignmentSubmit_george.doc", "rb") do |file|
   arecord2.contentfile = file
 end

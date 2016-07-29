@@ -30,16 +30,24 @@ class AssignmentrecordsController < ApplicationController
 
   def update
     @arecord = Assignmentrecord.find_by id: params[:id]
-    # @arecord.score = "2"
-    @arecord.score = params[:arecord][:score]
-    @arecord.instructor_feedback = params[:arecord][:instructor_feedback]
-    @arecord.graded_by = params[:arecord][:graded_by]
+    @arecord.score = params[:assignmentrecord][:score]
+    @arecord.instructor_feedback = params[:assignmentrecord][:instructor_feedback]
 
-    if @arecord.save
-      redirect_to assignments_path, notice: "Assignment graded"
+    unless (@arecord.score == "" || @arecord.score == nil)
+      scorepresent = true
+    # else
+    #   scorepresent = false
+    end
+
+    if scorepresent == true
+      @arecord.graded_by = params[:assignmentrecord][:graded_by]
+    end
+
+    if (scorepresent == true && @arecord.save)
+      redirect_to arecords_path, notice: "Assignment graded"
     else
-      flash[:notice] = "Something went wrong saving your grading, please make sure all contents are included and try again."
-      render :grade_arecord
+      flash[:notice] = "Something went wrong. Please input your score and feedback."
+      render :show
     end
 
 

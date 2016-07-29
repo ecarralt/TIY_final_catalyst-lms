@@ -13,6 +13,8 @@ class LessonsController < ApplicationController
 
   def show
     @lesson = Lesson.find_by id: params[:id]
+    @current_l_number = @lesson.lesson_number
+    @last_lesson_number = Lesson.maximum("lesson_number")
   end
 
   def new

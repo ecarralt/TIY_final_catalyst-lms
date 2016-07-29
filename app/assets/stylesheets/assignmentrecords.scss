@@ -1,0 +1,43 @@
+
+//Grade
+
+.arecord_content{
+  // position: relative;
+  //      width: 100%;
+  .timestamp {
+    // font-size: 33px;
+    position: absolute;
+    right: 0px;
+    width: 200px;
+    // background-color: #b0e0e6;
+  }
+}
+
+//Grade_arecord
+
+.arecord_title{
+
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.grading_title{
+
+  color: $red;
+
+}
+.f_arecord_file,
+.f_arecord_feedback,
+.f_arecord_buttons{
+  margin-top: 10px;
+}
+
+.f_arecord_buttons{
+  margin-bottom: 50px;
+}
+
+.download_link{
+  a{
+    line-height: 40px;
+    }
+}

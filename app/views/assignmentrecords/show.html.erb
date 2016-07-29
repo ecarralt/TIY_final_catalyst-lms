@@ -1,0 +1,101 @@
+<% if @arecord.errors.any? %>
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <div class="errors">
+        <% @arecord.errors.full_messages.each do |msg| %>
+          <p><%= msg %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<div class="arecord_title">
+  <h1>Assignment <%=@arecord.assignment.assignment_number%>: <%=@arecord.assignment.title %>
+  </h1>
+  <small>last update on: <%= @arecord.assignment.updated_at.to_formatted_s(:short) %> UTC </small>
+
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+        <div class="update_arecord_grade_btn btn">
+        </div>
+    </div>
+    <div class="col-sm-8">
+      <h4> <%= @arecord.user.full_name %>'s submission:</h4>
+      <div class="well">
+      <div class="row">
+        <div class="col-sm-3">
+          <h4>Comments:</h4>
+        </div>
+        <div class="col-sm-9">
+          <p><%= markdown(@arecord.comments) %></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3">
+          <h4>URL:</h4>
+        </div>
+        <div class="col-sm-9">
+          <p><%= markdown(@arecord.url_link) %></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3">
+          <h4>Attachment: </h4>
+        </div>
+        <div class="col-sm-9 download_link">
+          <%= link_to "Click to download", attachment_url(@arecord, :contentfile, format: @arecord.contentfile_filename.split('.').last) %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3">
+          <h4>Submitted on:</h4>
+        </div>
+        <div class="col-sm-9">
+          <p><%=markdown(@arecord.created_at.to_formatted_s(:short) + " UTC")%></p>
+        </div>
+      </div>
+
+    </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <h3 class = "grading_title">Grade this assignment:</h3>
+      <% if @existing_grade %>
+        <div class="well notice_box">
+          <h4 class ="submitted_grade_notice">You have already submitted a grade for this student's assignment. To replace it with a new grade, you can re-submit
+          below</h4>
+          <div class="update_grade_btn btn">
+            <% if false %>
+            <%= link_to "Update Grade", edit_arecord_path(id: @arecord.assignment_id), class: "btn btn-warning" %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+      <%= form_for(@arecord, url: update_arecord_path) do |f| %>
+        <div class="f_arecordrecord_file">
+          <%= f.text_field :score, class: 'form-control', placeholder: "Grade (e.g. '90%', 'satisfactory', etc.)" %>
+        </div>
+        <div class="f_arecord_feedback">
+          <%= f.text_area :instructor_feedback, class: 'form-control', placeholder: "Please add your feedback for the student here", size: "1x3" %>
+        </div>
+        <div class="f_arecordrecord_instructor">
+          <%= f.hidden_field :graded_by, value: @current_user.full_name, class: 'form-control', placeholder: "... and add your comments here"%>
+        </div>
+        <div class="f_arecord_buttons">
+          <%= f.submit "Submit Grade", class: "btn btn-warning"%>
+          or
+          <%= link_to 'Cancel', arecords_path %>
+        </div>
+      <% end %>
+
+    </div>
+
+  </div>
+</div>

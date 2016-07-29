@@ -20,13 +20,16 @@ ActiveRecord::Schema.define(version: 20160728003208) do
     t.text     "comments"
     t.string   "url_link"
     t.string   "contentfile_id"
+    t.string   "contentfile_content_type"
+    t.string   "contentfile_filename"
+    t.integer  "contentfile_size"
     t.string   "score"
     t.text     "instructor_feedback"
     t.string   "graded_by"
     t.integer  "user_id"
     t.integer  "assignment_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   add_index "assignmentrecords", ["assignment_id"], name: "index_assignmentrecords_on_assignment_id", using: :btree

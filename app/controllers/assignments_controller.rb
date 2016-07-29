@@ -2,7 +2,6 @@ class AssignmentsController < ApplicationController
 
   layout :resolve_layout
 
-
   def index
     if @current_user.usertype == "student"
       @assignments = Assignment.all.where(released: "1").order(assignment_number: :asc)
@@ -14,10 +13,8 @@ class AssignmentsController < ApplicationController
   def show
     @assignment = Assignment.find_by id: params[:id]
     @arecord = Assignmentrecord.new
-
     #for student users
     @existing_record = Assignmentrecord.find_by(assignment_id: params[:id],  user_id: @current_user.id)
-
   end
 
   def new

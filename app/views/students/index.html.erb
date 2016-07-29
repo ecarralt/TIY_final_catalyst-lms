@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <h1 class= "students_title">Students</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-8">
+      <% @students.each do |student| %>
+        <div class="well student_content">
+          <h3 class="name"><%= student.full_name %></h3>
+          <p>
+            Lessons completed: <%= student.lessonrecords.count %> (out of <%= @lessons.count %>)
+          </p>
+          <p>
+            Assignments completed: <%= student.assignmentrecords.count %> (out of <%= @lessons.count %>)
+          </p>
+            <div class="">
+            </div>
+            <small class= "timestamp">
+                enrrolled since: <%= student.created_at.to_formatted_s(:short)%>
+            </small>
+          <%= link_to "View", student_path(id: student.id) %>
+        </div>
+      <%end %>
+    </div>
+  </div>

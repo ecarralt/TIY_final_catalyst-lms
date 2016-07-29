@@ -33,9 +33,12 @@ Rails.application.routes.draw do
   get 'assignmentrecords/index' => 'assignmentrecords#index', as: :arecords
   get 'assignmentrecords/:id' => 'assignmentrecords#show', as: :arecord
 
-
+  #navigation and change to complete status
   get 'lessonrecords/create/:l_id/:u_id' => 'lessonrecords#create', as: :create_lrecord
 
+  #teachers viewing student records
+  get 'students/index' => "students#index", as: :students
+  get 'students/:id' => "students#show", as: :student
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

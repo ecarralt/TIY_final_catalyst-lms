@@ -29,7 +29,7 @@
           <%= f.text_field :title, class: 'form-control', placeholder: "Assignment Title"  %>
         </div>
         <div class="f_release_radio_btns">
-          <%= f.radio_button :released, '0', :checked => @assignment.release_false? %> Do not release this assignment yet
+          <%= f.radio_button :released, '0', :checked => @assignment.release_false? %> Do not release this assignment yet (or remove from students' "to-do" list)
           <br />
           <%= f.radio_button :released, '1', :checked => @assignment.release_true? %> Release right after this update
         </div>

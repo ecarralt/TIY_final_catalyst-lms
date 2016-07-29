@@ -34,6 +34,8 @@ Rails.application.routes.draw do
   get 'assignmentrecords/:id' => 'assignmentrecords#show', as: :arecord
 
 
+  get 'lessonrecords/create/:l_id/:u_id' => 'lessonrecords#create', as: :create_lrecord
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

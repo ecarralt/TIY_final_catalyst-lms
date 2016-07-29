@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   patch 'lessons/:id/update' => 'lessons#update', as: :update_lesson
   delete 'lessons/:id/delete' => 'lessons#delete', as: :delete_lesson
 
+  get 'lessons/dashboard_nav' => 'lessons#dashboard_nav', as: :lesson_complete
+
   get 'assignments/index' => 'assignments#index', as: :assignments
   get 'assignments/new' => 'assignments#new', as: :new_assignment
   post 'assignments/create' => 'assignments#create', as: :create_assignment

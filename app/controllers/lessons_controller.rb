@@ -11,6 +11,13 @@ class LessonsController < ApplicationController
     end
   end
 
+  def dashboard_nav
+
+    @lesson = Lesson.find_by id: params[:id]
+    
+
+  end
+
   def show
     @lesson = Lesson.find_by id: params[:id]
     @current_l_number = @lesson.lesson_number

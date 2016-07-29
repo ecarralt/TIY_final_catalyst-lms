@@ -6,7 +6,7 @@ class AssignmentrecordsController < ApplicationController
   end
 
   def grade_arecord
-
+    @arecord = Assignmentrecord.find_by id: params[:id]
   end
   def student_records
 

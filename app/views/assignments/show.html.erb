@@ -14,6 +14,8 @@
 
 <div class="assignment_title">
   <h1>Assignment <%=@assignment.assignment_number%>: <%=@assignment.title %></h1>
+  <small>last update on: <%= @assignment.updated_at.to_formatted_s(:short) %> </small>
+
 </div>
 
 <div class="container">

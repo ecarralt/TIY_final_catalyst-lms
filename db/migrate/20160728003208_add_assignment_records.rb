@@ -3,7 +3,11 @@ class AddAssignmentRecords < ActiveRecord::Migration
     create_table "assignmentrecords", force: :cascade do |t|
       t.text :comments
       t.string :url_link
+
       t.string :contentfile_id
+      t.string :contentfile_content_type
+      t.string :contentfile_filename
+
       t.string :score
       t.text :instructor_feedback
       t.string :graded_by

@@ -17,13 +17,13 @@
           <small class= "timestamp">
             submitted <%= time_ago_in_words(arecord.created_at)%> ago
           </small>
-          <%= link_to "Grade", arecord_path(arecord.id) %>
+          <%= link_to "Grade", arecord_path(id: arecord.id) %>
         </div>
       <%end %>
     </div>
     <div class="col-sm-2">
       <div class="new_assignment_btn btn">
-        <%= link_to "By Student", student_records_path, class: "btn btn-warning" %>
+        <%= link_to "By Student", arecords_path, class: "btn btn-warning" %>
       </div>
     </div>
   </div>

@@ -28,7 +28,7 @@ Rails.application.routes.draw do
 
   get 'assignmentrecords/grade' => 'assignmentrecords#grade', as: :arecords
   get 'assignmentrecords/grade/:id' => 'assignmentrecords#grade_arecord', as: :arecord
-  get 'assignmentrecords/bystudent' => 'assignmentrecords#student_records', as: :student_records
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

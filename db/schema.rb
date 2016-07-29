@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20160728003208) do
     t.string   "contentfile_id"
     t.string   "contentfile_content_type"
     t.string   "contentfile_filename"
+    t.integer  "contentfile_size"
     t.string   "score"
     t.text     "instructor_feedback"
     t.string   "graded_by"

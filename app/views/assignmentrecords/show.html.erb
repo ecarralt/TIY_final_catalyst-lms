@@ -13,7 +13,7 @@
 <div class="arecord_title">
   <h1>Assignment <%=@arecord.assignment.assignment_number%>: <%=@arecord.assignment.title %>
   </h1>
-  <small>last update on: <%= @arecord.assignment.updated_at.to_formatted_s(:short) %> </small>
+  <small>last update on: <%= @arecord.assignment.updated_at.to_formatted_s(:short) %> UTC </small>
 
 </div>
 
@@ -46,8 +46,8 @@
         <div class="col-sm-3">
           <h4>Attachment: </h4>
         </div>
-        <div class="col-sm-9">
-          <%= link_to "Download", attachment_url(@arecord, :contentfile, format: @arecord.contentfile_filename.split('.').last) %>
+        <div class="col-sm-9 download_link">
+          <%= link_to "Click to download", attachment_url(@arecord, :contentfile, format: @arecord.contentfile_filename.split('.').last) %>
         </div>
       </div>
       <div class="row">
@@ -55,7 +55,7 @@
           <h4>Submitted on:</h4>
         </div>
         <div class="col-sm-9">
-          <p><%=markdown(@arecord.created_at.to_formatted_s(:short))%></p>
+          <p><%=markdown(@arecord.created_at.to_formatted_s(:short) + " UTC")%></p>
         </div>
       </div>
 
@@ -64,30 +64,32 @@
   </div>
 </div>
 
-<% if false %>
-  <% if @current_user.usertype == "student" %>
-  <div class="row">
+<div class="row">
     <div class="col-sm-6 col-sm-offset-3">
-      <h3 class = "grade_submit_title">Submit:</h3>
-      <% if @existing_record %>
+      <h3 class = "grading_title">Your grade:</h3>
+      <% if @existing_grade %>
         <div class="well notice_box">
-          <h4 class ="submitted_grade_notice">You have already submitted this grade. To replace it with a new submission, you can re-submit
+          <h4 class ="submitted_grade_notice">You have already submitted a grade for this student's assignment. To replace it with a new grade, you can re-submit
           below</h4>
+          <div class="update_grade_btn btn">
+            <% if false %>
+            <%= link_to "Update Grade", edit_arecord_path(id: @arecord.assignment_id), class: "btn btn-warning" %>
+            <% end %>
+          </div>
         </div>
       <% end %>
-      <%= form_for @arecordrecord, url: create_grade_path(id: @arecord.id) do |f| %>
+      <%= form_for(@arecord, url: update_arecord_path(id: @arecord.id)) do |f| %>
         <div class="f_arecordrecord_file">
-          <%= f.label :contentfile, "Upload a MS Word or PDF file here:" %>
-          <%= f.attachment_field :contentfile %>
+          <%= f.text_field :score, class: 'form-control', placeholder: "Grade (e.g. '90%', 'satisfactory', etc.)" %>
         </div>
-        <div class="f_arecordrecord_link">
-          <%= f.text_field :url_link, class: 'form-control', placeholder: "...or paste URL link here"  %>
+        <div class="f_arecord_feedback">
+          <%= f.text_area :instructor_feedback, class: 'form-control', placeholder: "Please add your feedback for the student here", size: "1x3" %>
         </div>
-        <div class="f_arecordrecord_comments">
-          <%= f.text_area :comments,class: 'form-control', placeholder: "... and add your comments here", size: "1x2"%>
+        <div class="f_arecordrecord_instructor">
+          <%= f.hidden_field :graded_by, value: @current_user.full_name, class: 'form-control', placeholder: "... and add your comments here"%>
         </div>
-        <div class="f_arecordrecord_buttons">
-          <%= f.submit "Submit arecord", class: "btn btn-warning"%>
+        <div class="f_arecord_buttons">
+          <%= f.submit "Submit Grade", class: "btn btn-warning"%>
           or
           <%= link_to 'Cancel', :back %>
         </div>
@@ -96,6 +98,4 @@
     </div>
 
   </div>
-  <% end %>
-<% end %>
 </div>

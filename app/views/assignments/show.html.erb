@@ -14,7 +14,7 @@
 
 <div class="assignment_title">
   <h1>Assignment <%=@assignment.assignment_number%>: <%=@assignment.title %></h1>
-  <small>last update on: <%= @assignment.updated_at.to_formatted_s(:short) %> </small>
+  <small>last update on: <%= @assignment.updated_at.to_formatted_s(:short) %> UTC </small>
 
 </div>
 
@@ -51,7 +51,7 @@
           below</h4>
         </div>
       <% end %>
-      <%= form_for @assignmentrecord, url: create_assignmentrecord_path(id: @assignment.id) do |f| %>
+      <%= form_for @arecord, url: create_arecord_path(a_id: @assignment.id) do |f| %>
         <div class="f_assignmentrecord_file">
           <%= f.label :contentfile, "Upload a MS Word or PDF file here:" %>
           <%= f.attachment_field :contentfile %>

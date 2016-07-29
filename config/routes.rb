@@ -24,10 +24,14 @@ Rails.application.routes.draw do
   patch 'assignments/:id/update' => 'assignments#update', as: :update_assignment
   delete 'assignments/:id/delete' => 'assignments#delete', as: :delete_assignment
 
-  post 'assignments/:id/create_record' => 'assignments#create_record', as: :create_assignmentrecord
+  # patch 'assignments/:id/update_arecord' => 'assignmentrecords#update_arecord', as: :update_grade
 
-  get 'assignmentrecords/grade' => 'assignmentrecords#grade', as: :arecords
-  get 'assignmentrecords/grade/:id' => 'assignmentrecords#grade_arecord', as: :arecord
+  # post 'assignments/:id/edit_arecord' => 'assignments#edit_arecord', as: :edit_arecord
+
+  post 'assignmentrecords/create/:a_id' => 'assignmentrecords#create', as: :create_arecord
+  patch 'assignmentrecords/:id/update' => 'assignmentrecords#update', as: :update_arecord
+  get 'assignmentrecords/index' => 'assignmentrecords#index', as: :arecords
+  get 'assignmentrecords/:id' => 'assignmentrecords#show', as: :arecord
 
 
 

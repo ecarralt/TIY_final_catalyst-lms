@@ -16,8 +16,6 @@ Rails.application.routes.draw do
   patch 'lessons/:id/update' => 'lessons#update', as: :update_lesson
   delete 'lessons/:id/delete' => 'lessons#delete', as: :delete_lesson
 
-  get 'lessons/dashboard_nav' => 'lessons#dashboard_nav', as: :lesson_complete
-
   get 'assignments/index' => 'assignments#index', as: :assignments
   get 'assignments/new' => 'assignments#new', as: :new_assignment
   post 'assignments/create' => 'assignments#create', as: :create_assignment
@@ -35,6 +33,8 @@ Rails.application.routes.draw do
   get 'assignmentrecords/index' => 'assignmentrecords#index', as: :arecords
   get 'assignmentrecords/:id' => 'assignmentrecords#show', as: :arecord
 
+
+  get 'lessonrecords/create/:l_id/:u_id' => 'lessonrecords#create', as: :create_lrecord
 
 
   # The priority is based upon order of creation: first created -> highest priority.

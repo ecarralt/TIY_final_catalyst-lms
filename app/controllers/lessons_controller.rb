@@ -4,18 +4,11 @@ class LessonsController < ApplicationController
 
   def dashboard
     if @current_user.usertype == "student"
-      @lessons = Lesson.all.where(released: "1").order(lesson_number: :asc)
+      @lessons = get_student_lessons
       @assignments = Assignment.all.where(released: "1").order(assignment_number: :asc)
     else
       @lessons = Lesson.all.order(lesson_number: :asc)
     end
-  end
-
-  def dashboard_nav
-
-    @lesson = Lesson.find_by id: params[:id]
-    
-
   end
 
   def show
@@ -69,6 +62,31 @@ class LessonsController < ApplicationController
     @lesson = Lesson.find_by id: params[:id]
     @lesson.destroy
     redirect_to lessons_path, notice: "Lesson deleted successfully"
+  end
+
+  def get_student_lessons
+    @s_lessons = []
+    @lessons_all = Lesson.all.where(released: "1").order(lesson_number: :asc)
+    @lessons_all.each do |lesson|
+      # 1) if there are no records for this lesson, add them all to student lessons
+      if lesson.lessonrecords == []
+        @s_lessons << lesson
+      else
+        #2)for this lesson, if there is no record for this user, add it to student lessons
+        if (lesson.lessonrecords.find_by(user_id: @current_user.id) == nil)
+          @s_lessons << lesson
+        else
+          #also, for all the records for this lesson
+          lesson.lessonrecords.each do |lrecord|
+            #3) if the lesson record is for this user and is not complete, then add it to student lessons
+            if (lrecord.user_id == @current_user.id && lrecord.complete == "no")
+              @s_lessons << lesson
+            end
+          end
+        end
+      end
+    end
+    return @s_lessons
   end
 
 end

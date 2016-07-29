@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
 
   has_many :lessons
   has_many :assignments
+  has_many :assignmentrecords
+  has_many :lessonrecords
 
 
   def full_name

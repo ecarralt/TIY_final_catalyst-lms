@@ -7,6 +7,7 @@ class Lesson < ActiveRecord::Base
   validates :lesson_number, numericality: {only_integer: true}
 
   belongs_to :user
+  has_many :lessonrecords
 
   def released_display
     if self.released == "1"

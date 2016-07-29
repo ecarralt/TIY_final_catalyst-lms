@@ -27,15 +27,25 @@
   <div class="row">
     <% if @current_user.usertype == "student" %>
       <div class="col-sm-4 col-sm-offset-8">
-        <% if @lesson.lesson_number < @last_lesson_number %>
-          <div class="btn">
-            <%= link_to "Mark as complete and Next", lesson_path(id: Lesson.find_by(lesson_number:(@current_l_number + 1)).id), class: "btn btn-warning" %>
-          </div>
-        <% else %>
         <div class="btn">
-          <%= link_to "Mark as complete and Next", lesson_complete_path, class: "btn btn-warning" %>
+          <%= link_to "Mark as complete and Next", create_lrecord_path(l_id: @lesson.id, u_id: @current_user.id), class: "btn btn-warning" %>
         </div>
+
+
+        <% if false %>
+                                <% if @lesson.lesson_number < @last_lesson_number %>
+                                  <div class="btn">
+                                    <%= link_to "Mark as complete and Next", lesson_path(id: Lesson.find_by(lesson_number:(@current_l_number + 1)).id), class: "btn btn-warning" %>
+                                  </div>
+                                <% else %>
+                                <div class="btn">
+                                  <%= link_to "Mark as complete and Next", create_lrecord_path(l_id: @lesson.id, u_id: @current_user.id), class: "btn btn-warning" %>
+                                </div>
+                                <% end %>
         <% end %>
+
+
+
       </div>
     <% end %>
   </div>

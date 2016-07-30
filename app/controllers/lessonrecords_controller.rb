@@ -1,5 +1,7 @@
 class LessonrecordsController < ApplicationController
 
+  layout :resolve_layout
+
   def create
 
     @lrecord = Lessonrecord.new

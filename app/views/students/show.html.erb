@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <h1 class= "dashboard_title"> <%= @student.full_name%></h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-8">
+      <h2>Assignments: </h2>
+      <% @current_assignments.each do |assignment| %>
+        <div class="well lesson_content">
+              <h3>A<%= assignment.assignment_number %>.
+              <h3>
+          <%= assignment.title %> </h3>
+            <% if Assignmentrecord.find_by(assignment_id: assignment.id) %>
+                <h4 class="assignment_submitted"> Assignment submitted</h4>
+                <small class= "timestamp"></small>
+              <% else %>
+                <h4 class="assignment_not_submitted"> Assignment not submitted</h4>
+            <% end %>
+          <%= link_to "View", student_path(id: student.id) %>
+        </div>
+      <%end %>
+    </div>
+  </div>
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <div class="assignment_due_title">
+          <h2>Lessons:</h2>
+        </div>
+        <% @lessons.each do |lesson| %>
+          <div class="well lesson_content">
+            <h3><%= lesson.title %> </h3>
+            <% lrecord = Lessonrecord.find_by(lesson_id: lesson.id)
+              if lrecord.completed == "yes"%>
+              <h4 class="lesson_completed"> Lesson completed</h4>
+              <small class= "timestamp"></small>
+            <% else %>
+              <h4 class="lesson_not_completed"> Lesson not completed</h4>
+            <% end %>
+            <%= link_to "View", assignment_path(id: assignment.id) %>
+          </div>
+        <% end %>
+      </div>
+    </div>

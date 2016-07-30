@@ -1,20 +1,16 @@
 class StudentsController < ApplicationController
 
-@lessons =
+  layout :resolve_layout
 
-def index
-  @students = User.all.where(usertype: "student").order(last_name: :asc)
-  # @completed_lessons = get_completed_lessons
-  # @submited_assingments = get_submitted_assignments
-  @lessons = Lesson.all.where(released: "1")
-  @assignments = Assignment.all.where(released: "1")
-end
+  def index
+    @students = User.all.where(usertype: "student").order(last_name: :asc)
+    @lessons = Lesson.all.where(released: "1")
+    @assignments = Assignment.all.where(released: "1")
+  end
 
-def get_completed_lessons
-
-
-
-end
-
+  def show
+    @student = User.find_by(id: params[:id])
+    @current_assignments = Assignment.all.where(released: "1")
+  end
 
 end

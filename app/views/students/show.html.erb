@@ -24,7 +24,9 @@
                     <%if @this_arecord.score == nil %>
                       <%= link_to "Grade now", arecord_path(id: @this_arecord.id), class: "btn btn-primary" %>
                     <% else %>
-                      <h5 class="graded_notice">Assignment graded</h5>
+                      <h5 class="graded_notice">
+                        <%= link_to "Assignment graded", arecord_path(id: @this_arecord.id) %>
+                      </h5>
                     <% end %>
                   </div>
               <% else %>

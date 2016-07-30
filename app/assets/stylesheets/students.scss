@@ -8,12 +8,12 @@ $orange: #F0AD4E;
 
 //index
 
-
 .student_content{
 
   .name {
 
     margin-top: 0px;
+    color: $orange;
   }
   .timestamp {
     // font-size: 33px;
@@ -26,7 +26,6 @@ $orange: #F0AD4E;
 
 
 //show
-
 .section_header{
   color: $orange;
 }
@@ -71,7 +70,7 @@ $orange: #F0AD4E;
   margin-top: 10px;
 }
 
-.graded_notice{
+.graded_notice a{
 
   color: $orange;
 }

@@ -8,7 +8,9 @@ Rails.application.routes.draw do
 
   # get 'students/dashboard' => 'students#dashboard', as: :dashboard
 
-  get 'lessons/dashboard' => 'lessons#dashboard', as: :lessons
+  get 'lessons/student_dashboard' => 'lessons#student_dashboard', as: :lessons
+  get 'lessons/student_review' => 'lessons#student_review', as: :student_review
+
   get 'lessons/new' => 'lessons#new', as: :new_lesson
   post 'lessons/create' => 'lessons#create', as: :create_lesson
   get 'lessons/:id' => 'lessons#show', as: :lesson

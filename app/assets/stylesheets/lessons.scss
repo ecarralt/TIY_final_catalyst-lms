@@ -1,7 +1,8 @@
 $red: #c0392b;
+$orange: #F0AD4E;
 
 
-///Dashboard
+///Student Dashboard
 
 .dashboard_title{
   text-align: center;
@@ -28,6 +29,18 @@ $red: #c0392b;
 .assignment_due_title{
   color: $red;
 }
+
+//Student Review
+
+.no_completed_lessons_notice {
+
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 200px;
+  background-color: lighten($orange, 30%)
+
+}
+
 
 // New
 

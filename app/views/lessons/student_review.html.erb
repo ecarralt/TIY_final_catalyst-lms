@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <h1 class= "dashboard_title">Review</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <% if @lessons == [] %>
+        <div class="well no_completed_lessons_notice">
+
+          <h3 class = ""> You don't have any lessons completed yet.</h3>
+
+        </div>
+      <% else %>
+        <% @lessons.each do |lesson| %>
+          <div class="well lesson_content">
+          <h3>  <%= lesson.title %> </h3>
+            <p>
+              <%= lesson.content[0,200] %>...
+            </p>
+            <%= link_to "View", lesson_path(id: lesson.id) %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+  </div>
+
+</div>

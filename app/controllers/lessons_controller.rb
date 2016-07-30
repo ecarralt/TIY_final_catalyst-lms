@@ -2,12 +2,20 @@ class LessonsController < ApplicationController
 
   layout :resolve_layout
 
-  def dashboard
+  def student_dashboard
     if @current_user.usertype == "student"
       @lessons = get_student_lessons
       @assignments = Assignment.all.where(released: "1").order(assignment_number: :asc)
     else
       @lessons = Lesson.all.order(lesson_number: :asc)
+    end
+  end
+
+  def student_review
+    if @current_user.usertype == "student"
+      @lessons = get_completed_lessons_for_student
+    else
+      # @lessons = Lesson.all.order(lesson_number: :asc)
     end
   end
 
@@ -87,6 +95,29 @@ class LessonsController < ApplicationController
       end
     end
     return @s_lessons
+  end
+
+  def get_completed_lessons_for_student
+    @comp_lessons =[]
+    @lessons_all = Lesson.all.where(released: "1").order(lesson_number: :asc)
+    @lessons_all.each do |lesson|
+      # 1) if there are no records for this lesson, do not add them all to student lessons
+      if lesson.lessonrecords == []
+      else
+        #2)for this lesson, if there is no record for this user, do not add it to student lessons
+        if (lesson.lessonrecords.find_by(user_id: @current_user.id) == nil)
+        else
+          #also, for all the records for this lesson
+          lesson.lessonrecords.each do |lrecord|
+            #3) if the lesson record is for this user and is complete, then add it to student lessons
+            if (lrecord.user_id == @current_user.id && lrecord.complete == "yes")
+              @comp_lessons << lesson
+            end
+          end
+        end
+      end
+    end
+    return @comp_lessons
   end
 
 end

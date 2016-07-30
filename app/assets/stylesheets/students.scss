@@ -1,11 +1,19 @@
-//index
+$green: #16a085;
+$red: #c0392b;
+$blue: #2980b9;
+$grey: #7f8c8d;
+$orange: #F0AD4E;
 
+
+
+//index
 
 .student_content{
 
   .name {
 
     margin-top: 0px;
+    color: $orange;
   }
   .timestamp {
     // font-size: 33px;
@@ -14,4 +22,55 @@
     width: 200px;
     // background-color: #b0e0e6;
   }
+}
+
+
+//show
+.section_header{
+  color: $orange;
+}
+
+.view_content{
+  margin-top: 10px;
+}
+.view_content_w_button{
+  display:flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-content: stretch;
+      align-items: center;
+  margin-top: 10px;
+}
+
+.assignment_submitted {
+  color: $green;
+}
+
+.assignment_not_submitted{
+  color: $red;
+  margin-bottom: 0px;
+}
+
+.content_title{
+  margin-top: 0px;
+}
+
+.lesson_complete {
+  color: $green;
+}
+
+.lesson_not_complete{
+  color: $red;
+  margin-bottom: 0px;
+}
+
+.grade_now{
+
+  margin-top: 10px;
+}
+
+.graded_notice a{
+
+  color: $orange;
 }

@@ -8,39 +8,56 @@
     <div class="col-sm-2">
     </div>
     <div class="col-sm-8">
-      <h2>Assignments: </h2>
+      <div class="section_header">
+        <h2>Assignments: </h2>
+      </div>
       <% @current_assignments.each do |assignment| %>
         <div class="well lesson_content">
-              <h3>A<%= assignment.assignment_number %>.
-              <h3>
-          <%= assignment.title %> </h3>
-            <% if Assignmentrecord.find_by(assignment_id: assignment.id) %>
+              <h3 class="content_title">A<%= assignment.assignment_number %>.
+                <%= assignment.title %> </h3>
+            <% @this_arecord = Assignmentrecord.find_by(assignment_id: assignment.id, user_id: @student.id)
+              if @this_arecord != nil %>
                 <h4 class="assignment_submitted"> Assignment submitted</h4>
                 <small class= "timestamp"></small>
+                  <div class="view_content_w_button">
+                    <%= link_to "View assignment", assignment_path(id: assignment.id) %>
+                    <%if @this_arecord.score == nil %>
+                      <%= link_to "Grade now", arecord_path(id: @this_arecord.id), class: "btn btn-primary" %>
+                    <% else %>
+                      <h5 class="graded_notice">Assignment graded</h5>
+                    <% end %>
+                  </div>
               <% else %>
-                <h4 class="assignment_not_submitted"> Assignment not submitted</h4>
+                <h4 class="assignment_not_submitted"> Assignment not submitted yet</h4>
+                <div class="view_content">
+                  <%= link_to "View assignment", assignment_path(id: assignment.id) %>
+                </div>
             <% end %>
-          <%= link_to "View", student_path(id: student.id) %>
         </div>
       <%end %>
     </div>
   </div>
     <div class="row">
       <div class="col-sm-8 col-sm-offset-2">
-        <div class="assignment_due_title">
+        <div class="section_header">
           <h2>Lessons:</h2>
         </div>
-        <% @lessons.each do |lesson| %>
+        <% @current_lessons.each do |lesson| %>
           <div class="well lesson_content">
-            <h3><%= lesson.title %> </h3>
-            <% lrecord = Lessonrecord.find_by(lesson_id: lesson.id)
-              if lrecord.completed == "yes"%>
-              <h4 class="lesson_completed"> Lesson completed</h4>
-              <small class= "timestamp"></small>
-            <% else %>
-              <h4 class="lesson_not_completed"> Lesson not completed</h4>
-            <% end %>
-            <%= link_to "View", assignment_path(id: assignment.id) %>
+              <h3 class="content_title">L<%= lesson.lesson_number %>.
+              <%= lesson.title %> </h3>
+            <% @this_lrecord = Lessonrecord.find_by(lesson_id: lesson.id, user_id: @student.id)
+              if @this_lrecord == nil%>
+                <h4 class="lesson_not_complete"> Lesson not completed yet</h4>
+           <% elsif @this_lrecord.complete == "yes"%>
+                <h4 class="lesson_complete"> Lesson completed</h4>
+                <small class= "timestamp"></small>
+           <% else %>
+                <h4 class="lesson_not_complete"> Lesson not completed</h4>
+           <% end %>
+           <div class="view_content">
+            <%= link_to "View lesson", lesson_path(id: lesson.id) %>
+          </div>
           </div>
         <% end %>
       </div>

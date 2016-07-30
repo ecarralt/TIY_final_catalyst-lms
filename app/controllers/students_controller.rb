@@ -10,7 +10,8 @@ class StudentsController < ApplicationController
 
   def show
     @student = User.find_by(id: params[:id])
-    @current_assignments = Assignment.all.where(released: "1")
+    @current_assignments = Assignment.all.where(released: "1").order(assignment_number: :asc)
+    @current_lessons = Lesson.all.where(released:"1").order(lesson_number: :asc)
   end
 
 end

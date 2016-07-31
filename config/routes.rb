@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   get 'lessons/student_dashboard' => 'lessons#student_dashboard', as: :lessons
   get 'lessons/student_review' => 'lessons#student_review', as: :student_review
+  get 'lessons/student_feedback' => 'lessons#student_feedback', as: :student_feedback
 
   get 'lessons/new' => 'lessons#new', as: :new_lesson
   post 'lessons/create' => 'lessons#create', as: :create_lesson

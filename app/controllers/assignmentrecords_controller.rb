@@ -12,9 +12,10 @@ class AssignmentrecordsController < ApplicationController
 
   def create
     @arecord = Assignmentrecord.new
-    @arecord.contentfile = params[:arecord][:contentfile]
-    @arecord.comments = params[:arecord][:comments]
-    @arecord.url_link = params[:arecord][:url_link]
+
+    @arecord.contentfile = params[:assignmentrecord][:contentfile]
+    @arecord.comments = params[:assignmentrecord][:comments]
+    @arecord.url_link = params[:assignmentrecord][:url_link]
 
     @arecord.user_id = @current_user.id
     @arecord.assignment_id = params[:a_id]
@@ -24,7 +25,7 @@ class AssignmentrecordsController < ApplicationController
     else
       # flash[:notice] = "Something went wrong saving your assingment, please try again."
       # render :show
-      redirect_to assignment_path(id: params[:id]), notice: "Please try again"
+      redirect_to assignment_path(id: params[:a_id]), notice: "There was an issue with your submission. Please add a file, URL, or comment"
     end
   end
 

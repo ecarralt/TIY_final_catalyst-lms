@@ -19,6 +19,14 @@ class LessonsController < ApplicationController
     end
   end
 
+  def student_feedback
+    if @current_user.usertype == "student"
+      @assignments = get_submitted_assignments_for_student
+    else
+      # @lessons = Lesson.all.order(lesson_number: :asc)
+    end
+  end
+
   def show
     @lesson = Lesson.find_by id: params[:id]
     @current_l_number = @lesson.lesson_number
@@ -101,15 +109,17 @@ class LessonsController < ApplicationController
     @comp_lessons =[]
     @lessons_all = Lesson.all.where(released: "1").order(lesson_number: :asc)
     @lessons_all.each do |lesson|
-      # 1) if there are no records for this lesson, do not add them all to student lessons
+      # 1) if there are no records for this lesson, do not add lesson to student lessons
       if lesson.lessonrecords == []
+        #skip lesson
       else
-        #2)for this lesson, if there is no record for this user, do not add it to student lessons
+        #2)for this lesson, if there is no record for this user, do not add lesson to student lessons
         if (lesson.lessonrecords.find_by(user_id: @current_user.id) == nil)
+          #skip lesson
         else
-          #also, for all the records for this lesson
+          #also, if there are lesson records for this user/lesson, for all the records for this lesson...
           lesson.lessonrecords.each do |lrecord|
-            #3) if the lesson record is for this user and is complete, then add it to student lessons
+            #3) ...if the lesson record is for this user and is complete, then add lesson to student lessons
             if (lrecord.user_id == @current_user.id && lrecord.complete == "yes")
               @comp_lessons << lesson
             end
@@ -118,6 +128,32 @@ class LessonsController < ApplicationController
       end
     end
     return @comp_lessons
+  end
+
+  def get_submitted_assignments_for_student
+
+    @subm_assignments =[]
+    @assignments_all = Assignment.all.where(released: "1").order(lesson_number: :asc)
+    @assignments_all.each do |assignment|
+      # 1) if there are no records for this assignment, do not add assignment to student assingments
+      if assignment.assignmentrecords == []
+        #skip assignment
+      else
+        #2)for this assignment, if there is no record for this user/lesson, do not add lesson to student lessons
+        if (assisgnment.assisgnmentrecords.find_by(user_id: @current_user.id) == nil)
+          #skip assignment
+        else
+          #if there are assignment records for this user/lesson, then, for all the records for this lesson...
+          assignment.assignmentrecords.each do |arecord|
+            #3) ...if the assignment record is for this user and is complete, then add lesson to student lessons
+            if (arecord.user_id == @current_user.id && arecord.complete == "yes")
+              @comp_lessons << lesson
+            end
+          end
+        end
+      end
+    end
+    return @subm_assignments
   end
 
 end

@@ -1,5 +1,7 @@
 class Assignmentrecord < ActiveRecord::Base
-  validates :comments, presence: true
+
+  validates :comments, presence: true, if: "contentfile.nil?", if: "url_link.nil?"
+
   attachment :contentfile, extension: ["pdf", "doc", "docx"]
 
   belongs_to :user

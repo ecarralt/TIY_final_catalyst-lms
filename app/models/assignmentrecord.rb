@@ -12,10 +12,9 @@ class Assignmentrecord < ActiveRecord::Base
   end
 
   def at_least_one_submission_record
-    if (self.comments.present? == false && self.url_link.present? == false)
-      return false
+    if (self.comments.present? == false && self.url_link.present? == false && self.contentfile.present? == false)
+      errors.add(:comments, "You should either upload a file or fill in comments or url for your submission to be valid!")
     else
-      return true
     end
   end
 

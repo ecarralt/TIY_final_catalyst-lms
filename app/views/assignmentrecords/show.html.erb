@@ -47,7 +47,9 @@
           <h4>Attachment: </h4>
         </div>
         <div class="col-sm-9 download_link">
-          <%= link_to "Click to download", attachment_url(@arecord, :contentfile, format: @arecord.contentfile_filename.split('.').last) %>
+          <% if @arecord.contentfile.present? == true %>
+            <%= link_to "Click to download", attachment_url(@arecord, :contentfile, format: @arecord.contentfile_filename.split('.').last) %>
+          <% end %>
         </div>
       </div>
       <div class="row">

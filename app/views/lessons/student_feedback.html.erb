@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <h1 class= "dashboard_title">Feedback</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <% if @arecords == [] %>
+        <div class="well no_graded_arecords_notice">
+
+          <h3 class = ""> You don't have any assingments graded yet.</h3>
+
+        </div>
+      <% else %>
+        <% @arecords.each do |arecord| %>
+          <div class="well arecord_content">
+            <h3 class="feedback_arecord_title">  <%= arecord.assignment.title %> </h3>
+            <p> <strong>Score: </strong> <%= arecord.score %> </p>
+            <p> <strong>Instructor Feeback: </strong> <%= arecord.instructor_feedback %> </p>
+            <div class="arecord_bottom_links">
+              <%= link_to "View", assignment_path(id: arecord.assignment.id) %>
+              <small>assignment submitted on: <%= arecord.created_at.to_formatted_s(:short)%> UTC </small>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+  </div>
+
+</div>

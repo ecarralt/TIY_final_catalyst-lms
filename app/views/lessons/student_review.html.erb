@@ -15,7 +15,7 @@
       <% else %>
         <% @lessons.each do |lesson| %>
           <div class="well lesson_content">
-          <h3>  <%= lesson.title %> </h3>
+          <h3 class = "review_lesson_title">  <%= lesson.title %> </h3>
             <p>
               <%= lesson.content[0,200] %>...
             </p>

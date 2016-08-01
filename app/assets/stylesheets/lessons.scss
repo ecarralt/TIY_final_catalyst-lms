@@ -41,6 +41,37 @@ $orange: #F0AD4E;
 
 }
 
+.review_lesson_title{
+  margin-top: 0px;
+
+}
+
+
+//Student Feedback
+
+.no_graded_arecords_notice {
+
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 200px;
+  background-color: lighten($orange, 30%)
+
+}
+
+.feedback_arecord_title{
+  margin-top: 0px;
+
+}
+
+.arecord_bottom_links{
+  display:flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-content: flex-start;
+      align-items: center;
+
+}
 
 // New
 

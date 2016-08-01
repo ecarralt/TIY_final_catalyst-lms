@@ -21,7 +21,7 @@ class LessonsController < ApplicationController
 
   def student_feedback
     if @current_user.usertype == "student"
-      @assignments = get_submitted_assignments_for_student
+      @arecords = get_submitted_arecords_for_student
     else
       # @lessons = Lesson.all.order(lesson_number: :asc)
     end
@@ -130,30 +130,26 @@ class LessonsController < ApplicationController
     return @comp_lessons
   end
 
-  def get_submitted_assignments_for_student
-
-    @subm_assignments =[]
-    @assignments_all = Assignment.all.where(released: "1").order(lesson_number: :asc)
+  def get_submitted_arecords_for_student
+    @subm_arecords =[]
+    @assignments_all = Assignment.all.where(released: "1").order(assignment_number: :asc)
     @assignments_all.each do |assignment|
       # 1) if there are no records for this assignment, do not add assignment to student assingments
       if assignment.assignmentrecords == []
         #skip assignment
-      else
-        #2)for this assignment, if there is no record for this user/lesson, do not add lesson to student lessons
-        if (assisgnment.assisgnmentrecords.find_by(user_id: @current_user.id) == nil)
+
+        #2)for this assignment, if there is no record for this user, do not add assignment to student lessons
+      elsif (assignment.assignmentrecords.find_by(user_id: @current_user.id) == nil)
           #skip assignment
-        else
-          #if there are assignment records for this user/lesson, then, for all the records for this lesson...
-          assignment.assignmentrecords.each do |arecord|
-            #3) ...if the assignment record is for this user and is complete, then add lesson to student lessons
-            if (arecord.user_id == @current_user.id && arecord.complete == "yes")
-              @comp_lessons << lesson
+      else
+            ##grab all arecords for this user and lesson, pick the latest one, and add it to the list
+            all_user_arecords = assignment.assignmentrecords.order(created_at: :asc).select{|record| record.user_id==@current_user.id && record.assignment_id==assignment.id}
+            if all_user_arecords != nil && all_user_arecords.last.score != nil
+              @subm_arecords << all_user_arecords.last
             end
-          end
-        end
       end
     end
-    return @subm_assignments
+    return @subm_arecords
   end
 
 end

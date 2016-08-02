@@ -3,7 +3,7 @@
 .new_assignment_btn{
   position: fixed;
   left: 40px;
-  top: 120px;
+  top: 155px;
 
 }
 
@@ -34,10 +34,7 @@
 }
 
 .f_create_assignment_buttons{
-
   margin-top: 20px;
-  margin-bottom: 20px;
-
 }
 
 .assignment_title{
@@ -87,5 +84,15 @@
 
 .f_assignmentrecord_buttons{
 
-  margin-bottom: 50px;
+  // margin-bottom: 50px;
+}
+
+.back_to_assigments_btn {
+  a {
+    float: right;
+    margin-top: 20px;
+    // margin-bottom: 150px;
+  }
+
+
 }

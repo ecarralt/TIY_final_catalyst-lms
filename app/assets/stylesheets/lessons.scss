@@ -11,7 +11,7 @@ $orange: #F0AD4E;
 .new_lesson_btn{
   position: fixed;
   left: 40px;
-  top: 120px;
+  top: 155px;
 
 }
 
@@ -30,6 +30,10 @@ $orange: #F0AD4E;
   color: $red;
 }
 
+.margin{
+
+  margin-bottom: 150px;
+}
 //Student Review
 
 .no_completed_lessons_notice {
@@ -53,7 +57,7 @@ $orange: #F0AD4E;
 
   text-align: center;
   margin-top: 50px;
-  margin-bottom: 200px;
+  margin-bottom: 50px;
   background-color: lighten($orange, 30%)
 
 }
@@ -73,6 +77,11 @@ $orange: #F0AD4E;
 
 }
 
+.feedback_subtitle{
+
+  color: $blue;
+}
+
 // New
 
 
@@ -90,7 +99,7 @@ $orange: #F0AD4E;
 .f_create_lesson_buttons{
 
   margin-top: 20px;
-  margin-bottom: 20px;
+  // margin-bottom: 20px;
 
 }
 

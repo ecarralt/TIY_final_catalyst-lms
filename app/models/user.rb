@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   has_many :assignments
   has_many :assignmentrecords
   has_many :lessonrecords
+  has_many :progressreports
 
 
   def full_name

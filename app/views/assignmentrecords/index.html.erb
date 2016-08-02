@@ -22,9 +22,13 @@
       <%end %>
     </div>
     <div class="col-sm-2">
-      <div class="new_assignment_btn btn">
-        <%= link_to "By Student", arecords_path, class: "btn btn-warning" %>
+      <div class="by_student_btn">
+        <%= link_to "Student View", students_path, class: "btn btn-success" %>
       </div>
+      <div class="pr_btn">
+        <%= link_to "Create Progress Report", new_pr_path, class: "btn btn-primary" %>
+      </div>
+
     </div>
   </div>
 </div>

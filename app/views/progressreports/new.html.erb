@@ -1,0 +1,33 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-sm-offset-3 sign_in_title">
+      <h2>New Progress Report...<small> select a student!</small>
+      </h2 >
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-sm-7 col-sm-offset-3">
+      <div class="sign_up_form form-group">
+
+        <%= form_tag new2_pr_path, method: :get do %>
+          <div class="student_tag_form">
+            <div class="which_student">
+              <%= label_tag :student, "Which student would you like to create a report for?", class: "h3"%>
+            </div>
+            <div class="student_collection_select">
+              <%= collection_select :student, :id, @students, :id, :full_name, prompt: "Select student" %>
+            </div>
+          </div>
+          <div class="f_next">
+            <%= submit_tag "Next", class: "btn btn-success"%>
+            or
+            <%= link_to 'Cancel', :back %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,74 @@
+
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-sm-9 col-sm-offset-3 sign_in_title">
+      <h2>New Progress Report...<small> review and grade!</small>
+      </h2 >
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-7 col-sm-offset-3">
+      <h4 class = "student_stats_title">  <%= @student.full_name %>'s stats so far: </h4>
+
+      <div class="well lesson_content">
+        <p>
+          <strong>Assignments completed: </strong> <%= @this_assignments_submitted %> (out of <%= @this_total_assignments %>)
+        </p>
+        <p>
+          <strong>Lessons completed: </strong> <%= @this_lessons_completed %> (out of <%= @this_total_lessons %>)
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-sm-9 col-sm-offset-3">
+      <h4 class="pr_input_title">Your input for this report...<small></small>
+      </h4>
+    </div>
+  </div>
+
+  <div class="row">
+      <div class="col-sm-7 col-sm-offset-3">
+        <div class="form-group new">
+
+          <%= form_for @pr, url: create_pr_path(st_id: @pr.student_id) do |f| %>
+            <div class="f_pr_title">
+              <div class="pr_score">
+                <%= f.label :progress_score, "Progress score:" %>
+                <%= f.text_field :progress_score, class: 'form-control', placeholder: "Your score for this report (i.e. 'on track', 'needs extra-work', etc.)", size: "1x3" %>
+              </div>
+            <div class="pr_feedback">
+              <!-- <%= f.label :instructor_feedback, "Feedback:" %> -->
+              <%= f.text_area :instructor_feedback, class: 'form-control', placeholder: "Please add your feedback commentary for #{@student.full_name}", size: "1x3" %>
+            </div>
+            <div class="">
+              <%= f.hidden_field :title, :value => @this_pr_title %>
+              <%= f.hidden_field :pr_number, :value => @this_pr_number %>
+
+              <%= f.hidden_field :total_lessons, :value => @this_total_lessons %>
+              <%= f.hidden_field :completed_lessons, :value => @this_lessons_completed %>
+
+              <%= f.hidden_field :total_assignments, :value => @this_total_assignments %>
+              <%= f.hidden_field :completed_assignments, :value => @this_assignments_submitted %>
+
+              <%= f.hidden_field :student_name, :value => @student.full_name %>
+
+              <%= f.hidden_field :user_id, :value => @current_user.id %>
+
+
+            </div>
+            <div class="pr_buttons">
+              <%= f.submit "Generate Progress Report", class: "btn btn-warning"%>
+              or
+              <%= link_to 'Cancel', :back %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

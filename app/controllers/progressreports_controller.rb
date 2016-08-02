@@ -8,18 +8,24 @@ class ProgressreportsController < ApplicationController
   end
 
   def new2
-    @pr = Progressreport.new
 
-    @student = User.find_by(id: params[:student][:id])
+    if params[:student][:id] == ""
+      flash[:notice] = "Please select a student."
+      @students = User.all.where(usertype: "student")
+      render :new
+    else
+      @pr = Progressreport.new
 
-    @pr.student_id = params[:student][:id]
-    @this_pr_number = get_pr_number
-    @this_pr_title = "Progress Report ##{@this_pr_number} for #{@student.full_name}"
-    @this_total_lessons = Lesson.all.where(released: "1").count
-    @this_total_assignments = Assignment.all.where(released: "1").count
-    @this_lessons_completed = Lessonrecord.all.where(user_id: @student.id).count
-    @this_assignments_submitted = Assignmentrecord.all.where(user_id: @student.id).count
+      @student = User.find_by(id: params[:student][:id])
 
+      @pr.student_id = params[:student][:id]
+      @this_pr_number = get_pr_number
+      @this_pr_title = "Progress Report ##{@this_pr_number} for #{@student.full_name}"
+      @this_total_lessons = Lesson.all.where(released: "1").count
+      @this_total_assignments = Assignment.all.where(released: "1").count
+      @this_lessons_completed = Lessonrecord.all.where(user_id: @student.id).count
+      @this_assignments_submitted = Assignmentrecord.all.where(user_id: @student.id).count
+    end
   end
 
 
@@ -45,6 +51,7 @@ class ProgressreportsController < ApplicationController
       redirect_to students_path, notice: "Progress report created successfully"
     else
       flash[:notice] = "Your report was not created :(. Please fill out both your score and your feedback comments for this student."
+
       render :new2
     end
 
@@ -55,14 +62,15 @@ class ProgressreportsController < ApplicationController
   end
 
   def get_pr_number
-    @student = User.find_by(id: params[:student][:id])
-    pr = Progressreport.all.where(student_id: @student.id).order(pr_number: :asc).last
-    if pr == nil
-      pr_no = 1
-    else
-      pr_no = pr.pr_number + 1
-    end
-    return pr_no
+      @student = User.find_by(id: params[:student][:id])
+      pr = Progressreport.all.where(student_id: @student.id).order(pr_number: :asc).last
+      if pr == nil
+        pr_no = 1
+      else
+        pr_no = pr.pr_number + 1
+      end
+
+      return pr_no
   end
 
 

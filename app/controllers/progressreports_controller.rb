@@ -5,12 +5,6 @@ class ProgressreportsController < ApplicationController
 
   def new
     @students = User.all.where(usertype: "student")
-    # @this_pr_number =
-    # @this_pr_title =
-    # @this_total_lessons
-    # @this_total_assignments
-    # @this_lessons_completed =
-    # @this_assignments_submitted =
   end
 
   def new2
@@ -61,6 +55,7 @@ class ProgressreportsController < ApplicationController
   end
 
   def get_pr_number
+    @student = User.find_by(id: params[:student][:id])
     pr = Progressreport.all.where(student_id: @student.id).order(pr_number: :asc).last
     if pr == nil
       pr_no = 1

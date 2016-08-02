@@ -1,16 +1,34 @@
-$orange: #F0AD4E;$red: #c0392b;
+$orange: #F0AD4E;$red: #c0392b;$blue: #2980b9;
 
+
+//new
+
+.which_student{
+
+  margin-bottom: 15px;
+  color: #7f8c8d;
+}
+
+.student_collection_select{
+
+  margin-bottom: 20px;
+}
+
+.f_next{
+
+  margin-bottom: 150px;
+}
 
 //new2
 
 .student_stats_title{
 
-  color: $red;
+  color: $orange;
 
 }
 
 .pr_input_title{
-  color: $red;
+  color: $orange;
 
 }
 

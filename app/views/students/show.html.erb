@@ -39,8 +39,8 @@
       <%end %>
     </div>
     <div class="col-sm-2">
-      <div class="pr_btn">
-        <%= link_to "Create PR for #{@student.first_name}", new2_pr_path(student:{id: @student.id}), class: "btn btn-primary" %>
+      <div class="pr_btn_student">
+        <%= link_to "Create PR for #{@student.first_name}", new2_pr_path(student:{id: @student.id}), class: "btn btn-success" %>
       </div>
     </div>
   </div>
@@ -69,3 +69,5 @@
         <% end %>
       </div>
     </div>
+  
+</div>

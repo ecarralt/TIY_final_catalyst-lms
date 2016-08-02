@@ -57,8 +57,16 @@ class ProgressreportsController < ApplicationController
 
   end
 
-  def show
-
+  def showpdf
+    @pr = Progressreport.find_by(id: params[:id])
+    @student = User.find_by(id: @pr.student_id)
+    
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "test"   # Excluding ".pdf" extension.
+      end
+    end
   end
 
   def get_pr_number
@@ -69,7 +77,6 @@ class ProgressreportsController < ApplicationController
       else
         pr_no = pr.pr_number + 1
       end
-
       return pr_no
   end
 

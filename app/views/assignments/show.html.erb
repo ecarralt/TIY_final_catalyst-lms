@@ -43,7 +43,7 @@
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
       <div class="back_to_assigments_btn">
-        <%= link_to "Back to Assignments", assignments_path, class: "btn btn-warning" %>
+        <%= link_to "Back to Assignments", assignments_path, class: "btn btn-success" %>
       </div>
     </div>
   </div>
@@ -70,7 +70,7 @@
           <%= f.text_area :comments,class: 'form-control', placeholder: "... and add your comments here", size: "1x2"%>
         </div>
         <div class="f_assignmentrecord_buttons">
-          <%= f.submit "Submit Assignment", class: "btn btn-warning"%>
+          <%= f.submit "Submit Assignment", class: "btn btn-primary"%>
           or
           <%= link_to 'Cancel', :back %>
         </div>

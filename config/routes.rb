@@ -46,6 +46,7 @@ Rails.application.routes.draw do
   get 'progressreports/new' => 'progressreports#new', as: :new_pr
   get 'progressreports/new2/' => 'progressreports#new2', as: :new2_pr
   post 'progreessreports/create/:st_id/' => 'progressreports#create', as: :create_pr
+  get 'progressreports/:id/showpdf.pdf' => 'progressreports#showpdf', as: :show_pdf
 
 
   # The priority is based upon order of creation: first created -> highest priority.

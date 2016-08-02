@@ -11,11 +11,35 @@
       <% @students.each do |student| %>
         <div class="well student_content">
           <h3 class="name"><%= student.full_name %></h3>
+
+
+
+          <% @subm_arecords =[]
+          @assignments_all = Assignment.all.where(released: "1").order(assignment_number: :asc)
+          @assignments_all.each do |assignment|
+            # ELIMINATED CASE: 1) if there are no records for this assignment, do not add assignment to student assingments
+            #2)for this assignment, if there is no record for this user, do not add assignment to student lessons
+            if assignment.assignmentrecords.find_by(user_id: student.id) == nil
+                #skip assignment
+            else
+                  ##grab all arecords for this user and lesson, pick the latest one, and add it to the list
+                  all_user_arecords = assignment.assignmentrecords.order(created_at: :asc).select{|record| record.user_id == student.id}
+                  if all_user_arecords != nil
+                    # && all_user_arecords.last.score != nil
+                    @subm_arecords << all_user_arecords.last
+                  end
+            end
+          end
+         %>
+
+
+
+
           <p>
-            <strong>Assignments completed: </strong> <%= student.assignmentrecords.count %> (out of <%= @lessons.count %>)
+            <strong>Assignments completed: </strong> <%= @subm_arecords.count %> out of <%= @assignments.count %>
           </p>
           <p>
-            <strong>Lessons completed: </strong> <%= student.lessonrecords.count %> (out of <%= @lessons.count %>)
+            <strong>Lessons completed: </strong> <%= student.lessonrecords.count %> out of <%= @lessons.count %>
           </p>
           <small class= "timestamp">
             enrrolled since: <%= student.created_at.to_formatted_s(:short)%>

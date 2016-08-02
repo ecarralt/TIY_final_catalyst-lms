@@ -31,6 +31,27 @@ class ProgressreportsController < ApplicationController
 
   def create
 
+    @student = User.find_by(id: params[:st_id])
+
+    @pr = Progressreport.new
+    @pr.student_id = params[:st_id]
+
+    @pr.title = params[:progressreport][:title]
+    @pr.progress_score = params[:progressreport][:progress_score]
+    @pr.instructor_feedback = params[:progressreport][:instructor_feedback]
+    @pr.total_lessons = params[:progressreport][:total_lessons]
+    @pr.completed_lessons = params[:progressreport][:completed_lessons]
+    @pr.total_assignments = params[:progressreport][:total_assignments]
+    @pr.completed_assignments = params[:progressreport][:completed_assignments]
+    @pr.student_name = params[:progressreport][:student_name]
+    @pr.user_id = params[:progressreport][:user_id]
+
+    if @pr.save
+      redirect_to students_path, notice: "Assignment submitted successfully"
+    else
+      flash[:notice] = "Your report was not created :(. Please fill out both your score and your feedback comments for this student."
+      render :new2
+    end
 
   end
 

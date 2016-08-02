@@ -45,7 +45,20 @@
             <%= f.text_area :instructor_feedback, class: 'form-control', placeholder: "Please add your feedback commentary for #{@student.full_name}", size: "1x3" %>
           </div>
           <div class="">
+            <%= f.hidden_field :title, :value => @this_pr_title %>
             <%= f.hidden_field :pr_number, :value => @this_pr_number %>
+
+            <%= f.hidden_field :total_lessons, :value => @this_total_lessons %>
+            <%= f.hidden_field :completed_lessons, :value => @this_lessons_completed %>
+
+            <%= f.hidden_field :total_assignments, :value => @this_total_assignments %>
+            <%= f.hidden_field :completed_assignments, :value => @this_assignments_submitted %>
+
+            <%= f.hidden_field :student_name, :value => @student.full_name %>
+
+            <%= f.hidden_field :user_id, :value => @current_user.id %>
+
+
           </div>
           <div class="pr_buttons">
             <%= f.submit "Generate Progress Report", class: "btn btn-warning"%>

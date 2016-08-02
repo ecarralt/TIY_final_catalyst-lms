@@ -22,6 +22,7 @@ class LessonsController < ApplicationController
   def student_feedback
     if @current_user.usertype == "student"
       @arecords = get_submitted_arecords_for_student
+      @prs = get_prs_for_student
     else
       # @lessons = Lesson.all.order(lesson_number: :asc)
     end
@@ -150,6 +151,11 @@ class LessonsController < ApplicationController
       end
     end
     return @subm_arecords
+  end
+
+  def get_prs_for_student
+    prs = Progressreport.all.where(student_id: @current_user.id).order(pr_number: :asc)
+    return prs
   end
 
 end

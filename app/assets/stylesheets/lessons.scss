@@ -57,7 +57,7 @@ $orange: #F0AD4E;
 
   text-align: center;
   margin-top: 50px;
-  margin-bottom: 200px;
+  margin-bottom: 50px;
   background-color: lighten($orange, 30%)
 
 }
@@ -75,6 +75,11 @@ $orange: #F0AD4E;
       align-content: flex-start;
       align-items: center;
 
+}
+
+.feedback_subtitle{
+
+  color: $blue;
 }
 
 // New

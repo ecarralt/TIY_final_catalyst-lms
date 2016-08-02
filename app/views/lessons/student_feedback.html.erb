@@ -40,7 +40,7 @@
             <h3 class="feedback_arecord_title">  <%= pr.title %> </h3>
             <p> <strong>Progress score: </strong> <%= pr.progress_score %> </p>
             <p> <strong>Instructor feeback: </strong> <%= pr.instructor_feedback %> </p>
-            download_link
+            <%= link_to "See Progress Report", show_pdf_path(id: pr.id, format: 'pdf')  %>
           </div>
         <% end %>
       <% end %>

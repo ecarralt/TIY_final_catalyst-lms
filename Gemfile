@@ -60,3 +60,5 @@ gem 'redcarpet'
 gem "refile", require: "refile/rails"
 gem "refile-mini_magick"
 gem "pry"
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'

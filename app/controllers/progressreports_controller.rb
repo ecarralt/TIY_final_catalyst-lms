@@ -19,8 +19,8 @@ class ProgressreportsController < ApplicationController
     @student = User.find_by(id: params[:student][:id])
 
     @pr.student_id = params[:student][:id]
-    @this_pr_number = 1
-    @this_pr_title = "Progress Report for @student.name"
+    @this_pr_number = get_pr_number
+    @this_pr_title = "Progress Report ##{@this_pr_number} for #{@student.full_name}"
     @this_total_lessons = Lesson.all.where(released: "1").count
     @this_total_assignments = Assignment.all.where(released: "1").count
     @this_lessons_completed = Lessonrecord.all.where(user_id: @student.id).count
@@ -44,10 +44,11 @@ class ProgressreportsController < ApplicationController
     @pr.total_assignments = params[:progressreport][:total_assignments]
     @pr.completed_assignments = params[:progressreport][:completed_assignments]
     @pr.student_name = params[:progressreport][:student_name]
+    @pr.pr_number = params[:progressreport][:pr_number]
     @pr.user_id = params[:progressreport][:user_id]
 
     if @pr.save
-      redirect_to students_path, notice: "Assignment submitted successfully"
+      redirect_to students_path, notice: "Progress report created successfully"
     else
       flash[:notice] = "Your report was not created :(. Please fill out both your score and your feedback comments for this student."
       render :new2
@@ -57,6 +58,16 @@ class ProgressreportsController < ApplicationController
 
   def show
 
+  end
+
+  def get_pr_number
+    pr = Progressreport.all.where(student_id: @student.id).order(pr_number: :asc).last
+    if pr == nil
+      pr_no = 1
+    else
+      pr_no = pr.pr_number + 1
+    end
+    return pr_no
   end
 
 

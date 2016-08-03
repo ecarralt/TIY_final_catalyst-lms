@@ -49,6 +49,9 @@ Rails.application.routes.draw do
   get 'progressreports/:id/showpdf.pdf' => 'progressreports#showpdf', as: :show_pdf
 
 
+  get 'progressreports/:id/showcreated.pdf' => 'progressreports#showcreated', as: :showcreated_pr
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

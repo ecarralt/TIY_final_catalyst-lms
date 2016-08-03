@@ -1,0 +1,29 @@
+
+<div class="document">
+
+
+<%=
+markdown("#Progress Report
+---
+####{@pr.title}
+**email:** #{@student.email}
+**Cohort:** Winter, 2017
+**Week:** 8
+**Instructor:** #{User.find_by(id: @pr.user_id).full_name}
+
+-------
+
+**Assignments completed:** #{@pr.completed_assignments} out of #{@pr.total_assignments}
+
+---
+
+**Progress score:** #{@pr.progress_score}
+
+**Instructor Feedback:**
+
+#{@pr.instructor_feedback}
+
+")%>
+
+
+</div>

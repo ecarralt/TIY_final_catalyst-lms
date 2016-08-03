@@ -48,46 +48,34 @@ class ProgressreportsController < ApplicationController
     @pr.user_id = params[:progressreport][:user_id]
 
     if @pr.save
-      redirect_to students_path, notice: "Progress report created successfully"
-
-      #save pdf copy of the report to db
-      savepdf
-
-      #Send report to student
-      ProgressReportMailer.show_pr_email(@student, @pr).deliver_now
-
+      #render file and save to file structure
+      # redirect to students path
+      redirect_to showcreated_pr_path(id: @pr.id, format: 'pdf')
     else
       flash[:notice] = "Your report was not created :(. Please fill out both your score and your feedback comments for this student."
-
       render :new2
     end
 
   end
 
-  # def savepdf
-  #   @pr = Progressreport.find_by(id: params[:id])
-  #   @student = User.find_by(id: @pr.student_id)
-  #
-  #   #do now
-  #   pdf = WickedPdf.new.pdf_from_html_file('Rails.root')
-  #
-  #   ##dolater
-  #   save_path = Rails.root.join('pdfs','filename.pdf')
-  #   File.open(save_path, 'wb') do |file|
-  #     file << pdf
-  #   end
-  #
-  #
-  #   ##refer to this
-  #
-  #   # respond_to do |format|
-  #   #   format.html
-  #   #   format.pdf do
-  #   #     render pdf: "#{Date.today}_ProgressReport"   # Excluding ".pdf" extension.
-  #   #   end
-  #   # end
-  #
-  # end
+  def showcreated
+    @pr = Progressreport.find_by(id: params[:id])
+    @student = User.find_by(id: @pr.student_id)
+
+    @pr_filename = "#{Date.today}_PR_#{@student.full_name}"
+    respond_to do |format|
+      format.html
+      format.pdf do
+        # save_to_file: Rails.root.join('pdfs', "#{@pr_filename}")
+
+        render pdf: "#{Date.today}_ProgressReport", # Excluding ".pdf" extension.
+               save_to_file: Rails.root.join('pdfs', "#{@pr_filename}")
+      end
+      # Send report to student
+      ProgressReportMailer.show_pr_email(@student, @pr).deliver_now
+    end
+
+  end
 
   def showpdf
     @pr = Progressreport.find_by(id: params[:id])
@@ -96,10 +84,10 @@ class ProgressreportsController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render pdf: "#{Date.today}_ProgressReport" ,  # Excluding ".pdf" extension.
-               save_to_file: Rails.root.join('pdfs', "test.pdf")
+        render pdf: "#{Date.today}_ProgressReport"  # Excluding ".pdf" extension.
       end
     end
+
   end
 
   def get_pr_number

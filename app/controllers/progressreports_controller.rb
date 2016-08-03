@@ -61,18 +61,17 @@ class ProgressreportsController < ApplicationController
   def showcreated
     @pr = Progressreport.find_by(id: params[:id])
     @student = User.find_by(id: @pr.student_id)
-
     @pr_filename = "#{Date.today}_PR_#{@student.full_name}"
+    @filesave_path = Rails.root.join('pdfs', "#{@pr_filename}")
+
     respond_to do |format|
       format.html
       format.pdf do
-        # save_to_file: Rails.root.join('pdfs', "#{@pr_filename}")
-
         render pdf: "#{Date.today}_ProgressReport", # Excluding ".pdf" extension.
-               save_to_file: Rails.root.join('pdfs', "#{@pr_filename}")
+               save_to_file: @filesave_path
       end
       # Send report to student
-      ProgressReportMailer.show_pr_email(@student, @pr).deliver_now
+      ProgressReportMailer.show_pr_email(@student, @pr, @pr_filename, @filesave_path).deliver_now
     end
 
   end

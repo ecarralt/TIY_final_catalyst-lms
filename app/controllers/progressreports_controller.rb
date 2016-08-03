@@ -48,11 +48,30 @@ class ProgressreportsController < ApplicationController
     @pr.user_id = params[:progressreport][:user_id]
 
     if @pr.save
-      redirect_to students_path, notice: "Progress report created successfully"
+      #render file and save to file structure
+      # redirect to students path
+      redirect_to showcreated_pr_path(id: @pr.id, format: 'pdf')
     else
       flash[:notice] = "Your report was not created :(. Please fill out both your score and your feedback comments for this student."
-
       render :new2
+    end
+
+  end
+
+  def showcreated
+    @pr = Progressreport.find_by(id: params[:id])
+    @student = User.find_by(id: @pr.student_id)
+    @pr_filename = "#{Date.today}_PR_#{@student.full_name}"
+    @filesave_path = Rails.root.join('pdfs', "#{@pr_filename}")
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "#{Date.today}_ProgressReport", # Excluding ".pdf" extension.
+               save_to_file: @filesave_path
+      end
+      # Send report to student
+      ProgressReportMailer.show_pr_email(@student, @pr, @pr_filename, @filesave_path).deliver_now
     end
 
   end
@@ -60,13 +79,14 @@ class ProgressreportsController < ApplicationController
   def showpdf
     @pr = Progressreport.find_by(id: params[:id])
     @student = User.find_by(id: @pr.student_id)
-    
+
     respond_to do |format|
       format.html
       format.pdf do
-        render pdf: "test"   # Excluding ".pdf" extension.
+        render pdf: "#{Date.today}_ProgressReport"  # Excluding ".pdf" extension.
       end
     end
+
   end
 
   def get_pr_number

@@ -62,3 +62,4 @@ gem "refile-mini_magick"
 gem "pry"
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+gem 'sendgrid-ruby'

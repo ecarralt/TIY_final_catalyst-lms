@@ -107,7 +107,19 @@ end
 arecord2.save!
 
 
-Lessonrecord.delete_all
+Progresreport.delete_all
+pr = Progressreport.new title: "Your first Progress Report", progress_score: "satisfactory", instructor_feedback: "You are doing great, keep it up!!!", total_lessons: 10, completed_lessons: 10, total_assignments: 4, completed_assignments: 3, student_id: user.id, student_name: user.full_name, pr_number: 1, user_id: user3.id
+pr.save!
+
+
+
+
+# Photo.delete_all
+# photo = Photo.new title: "newport beach!", location: "Newport Beach, CA", latitude: "33.618910", longitude: "-117.928947", vacation_id: vacation.id
+# File.open("#{Rails.root}/app/assets/images/newport2.jpg", "rb") do |file|
+#   photo.photofile = file
+# end
+# photo.save!
 
 
 # This file should contain all the record creation needed to seed the database with its default values.

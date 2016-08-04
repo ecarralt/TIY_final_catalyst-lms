@@ -23,7 +23,7 @@ module CatalystLms
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
-    ActionMailer::Base.default_url_options = { :host => 'localhost:3000' }
+    # ActionMailer::Base.default_url_options = { :host => 'localhost:3000' }
 
     ActionMailer::Base.delivery_method = :smtp
     ActionMailer::Base.perform_deliveries = true

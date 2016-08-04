@@ -30,12 +30,10 @@ class ProgressreportsController < ApplicationController
 
 
   def create
-
     @student = User.find_by(id: params[:st_id])
-
     @pr = Progressreport.new
-    @pr.student_id = params[:st_id]
 
+    @pr.student_id = @student.id
     @pr.title = params[:progressreport][:title]
     @pr.progress_score = params[:progressreport][:progress_score]
     @pr.instructor_feedback = params[:progressreport][:instructor_feedback]
@@ -62,18 +60,18 @@ class ProgressreportsController < ApplicationController
     @pr = Progressreport.find_by(id: params[:id])
     @student = User.find_by(id: @pr.student_id)
     # @pr_filename = "#{Time.now.to_formatted_s(:number)}_PR_#{@student.full_name}"
-    @pr_filename = 'filename'
+    @pr_filename = "#{Time.now.to_formatted_s(:number)}_PR_#{@student.full_name}"
     # @filesave_path = Rails.root.join('pdfs', "#{@pr_filename}")
-    @filesave_path = Rails.root.join('pdfs', "#{@pr_filename}.pdf")
+    @filesave_path = Rails.root.join('pdfs', "#{@pr_filename}.pdf").to_s
     respond_to do |format|
       format.html
       format.pdf do
         render pdf: @pr_filename, # Excluding ".pdf" extension.
                save_to_file: @filesave_path
       end
-      # Send report to student
-      ProgressReportMailer.show_pr_email(@student, @pr,"filename", @filesave_path).deliver_now
     end
+    # Send report to student
+    ProgressReportMailer.show_pr_email(@student, @pr,@pr_filename, @filesave_path).deliver_now
   end
 
   def showpdf

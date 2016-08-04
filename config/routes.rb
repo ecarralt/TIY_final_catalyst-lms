@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'lessons/student_review' => 'lessons#student_review', as: :student_review
   get 'lessons/student_feedback' => 'lessons#student_feedback', as: :student_feedback
 
+  #teachers creating and students viewing lessons
   get 'lessons/new' => 'lessons#new', as: :new_lesson
   post 'lessons/create' => 'lessons#create', as: :create_lesson
   get 'lessons/:id' => 'lessons#show', as: :lesson
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
   patch 'lessons/:id/update' => 'lessons#update', as: :update_lesson
   delete 'lessons/:id/delete' => 'lessons#delete', as: :delete_lesson
 
+  #teachers creating and students viewing assignments
   get 'assignments/index' => 'assignments#index', as: :assignments
   get 'assignments/new' => 'assignments#new', as: :new_assignment
   post 'assignments/create' => 'assignments#create', as: :create_assignment
@@ -27,10 +29,7 @@ Rails.application.routes.draw do
   patch 'assignments/:id/update' => 'assignments#update', as: :update_assignment
   delete 'assignments/:id/delete' => 'assignments#delete', as: :delete_assignment
 
-  # patch 'assignments/:id/update_arecord' => 'assignmentrecords#update_arecord', as: :update_grade
-
-  # post 'assignments/:id/edit_arecord' => 'assignments#edit_arecord', as: :edit_arecord
-
+  #students creating and teachers updating/grading assignment records
   post 'assignmentrecords/create/:a_id' => 'assignmentrecords#create', as: :create_arecord
   patch 'assignmentrecords/:id/update' => 'assignmentrecords#update', as: :update_arecord
   get 'assignmentrecords/index' => 'assignmentrecords#index', as: :arecords
@@ -43,6 +42,7 @@ Rails.application.routes.draw do
   get 'students/index' => "students#index", as: :students
   get 'students/:id' => "students#show", as: :student
 
+  #teachers creating progress reports
   get 'progressreports/new' => 'progressreports#new', as: :new_pr
   get 'progressreports/new2/' => 'progressreports#new2', as: :new2_pr
   post 'progreessreports/create/:st_id/' => 'progressreports#create', as: :create_pr

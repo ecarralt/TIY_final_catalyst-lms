@@ -11,7 +11,7 @@ class ProgressReportMailer < ApplicationMailer
       # @pr_filename = "#{Date.today}_PR_#{@student.full_name}"
       # @filesave_path = Rails.root.join('pdfs', "#{@pr_filename}")
 
-      attachments["filename"] = File.read("#{@filesave_path}")
+      attachments[@pr_filename] = File.read("#{@filesave_path}")
       mail(to: @student.email, subject: 'You have received a new progress report!')
     end
 

@@ -60,7 +60,7 @@ class ProgressreportsController < ApplicationController
     @pr = Progressreport.find_by(id: params[:id])
     @student = User.find_by(id: @pr.student_id)
     # @pr_filename = "#{Time.now.to_formatted_s(:number)}_PR_#{@student.full_name}"
-    @pr_filename = "#{Time.now.to_formatted_s(:number)}_PR_#{@student.full_name}"
+    @pr_filename = "#{Time.now.to_formatted_s(:number)}_PR_#{@student.full_name}" # Excluding ".pdf" extension.
     # @filesave_path = Rails.root.join('pdfs', "#{@pr_filename}")
     @filesave_path = Rails.root.join('pdfs', "#{@pr_filename}.pdf").to_s
     respond_to do |format|

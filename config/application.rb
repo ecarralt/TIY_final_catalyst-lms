@@ -30,15 +30,6 @@ module CatalystLms
     ActionMailer::Base.raise_delivery_errors = true
     # config.action_mailer.default_options = {from: 'no-reply@example.com'}
 
-    # ActionMailer::Base.smtp_settings = {
-    #   address:              'smtp.gmail.com',
-    #   port:                 587,
-    #   domain:               'gmail.com',
-    #   user_name:            '@gmail.com',
-    #   password:             'secret',
-    #   authentication:       "plain",
-    #   enable_starttls_auto: true  }
-
     ActionMailer::Base.smtp_settings = {
     :address        => 'smtp.sendgrid.net',
     :port           => '465',
@@ -49,9 +40,6 @@ module CatalystLms
     :enable_starttls_auto => true,
     :ssl => true
     }
-    ActionMailer::Base.delivery_method = :smtp
-
-
 
   end
 end

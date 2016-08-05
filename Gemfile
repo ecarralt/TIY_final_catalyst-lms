@@ -63,3 +63,4 @@ gem "pry"
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 gem 'sendgrid-ruby'
+gem 'figaro'

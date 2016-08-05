@@ -1,27 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  # echo "export SENDGRID_API_KEY='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'" > sendgrid.env
-  # echo "sendgrid.env" >> .gitignore
-  # source ./sendgrid.env
-
-
-  # config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-  #
-  # config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.perform_deliveries = true
-  # config.action_mailer.raise_delivery_errors = true
-  # # config.action_mailer.default_options = {from: 'no-reply@example.com'}
-  #
-  # config.action_mailer.smtp_settings = {
-  #   address:              'smtp.gmail.com',
-  #   port:                 587,
-  #   domain:               'gmail.com',
-  #   user_name:            'secret@gmail.com',
-  #   password:             'secret',
-  #   authentication:       "login",
-  #   enable_starttls_auto: true  }
-
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
@@ -36,7 +15,7 @@ Rails.application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -60,4 +39,28 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+
+
+  # echo "export SENDGRID_API_KEY='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'" > sendgrid.env
+  # echo "sendgrid.env" >> .gitignore
+  # source ./sendgrid.env
+  #
+  config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.perform_deliveries = true
+  # config.action_mailer.raise_delivery_errors = true
+  # config.action_mailer.default_options = {from: 'no-reply@example.com'}
+
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.gmail.com',
+    port:                 587,
+    domain:               'gmail.com',
+    user_name:            ENV["GMAIL_USERNAME"],
+    password:             ENV["GMAIL_PASSWORD"],
+    authentication:       "plain",
+    enable_starttls_auto: true  }
+
+    config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+
 end

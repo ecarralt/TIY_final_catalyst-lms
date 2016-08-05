@@ -16,7 +16,7 @@ WickedPdf.config = {
   #   or
   # exe_path: Gem.bin_path('wkhtmltopdf-binary', 'wkhtmltopdf')
 
-  exe_path: Gem.bin_path('wkhtmltopdf-heroku')
+  # exe_path: Gem.bin_path('wkhtmltopdf-heroku')
 
   # Layout file to be used for all PDFs
   # (but can be overridden in `render :pdf` calls)

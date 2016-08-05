@@ -48,7 +48,6 @@ Rails.application.routes.draw do
   post 'progreessreports/create/:st_id/' => 'progressreports#create', as: :create_pr
   get 'progressreports/:id/showpdf.pdf' => 'progressreports#showpdf', as: :show_pdf
 
-
   get 'progressreports/:id/showcreated.pdf' => 'progressreports#showcreated', as: :showcreated_pr
 
 

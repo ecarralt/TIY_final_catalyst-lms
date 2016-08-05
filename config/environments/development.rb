@@ -1,9 +1,11 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  echo "export SENDGRID_API_KEY='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'" > sendgrid.env
-  echo "sendgrid.env" >> .gitignore
-  source ./sendgrid.env
+  # echo "export SENDGRID_API_KEY='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'" > sendgrid.env
+  # echo "sendgrid.env" >> .gitignore
+  # source ./sendgrid.env
+
+
   # config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   #
   # config.action_mailer.delivery_method = :smtp

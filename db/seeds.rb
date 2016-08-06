@@ -106,8 +106,9 @@ File.open("#{Rails.root}/app/assets/others/20160728_AssignmentSubmit_george.doc"
 end
 arecord2.save!
 
+Lessonrecord.delete_all
 
-Progresreport.delete_all
+Progressreport.delete_all
 pr = Progressreport.new title: "Your first Progress Report", progress_score: "satisfactory", instructor_feedback: "You are doing great, keep it up!!!", total_lessons: 10, completed_lessons: 10, total_assignments: 4, completed_assignments: 3, student_id: user.id, student_name: user.full_name, pr_number: 1, user_id: user3.id
 pr.save!
 

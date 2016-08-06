@@ -7,11 +7,11 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
-  has_many :lessons
-  has_many :assignments
-  has_many :assignmentrecords
-  has_many :lessonrecords
-  has_many :progressreports
+  has_many :lessons #teacher
+  has_many :assignments #teacher
+  has_many :assignmentrecords #student
+  has_many :lessonrecords #student
+  has_many :progressreports #teacher
 
 
   def full_name

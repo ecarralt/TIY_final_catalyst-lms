@@ -4,7 +4,7 @@ class LessonsController < ApplicationController
 
   def student_dashboard
     if @current_user.usertype == "student"
-      @lessons = get_student_lessons
+      @lessons = get_student_incomplete_lessons
       @assignments = Assignment.all.where(released: "1").order(assignment_number: :asc)
     else
       @lessons = Lesson.all.order(lesson_number: :asc)
@@ -81,7 +81,7 @@ class LessonsController < ApplicationController
     redirect_to lessons_path, notice: "Lesson deleted successfully"
   end
 
-  def get_student_lessons
+  def get_student_incomplete_lessons
     @s_lessons = []
     @lessons_all = Lesson.all.where(released: "1").order(lesson_number: :asc)
     @lessons_all.each do |lesson|

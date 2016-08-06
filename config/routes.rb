@@ -37,6 +37,8 @@ Rails.application.routes.draw do
 
   #navigation and change to complete status
   get 'lessonrecords/create/:l_id/:u_id' => 'lessonrecords#create', as: :create_lrecord
+  patch 'lessonrecords/update/:l_id/:u_id' => 'lessonrecords#update', as: :update_lrecord
+
 
   #teachers viewing student records
   get 'students/index' => "students#index", as: :students

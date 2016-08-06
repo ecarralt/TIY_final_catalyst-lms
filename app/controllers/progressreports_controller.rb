@@ -71,6 +71,7 @@ class ProgressreportsController < ApplicationController
       end
     end
     # Send report to student
+    flash[:notice] = "Progress Report created and sent!"
     ProgressReportMailer.show_pr_email(@student, @pr,@pr_filename, @filesave_path).deliver_now
   end
 

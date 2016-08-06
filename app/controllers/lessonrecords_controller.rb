@@ -18,6 +18,7 @@ class LessonrecordsController < ApplicationController
   def create
     next_lesson_inc_index = get_next_lesson_inc_index
     next_lesson_comp_index = get_next_lesson_comp_index
+    next_lesson_all_index = get_next_lesson_all_index
     #case 1: complete lesson record does not exist for this lesson/user
     if Lessonrecord.find_by(user_id: params[:u_id], lesson_id: params[:l_id]) == nil
       @lrecord = Lessonrecord.new
@@ -25,7 +26,7 @@ class LessonrecordsController < ApplicationController
       @lrecord.lesson_id = params[:l_id]
       @lrecord.user_id = params[:u_id]
       if @lrecord.save
-        redirection_to_next_lesson(next_lesson_inc_index, next_lesson_comp_index)
+        redirection_to_next_lesson(next_lesson_inc_index, next_lesson_comp_index, next_lesson_all_index)
       else
         redirect_to lesson_path(id: params[:l_id]), notice: "Something went wrong setting your lesson as complete, please try again."
       end
@@ -33,13 +34,13 @@ class LessonrecordsController < ApplicationController
     elsif @lrecord = Lessonrecord.find_by(user_id: params[:u_id], lesson_id: params[:l_id])
       @lrecord.complete ="yes"
       if @lrecord.save
-        redirection_to_next_lesson(next_lesson_inc_index, next_lesson_comp_index)
+        redirection_to_next_lesson(next_lesson_inc_index, next_lesson_comp_index, next_lesson_all_index)
       else
         redirect_to lesson_path(id: params[:l_id]), notice: "Something went wrong setting your lesson as complete, please try again."
       end
     #case 3: complete lesson record exists for this lesson/user, and the student has already completed the lesson
     elsif @lrecord = Lessonrecord.find_by(user_id: params[:u_id], lesson_id: params[:l_id], complete: "yes")
-      redirection_to_next_lesson(next_lesson_inc_index, next_lesson_comp_index)
+      redirection_to_next_lesson(next_lesson_inc_index, next_lesson_comp_index, next_lesson_all_index)
     end
   end
 
@@ -53,7 +54,7 @@ class LessonrecordsController < ApplicationController
       end
   end
 
-  def redirection_to_next_lesson(next_inc_index, next_comp_index)
+  def redirection_to_next_lesson(next_inc_index, next_comp_index, next_all_index)
     #Preparing redirection to next lesson
     #1) get the lesson the stuedent is moving from
       # @prevlesson = Lesson.find_by id: params[:l_id]
@@ -67,7 +68,6 @@ class LessonrecordsController < ApplicationController
     if @prevlesson_type == "completed"
       #follow some complete lessson path
       max_lesson_number_comp = get_max_lesson_number_complete
-
       #if last within complete, redirect to review
       if @prevlesson.lesson_number == max_lesson_number_comp
         redirect_to student_review_path
@@ -89,8 +89,13 @@ class LessonrecordsController < ApplicationController
         else
           #redirect to next released lesson
           ##this needs the group of released lessons, not just lesson_number + 1 (that can lead to nil)
-          @nextlesson = Lesson.where(released: "1").find_by lesson_number: (@prevlesson.lesson_number + 1)
-          redirect_to lesson_path(id: @nextlesson.id)
+          # @nextlesson = Lesson.where(released: "1").find_by lesson_number: (@prevlesson.lesson_number + 1)
+          # redirect_to lesson_path(id: @nextlesson.id)
+
+          #redirect to next released lesson
+          next_all_index = (next_all_index + 1)
+          @nextlesson_all = @lessons_all[next_all_index]
+          redirect_to lesson_path(id: @nextlesson_all.id)
         end
 
       else
@@ -200,14 +205,12 @@ class LessonrecordsController < ApplicationController
     return index_position
   end
   def get_next_lesson_comp_index
-    #identify index position of prev lesson within incomplete lessons
-    # if (@comp_lessons == [] || @comp_lessons == nil)
-    #   @lessons = Lesson.where(released: "1").order(lesson_number: :asc)
-    #   index_position = @lessons.find_index{|l| l.lesson_number == @prevlesson.lesson_number}
-    # else
-      index_position = @comp_lessons.find_index{|l| l.lesson_number == @prevlesson.lesson_number}
-      # next_index_position = prev_index_position + 1
-    # end
+    index_position = @comp_lessons.find_index{|l| l.lesson_number == @prevlesson.lesson_number}
+    return index_position
+  end
+
+  def get_next_lesson_all_index
+    index_position = @lessons_all.find_index{|l| l.lesson_number == @prevlesson.lesson_number}
     return index_position
   end
 

@@ -1,47 +1,34 @@
-
-
-<% if false %>
+<div class="jumbo">
   <div class="row">
-    <div class="col-xs-10 col-xs-offset-1">
+    <div class="col-sm-8 col-sm-offset-2">
       <% if notice %>
-        <%= notice %>
+        <div class="alert alert-warning">  <%= notice %>
+        </div>
       <% end %>
     </div>
   </div>
-<% end %>
 
-
-
-<div class="row">
-
-  <div class="col-xs-2 col-xs-offset-9">
-
-    <h3 class= "welcome_title">Start learning...<small></small>
-
-    </h3>
-
-    <div class="sign_in_form">
-      <%= form_tag ({:class => 'form-group'}) do %>
-
-        <div class="row">
-          <%= label_tag :username %>
-          <%= text_field_tag :username,"",class: 'form-control'%>
-        </div>
-
-        <div class="row">
-          <%= label_tag :password %>
-          <%= password_field_tag :password,"",class: 'form-control'%>
-        </div>
-
-        <div class="row sign_in_buttons">
-          <%= submit_tag "Sign In", class: "btn btn-warning" %>
-          or
-          <%= link_to 'Sign Up', welcome_path%>
-        </div>
-
-      <% end %>
-
+  <div class="row">
+    <div class="col-xs-4 col-xs-offset-2">
+      <h3 class= "welcome_title">Start learning...<small></small>
+      </h3>
+      <div class="sign_in_form">
+        <%= form_tag ({:class => 'form-group'}) do %>
+          <div class="row">
+            <%= label_tag :username %>
+            <%= text_field_tag :username,"",class: 'form-control'%>
+          </div>
+          <div class="row">
+            <%= label_tag :password %>
+            <%= password_field_tag :password,"",class: 'form-control'%>
+          </div>
+          <div class="row sign_in_buttons">
+            <%= submit_tag "Sign In", class: "btn btn-primary" %>
+            <!-- or
+            <%= link_to 'Sign Up', welcome_path%> -->
+          </div>
+        <% end %>
+      </div>
     </div>
-
   </div>
 </div>

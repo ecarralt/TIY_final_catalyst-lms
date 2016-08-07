@@ -1,8 +1,18 @@
 
 $blue: #2980b9;
 
+.jumbo{
+    height: 100vh; //visual height units
+    border: 1px solid #000000;
+    background: image_url("puzzle.jpg");
+    background-size: cover; // scale as the .jumbo grows and shrinks
+    background-position: center; // center the bg instead of putting at top-left
+}
 .welcome_title {
-  margin-top: 100px;
+  margin-left: -15px;
+  margin-top: 330px;
+  font-size: 40px;
+  color: $blue;
 
   small{
 
@@ -26,9 +36,8 @@ $blue: #2980b9;
   .sign_in_buttons {
 
       margin-top: 15px;
-
+      float: right;
   }
-
 }
 
 .sign_up_form{

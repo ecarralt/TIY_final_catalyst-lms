@@ -44,12 +44,12 @@ class LessonrecordsController < ApplicationController
   end
 
   def update
-      @lrecord = Lessonrecord.find_by(user_id: params[:u_id], lesson_id: params[:l_id]) == nil
+      @lrecord = Lessonrecord.find_by(user_id: params[:u_id], lesson_id: params[:l_id])
       @lrecord.complete = "no"
       if @lrecord.save
-        redirection_to_next_lesson
+        redirect_to lesson_path(id: params[:l_id]), notice: "This lesson has now been added back to your dashboard."
       else
-        redirect_to lesson_path(id: params[:l_id]), notice: "Something went wrong putting your lesson on your dashboard, please try again."
+        redirect_to lesson_path(id: params[:l_id]), notice: "Something went wrong putting your lesson back on your dashboard, please try again."
       end
   end
 
@@ -69,7 +69,7 @@ class LessonrecordsController < ApplicationController
       max_lesson_number_comp = get_max_lesson_number_complete
       #if last within complete, redirect to review
       if @prevlesson.lesson_number == max_lesson_number_comp
-        redirect_to student_review_path
+        redirect_to student_review_path, notice: "That was the last lesson in your review list, good job!"
       else
         #if not last, then redirecto next within complete
         next_comp_index = (next_comp_index + 1)

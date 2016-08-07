@@ -26,12 +26,19 @@
   </div>
   <div class="row">
     <% if @current_user.usertype == "student" %>
-      <div class="col-sm-4 col-sm-offset-8">
-        <div class="next_lesson_complete_btn">
           <% if @lesson_type == "incomplete" %>
-            <%= link_to "Mark as complete and Next", create_lrecord_path(l_id: @lesson.id, u_id: @current_user.id), class: "btn btn-primary" %>
+          <div class="col-sm-4 col-sm-offset-8">
+            <div class="next_lesson_complete_btn">
+              <%= link_to "Mark as complete and Next", create_lrecord_path(l_id: @lesson.id, u_id: @current_user.id), class: "btn btn-primary" %>
+            </div>
+          </div>
           <% elsif @lesson_type == "completed" %>
-            <%= link_to "Review Next Lesson", create_lrecord_path(l_id: @lesson.id, u_id: @current_user.id), class: "btn btn-primary" %>
+          <div class="col-sm-8 col-sm-offset-2">
+            <div class="next_lesson_complete_btns_review">
+              <%= link_to "Mark as Incomplete", update_lrecord_path(l_id: @lesson.id, u_id: @current_user.id),method: :patch, class: "btn btn-danger" %>
+              <%= link_to "Review Next Lesson", create_lrecord_path(l_id: @lesson.id, u_id: @current_user.id), class: "btn btn-primary" %>
+            </div>
+          </div>
           <% end %>
         </div>
       </div>

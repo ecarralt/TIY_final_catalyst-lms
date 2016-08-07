@@ -4,7 +4,7 @@ class LessonsController < ApplicationController
 
   def student_dashboard
     if @current_user.usertype == "student"
-      @lessons = get_student_lessons
+      @lessons = get_student_incomplete_lessons
       @assignments = Assignment.all.where(released: "1").order(assignment_number: :asc)
     else
       @lessons = Lesson.all.order(lesson_number: :asc)
@@ -31,7 +31,15 @@ class LessonsController < ApplicationController
   def show
     @lesson = Lesson.find_by id: params[:id]
     @current_l_number = @lesson.lesson_number
-    @last_lesson_number = Lesson.maximum("lesson_number")
+    @max_lesson_number = Lesson.maximum("lesson_number")
+    @next_lesson = Lesson.find_by lesson_number: (@current_l_number+1)
+    student_lrecord = @lesson.lessonrecords.find_by(user_id: @current_user.id)
+    if student_lrecord == nil || student_lrecord.complete == "no"
+    @lesson_type = "incomplete"
+    elsif student_lrecord.complete == "yes"
+      @lesson_type = "completed"
+    end
+    # @last_lesson_number = Lesson.maximum("lesson_number")
   end
 
   def new
@@ -81,7 +89,7 @@ class LessonsController < ApplicationController
     redirect_to lessons_path, notice: "Lesson deleted successfully"
   end
 
-  def get_student_lessons
+  def get_student_incomplete_lessons
     @s_lessons = []
     @lessons_all = Lesson.all.where(released: "1").order(lesson_number: :asc)
     @lessons_all.each do |lesson|

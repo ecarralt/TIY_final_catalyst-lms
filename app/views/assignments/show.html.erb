@@ -40,6 +40,7 @@
     </div>
   </div>
 
+<% if @current_user.usertype == "teacher" %>
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
       <div class="back_to_assigments_btn">
@@ -47,6 +48,7 @@
       </div>
     </div>
   </div>
+<% end %>
 
   <% if @current_user.usertype == "student" %>
   <div class="row">

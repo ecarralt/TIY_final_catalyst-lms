@@ -26,27 +26,49 @@
   </div>
   <div class="row">
     <% if @current_user.usertype == "student" %>
-      <div class="col-sm-4 col-sm-offset-8">
-        <div class="btn">
-          <%= link_to "Mark as complete and Next", create_lrecord_path(l_id: @lesson.id, u_id: @current_user.id), class: "btn btn-warning" %>
+          <% if @lesson_type == "incomplete" %>
+          <div class="col-sm-4 col-sm-offset-8">
+            <div class="next_lesson_complete_btn">
+              <%= link_to "Mark as complete and Next", create_lrecord_path(l_id: @lesson.id, u_id: @current_user.id), class: "btn btn-primary" %>
+            </div>
+          </div>
+          <% elsif @lesson_type == "completed" %>
+          <div class="col-sm-8 col-sm-offset-2">
+            <div class="next_lesson_complete_btns_review">
+              <%= link_to "Mark as Incomplete", update_lrecord_path(l_id: @lesson.id, u_id: @current_user.id),method: :patch, class: "btn btn-danger" %>
+              <%= link_to "Review Next Lesson", create_lrecord_path(l_id: @lesson.id, u_id: @current_user.id), class: "btn btn-primary" %>
+            </div>
+          </div>
+          <% end %>
         </div>
-
-
-        <% if false %>
-                                <% if @lesson.lesson_number < @last_lesson_number %>
-                                  <div class="btn">
-                                    <%= link_to "Mark as complete and Next", lesson_path(id: Lesson.find_by(lesson_number:(@current_l_number + 1)).id), class: "btn btn-warning" %>
-                                  </div>
-                                <% else %>
-                                <div class="btn">
-                                  <%= link_to "Mark as complete and Next", create_lrecord_path(l_id: @lesson.id, u_id: @current_user.id), class: "btn btn-warning" %>
-                                </div>
-                                <% end %>
-        <% end %>
-
-
-
       </div>
     <% end %>
+
+    <% if @current_user.usertype == "teacher" %>
+    <%  %>
+      <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+          <div class="next_lesson_btn">
+            <% if @current_l_number < @max_lesson_number %>
+              <%= link_to "Next Lesson", lesson_path(id: @next_lesson.id), class: "btn btn-success" %>
+            <% else %>
+              <%= link_to "Back to Lessons", lessons_path, class: "btn btn-success" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+        <% if false %>
+          <% if @lesson.lesson_number < @last_lesson_number %>
+            <div class="btn">
+              <%= link_to "Mark as complete and Next", lesson_path(id: Lesson.find_by(lesson_number:(@current_l_number + 1)).id), class: "btn btn-warning" %>
+            </div>
+          <% else %>
+          <div class="btn">
+            <%= link_to "Mark as complete and Next", create_lrecord_path(l_id: @lesson.id, u_id: @current_user.id), class: "btn btn-warning" %>
+          </div>
+          <% end %>
+        <% end %>
   </div>
 </div>

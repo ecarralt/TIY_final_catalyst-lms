@@ -122,3 +122,27 @@ $orange: #F0AD4E;
   left: 40px;
   top: 160px;
 }
+
+.next_lesson_btn{
+  a {
+    float: right;
+    margin-top: 20px;
+  }
+}
+
+.next_lesson_complete_btn{
+
+  margin-top:20px;
+}
+
+.next_lesson_complete_btns_review{
+
+  display:flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-content: flex-start;
+    align-items: center;
+
+    margin-top: 20px;
+}

@@ -10,7 +10,7 @@ user3.save!
 
 Lesson.delete_all
 
-lesson = Lesson.new lesson_number: 1, title: "Introduction to HTML", released: "1", user_id: user3.id, author: "© 2005-2016 Mozilla Developer Network and individual contributors", content: "Most fundamentally, when you look at a webpage in a Web browser, you see words. But most of the time webpages contain styled text rather than plain text.  Nowadays, webpage designers have access to hundreds of different fonts, font sizes, colors, and even alphabets (e.g. Spanish, Japanese, Russian), and browsers can for the most part display them accurately. Webpages may also contain images, video clips, and background music. They may include drop-down menus, search boxes, or links you can follow to access other pages (whether on the same site or another site). Some websites even let visitors customize the page display to accommodate their preferences and challenges (e.g., sight challenges, deafness, or color blindness). Often a page contains content boxes that move (scroll) while the rest of the page remains static.
+lesson = Lesson.new lesson_number: 1, title: "Introduction to HTML", released: "0", user_id: user3.id, author: "© 2005-2016 Mozilla Developer Network and individual contributors", content: "Most fundamentally, when you look at a webpage in a Web browser, you see words. But most of the time webpages contain styled text rather than plain text.  Nowadays, webpage designers have access to hundreds of different fonts, font sizes, colors, and even alphabets (e.g. Spanish, Japanese, Russian), and browsers can for the most part display them accurately. Webpages may also contain images, video clips, and background music. They may include drop-down menus, search boxes, or links you can follow to access other pages (whether on the same site or another site). Some websites even let visitors customize the page display to accommodate their preferences and challenges (e.g., sight challenges, deafness, or color blindness). Often a page contains content boxes that move (scroll) while the rest of the page remains static.
 
 A typical webpage depends on several technologies (such as CSS, JavaScript, AJAX, JSON) to control what the end-user sees, but most fundamentally, developers write webpages in HTML, without which there can be no webpages. To display the page on the client-side device, a browser starts out by reading the HTML.
 
@@ -43,6 +43,42 @@ he paragraph element consists of the start tag '<p>' and the closing tag '</p>'.
 
 <p>You are beginning to learn HTML.</p>"
 lesson3.save!
+
+
+lesson4 = Lesson.new lesson_number: 4, title: "HTML Tags", released: "1", user_id: user3.id, author: "© 2005-2016 Mozilla Developer Network and individual contributors", content: "HTML documents are written in plain text. You can write HTML in any text editor that lets you save content as plain text (e.g. Notepad, Notepad++, or Sublime Text),  but most HTML authors prefer to use a specialized editor that highlights syntax and shows the DOM. You may use uppercase for tag names, but the W3C (the global consortium that maintains the HTML standard) recommends using lower case (and XHTML requires lower case).
+
+HTML attaches special meaning to anything that starts with the less-than sign ('<') and ends with the greater-than sign ('>'). Such markup is called a tag. Make sure to close the tag, as some tags are closed by default, whereas others might produce unexpected errors if you forget the end tag.
+
+Here is a simple example:
+
+```<p>This is text within a paragraph.</p>```
+
+In this example there is a start tag and a closing tag. Closing tags are the same as the start tag except with a forward slash immediately after the leading less-than sign. Most elements in HTML are written using both start and closing tags. To write valid code, you must properly nest start and closing tags, that is, write close tags in the opposite order from the start tags.
+
+This is an an example of valid code:
+
+```<em>I <strong>really</strong> mean that</em>.```
+
+This is an example of invalid code:
+
+```<!--Invalid:--> <em>I <strong>really</em> mean that</strong>.```
+
+In the valid example, the inner <strong> element is closed before the outer <em> element.
+
+Some elements do not contain any text content or any other elements. These are empty elements and need no closing tag. This is an example:
+
+```<img src='smileyface.jpg' alt='Smiley face' >```
+
+Empty elements in XHTML mode are usually closed using a trailing forward slash.
+
+```<img src='smileyface.jpg' alt='Smiley face' />```
+
+In HTML this slash has a meaning that is not implemented in Firefox so it should not be used.  Do not close empty elements in HTML mode."
+lesson4.save!
+
+
+
+
 
 Assignment.delete_all
 
@@ -106,8 +142,9 @@ File.open("#{Rails.root}/app/assets/others/20160728_AssignmentSubmit_george.doc"
 end
 arecord2.save!
 
+Lessonrecord.delete_all
 
-Progresreport.delete_all
+Progressreport.delete_all
 pr = Progressreport.new title: "Your first Progress Report", progress_score: "satisfactory", instructor_feedback: "You are doing great, keep it up!!!", total_lessons: 10, completed_lessons: 10, total_assignments: 4, completed_assignments: 3, student_id: user.id, student_name: user.full_name, pr_number: 1, user_id: user3.id
 pr.save!
 

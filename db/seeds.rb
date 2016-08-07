@@ -44,6 +44,42 @@ he paragraph element consists of the start tag '<p>' and the closing tag '</p>'.
 <p>You are beginning to learn HTML.</p>"
 lesson3.save!
 
+
+lesson4 = Lesson.new lesson_number: 4, title: "HTML Tags", released: "1", user_id: user3.id, author: "© 2005-2016 Mozilla Developer Network and individual contributors", content: "HTML documents are written in plain text. You can write HTML in any text editor that lets you save content as plain text (e.g. Notepad, Notepad++, or Sublime Text),  but most HTML authors prefer to use a specialized editor that highlights syntax and shows the DOM. You may use uppercase for tag names, but the W3C (the global consortium that maintains the HTML standard) recommends using lower case (and XHTML requires lower case).
+
+HTML attaches special meaning to anything that starts with the less-than sign ('<') and ends with the greater-than sign ('>'). Such markup is called a tag. Make sure to close the tag, as some tags are closed by default, whereas others might produce unexpected errors if you forget the end tag.
+
+Here is a simple example:
+
+```<p>This is text within a paragraph.</p>```
+
+In this example there is a start tag and a closing tag. Closing tags are the same as the start tag except with a forward slash immediately after the leading less-than sign. Most elements in HTML are written using both start and closing tags. To write valid code, you must properly nest start and closing tags, that is, write close tags in the opposite order from the start tags.
+
+This is an an example of valid code:
+
+```<em>I <strong>really</strong> mean that</em>.```
+
+This is an example of invalid code:
+
+```<!--Invalid:--> <em>I <strong>really</em> mean that</strong>.```
+
+In the valid example, the inner <strong> element is closed before the outer <em> element.
+
+Some elements do not contain any text content or any other elements. These are empty elements and need no closing tag. This is an example:
+
+```<img src='smileyface.jpg' alt='Smiley face' >```
+
+Empty elements in XHTML mode are usually closed using a trailing forward slash.
+
+```<img src='smileyface.jpg' alt='Smiley face' />```
+
+In HTML this slash has a meaning that is not implemented in Firefox so it should not be used.  Do not close empty elements in HTML mode."
+lesson4.save!
+
+
+
+
+
 Assignment.delete_all
 
 assignment = Assignment.new assignment_number: 1, title: "Basic HTML Display Features", released: "1", user_id: user3.id, author: "American University", content: "A basic page needs only a bare minimum of programming. Graphics are an important part of Web pages but so too are words. I look upon the Web as a medium for ideas and the use of new technologies, but not the other way around. A Web page tells a great story with great graphical and analytical presentation.

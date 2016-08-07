@@ -8,47 +8,44 @@ $blue: #2980b9;
     background-size: cover; // scale as the .jumbo grows and shrinks
     background-position: center; // center the bg instead of putting at top-left
 }
-.welcome_title {
-  margin-left: -15px;
-  margin-top: 330px;
-  font-size: 40px;
-  color: $blue;
 
-  small{
+.sign_in_box{
 
-      color: lighten($blue, 10%)
+  position: fixed;
+  .welcome_title {
+    margin-left: -15px;
+    margin-top: 330px;
+    font-size: 40px;
+    color: $blue;
+
+    small{
+
+        color: lighten($blue, 10%)
+    }
+  }
+  .sign_in_form {
+    margin-top: 30px;
+
+    .sign_in_buttons {
+
+        margin-top: 15px;
+        float: right;
+    }
   }
 }
 
 .sign_in_title{
   margin-top: 70px;
-
   small{
-
       color: lighten($blue, 10%)
-  }
-
-}
-
-.sign_in_form {
-  margin-top: 30px;
-
-  .sign_in_buttons {
-
-      margin-top: 15px;
-      float: right;
   }
 }
 
 .sign_up_form{
-
   margin-top: 25px;
-
   .sign_up_buttons{
     margin-top: 15px;
-
   }
-
 }
 
 .catalyst_title{
@@ -57,4 +54,5 @@ $blue: #2980b9;
   position: fixed;
   bottom: 25px;
   padding-left: 100px;
+  color: $blue;
 }

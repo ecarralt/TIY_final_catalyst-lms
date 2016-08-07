@@ -1,3 +1,5 @@
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "welcome";
@@ -28,6 +30,8 @@ $orange: #F0AD4E;
    .menuitem {
      width: 33%;
      text-align: center;
+     padding-left: 0px;
+     padding-right: 0px;
      h1, a {
        color: $white;
        margin-top: 0;
@@ -37,13 +41,17 @@ $orange: #F0AD4E;
        color: #ffffff;
        &:hover {
          text-decoration: none;
-         color: lighten($blue, 50%);
+         color: lighten($blue, 10%);
+         background-color: #ffffff;
+
        }
      }
    }
    .menuitem_teachers {
      width: 25%;
      text-align: center;
+     padding-left: 0px;
+     padding-right: 0px;
      h1, a {
        color: $white;
        margin-top: 0;
@@ -53,7 +61,9 @@ $orange: #F0AD4E;
        color: #ffffff;
        &:hover {
          text-decoration: none;
-         color: lighten($blue, 50%);
+         color: lighten($blue, 10%);
+         background-color: #ffffff;
+
        }
      }
    }

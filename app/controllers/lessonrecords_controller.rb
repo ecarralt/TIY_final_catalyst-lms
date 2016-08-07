@@ -12,7 +12,6 @@ class LessonrecordsController < ApplicationController
     else
       @prevlesson_type = "incomplete"
     end
-
   end
 
   def create

@@ -31,7 +31,15 @@ class LessonsController < ApplicationController
   def show
     @lesson = Lesson.find_by id: params[:id]
     @current_l_number = @lesson.lesson_number
-    @last_lesson_number = Lesson.maximum("lesson_number")
+    @max_lesson_number = Lesson.maximum("lesson_number")
+    @next_lesson = Lesson.find_by lesson_number: (@current_l_number+1)
+    student_lrecord = @lesson.lessonrecords.find_by(user_id: @current_user.id)
+    if student_lrecord == nil || student_lrecord.complete == "no"
+    @lesson_type = "incomplete"
+    elsif student_lrecord.complete == "yes"
+      @lesson_type = "completed"
+    end
+    # @last_lesson_number = Lesson.maximum("lesson_number")
   end
 
   def new

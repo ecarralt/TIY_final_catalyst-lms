@@ -3,7 +3,7 @@ $blue: #2980b9;
 
 .jumbo{
     height: 100vh; //visual height units
-    border: 1px solid #000000;
+    // border: 1px solid #000000;
     background: image_url("puzzle.jpg");
     background-size: cover; // scale as the .jumbo grows and shrinks
     background-position: center; // center the bg instead of putting at top-left
@@ -49,4 +49,12 @@ $blue: #2980b9;
 
   }
 
+}
+
+.catalyst_title{
+
+  font-family: 'Poiret One', cursive;
+  position: fixed;
+  bottom: 25px;
+  padding-left: 100px;
 }

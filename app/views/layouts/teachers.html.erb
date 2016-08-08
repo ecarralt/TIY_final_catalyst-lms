@@ -35,20 +35,25 @@
   </div>
 </div>
 
-<div class="row menusection_placeholder">
+<div class="container">
+  <div class="row menusection_placeholder">
+  </div>
 </div>
 
+<div class="container">
   <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
       <div class="signed_in_as_text">
         <% if @current_user %>
-          <inline>Signed in as <%= @current_user.username %> </inline>
+          <inline>Welcome, <%= @current_user.first_name %> </inline>
         <% end  %>
       </div>
     </div>
   </div>
+</div>
 
 
+<div class="container">
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
       <% if notice %>
@@ -59,6 +64,7 @@
       </div>
     </div>
   </div>
+</div>
 
 
   <div class="logout_button btn">
@@ -71,6 +77,8 @@
   <div class="margin">
 
   </div>
+  <div class="bottom_section">
+
   <div class="row test">
     <div class="col-sm-12">
           <div class="creditsbar">
@@ -80,7 +88,7 @@
           </div>
       </div>
     </div>
-
+  </div>
 
 
 </body>

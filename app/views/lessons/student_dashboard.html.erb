@@ -13,7 +13,7 @@
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
       <% if @current_user.usertype == "teacher" %>
-      <h1 class= "dashboard_title_teachers">Lessons</h1>
+      <h1 class= "dashboard_title_teachers"></h1>
       <% else %>
       <h1 class= "dashboard_title"></h1>
       <% end %>
@@ -21,13 +21,23 @@
   </div>
   <div class="row">
     <div class="col-sm-2">
-      <% if @current_user.usertype == "teacher" %>
+      <div class="list-group teacher_tools">
+        <a href="#" class="list-group-item disabled tt_title">
+        <%= icon('wrench') %> My Tools
+        </a>
+        <a href="#" class="list-group-item tt_item"><%=icon('graduation-cap')%> Create Lesson</a>
+        <a href="#" class="list-group-item tt_item"><%=icon('pencil-square-o')%> Create Assignment</a>
+        <a href="#" class="list-group-item tt_item"><%=icon('check-square-o')%> Grade</a>
+        <a href="#" class="list-group-item tt_item"><%=icon('file-text-o')%> Create Progress Report</a>
+        <a href="#" class="list-group-item tt_item"><%=icon('users')%> Students</a>
+      </div>
+      <!-- <% if @current_user.usertype == "teacher" %>
         <div class="new_lesson_btn btn">
           <%= link_to "New Lesson", new_lesson_path, class: "btn btn-success" %>
         </div>
-      <% end %>
+      <% end %> -->
     </div>
-    <div class="col-sm-8">
+    <div class="col-sm-9 col-sm-offset-1 container_2">
       <% @lessons.each do |lesson| %>
         <div class="well lesson_content">
           <% if @current_user.usertype == "teacher" %>

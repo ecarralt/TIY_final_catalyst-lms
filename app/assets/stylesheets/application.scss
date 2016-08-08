@@ -17,11 +17,54 @@ $red: #c0392b;
 $green: #16a085;
 $orange: #F0AD4E;
 
+
+body{
+  padding-right: 15px;
+}
+.container{
+  .container_2{
+    margin-left: 30px;
+  }
+
+.row{
+  margin: 0px;
+}
+
+}
 .signed_in_as_text{
 
   position: fixed;
   top: 64px;
   left: 5px;
+}
+
+.teacher_tools{
+
+  width: 200px;
+  position: fixed;
+  top: 112px;
+  left: 30px;
+  border-color: $blue;
+
+  .tt_title{
+    background-color: $blue;
+    color: #ffffff;
+
+    &:hover{
+      background-color: $blue;
+      color: #ffffff;
+
+    }
+  }
+   a, .list-group-item, .tt_item {
+
+    &:hover{
+      background-color: lighten($blue, 50%);
+    }
+  }
+
+
+
 }
 
 .well{
@@ -83,6 +126,7 @@ $orange: #F0AD4E;
 
 .menusection_placeholder{
   height: 90px;
+  margin: 0px;
 
 }
 
@@ -101,7 +145,7 @@ $orange: #F0AD4E;
 
 .test {
   height: 100px;
-  // width: 1300px;
+  // margin: 0px;
   // width: 100%;
   background-color: $blue;
   .creditsbar {

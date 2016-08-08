@@ -6,8 +6,8 @@ $grey: #bdc3c7;
 ///Student Dashboard
 
 .menu_underline_rail{
-  margin-left: -15px;
-  margin-right:-15px;
+  // margin-left: -15px;
+  // margin-right:-15px;
 
   .menu_underline_white_rail{
     position: fixed;
@@ -22,9 +22,9 @@ $grey: #bdc3c7;
     top: 62px;
     z-index: +1;
     background-color: $orange;
-    width: 327.5px;
+    width: 321.25px;
     height: 5px;
-    margin-left: 0px;
+    margin-left: -15px;
     padding: 0px;
 
   }

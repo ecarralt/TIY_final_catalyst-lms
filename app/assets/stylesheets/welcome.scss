@@ -1,5 +1,6 @@
 
 $blue: #2980b9;
+$orange: #F0AD4E;
 
 .jumbo{
     height: 100vh; //visual height units
@@ -38,7 +39,7 @@ $blue: #2980b9;
 .sign_in_title{
   margin-top: 70px;
   small{
-      color: lighten($blue, 10%)
+      color: lighten($orange, 0%)
   }
 }
 

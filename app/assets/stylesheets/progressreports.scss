@@ -23,12 +23,12 @@ $orange: #F0AD4E;$red: #c0392b;$blue: #2980b9;
 
 .student_stats_title{
 
-  color: $orange;
+  color: $blue;
 
 }
 
 .pr_input_title{
-  color: $orange;
+  color: $blue;
 
 }
 
@@ -49,3 +49,28 @@ $orange: #F0AD4E;$red: #c0392b;$blue: #2980b9;
   // margin-bottom: 150px;
 
 }
+
+.caveat_notice{
+
+  margin-top: 10px;
+
+  .important {
+    color: $red;
+  }
+
+}
+
+//showcreated.pdf, showpdf.pdf
+
+// .document{
+//   .catalyst_header_pdf{
+//
+//     background-color: $blue;
+//     width: 100%;
+//
+//     h1{
+//       text-align: center;
+//     }
+//
+//   }
+// }

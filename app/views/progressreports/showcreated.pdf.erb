@@ -1,13 +1,17 @@
 
 <div class="document">
 
+  <!-- <div class="catalyst_header_pdf">
+    <h1>Catalyst</h1>
+  </div> -->
 
 <%=
 markdown("#Course Progress Report
 ---
 ####{@pr.title}
-**email:** #{@student.email}
-**Cohort:** Winter, 2017
+**Date created:** #{@pr.created_at.to_formatted_s(:short)}
+**Email:** #{@student.email}
+**Cohort:** Autumn, 2016
 **Week:** 8
 **Instructor:** #{User.find_by(id: @pr.user_id).full_name}
 

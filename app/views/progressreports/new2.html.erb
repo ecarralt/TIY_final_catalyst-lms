@@ -62,9 +62,14 @@
 
             </div>
             <div class="pr_buttons">
-              <%= f.submit "Generate Progress Report", class: "btn btn-warning"%>
+              <%= f.submit "Generate Progress Report", class: "btn btn-danger"%>
               or
               <%= link_to 'Cancel', :back %>
+            </div>
+            <div class="caveat_notice">
+              <p>
+                <strong class="important">IMPORTANT: </strong> pressing the "Create Progress Report" button, will generate a report and send an email to <strong><%= @student.full_name %></strong> for review
+              </p>
             </div>
           <% end %>
         </div>

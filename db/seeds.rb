@@ -1,12 +1,16 @@
 
 
 User.delete_all
-user = User.new username: "ecarralt", password: "12345678", email: "ecarralt@gmail.com", first_name: "Enrique", last_name: "Carral", usertype: "student"
+user = User.new username: "ecarralt", password: "12345678", email: "kiksdev@gmail.com", first_name: "Enrique", last_name: "Carral", usertype: "student"
 user.save!
-user2 = User.new username: "george", password: "12345678", email: "george@gmail.com", first_name: "George", last_name: "Clooney", usertype: "student"
+user2 = User.new username: "george", password: "12345678", email: "george@gggmail.com", first_name: "George", last_name: "Clooney", usertype: "student"
 user2.save!
-user3 = User.new username: "harry", password: "12345678", email: "harry@gmail.com", first_name: "Harry", last_name: "Potter", usertype: "teacher"
+user3 = User.new username: "harry", password: "12345678", email: "harry@gggmail.com", first_name: "Harry", last_name: "Potter", usertype: "teacher"
 user3.save!
+user4 = User.new username: "teacher", password: "test", email: "teacher@gggmail.com", first_name: "Teacher", last_name: "Test", usertype: "teacher"
+user4.save!
+user5 = User.new username: "student", password: "test", email: "student@gggmail.com", first_name: "Student", last_name: "Test", usertype: "student"
+user5.save!
 
 Lesson.delete_all
 
@@ -147,6 +151,8 @@ Lessonrecord.delete_all
 Progressreport.delete_all
 pr = Progressreport.new title: "Your first Progress Report", progress_score: "satisfactory", instructor_feedback: "You are doing great, keep it up!!!", total_lessons: 10, completed_lessons: 10, total_assignments: 4, completed_assignments: 3, student_id: user.id, student_name: user.full_name, pr_number: 1, user_id: user3.id
 pr.save!
+pr2 = Progressreport.new title: "Your first Progress Report", progress_score: "satisfactory", instructor_feedback: "You are doing great, keep it up!!!", total_lessons: 10, completed_lessons: 10, total_assignments: 4, completed_assignments: 3, student_id: user5.id, student_name: user5.full_name, pr_number: 1, user_id: user3.id
+pr2.save!
 
 
 

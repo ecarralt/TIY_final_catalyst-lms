@@ -58,6 +58,7 @@ group :development, :test do #(if local db is sqlite3)
 
 gem 'redcarpet'
 gem "refile", require: "refile/rails"
+gem 'refile-postgres', '~> 1.4'
 gem "refile-mini_magick"
 gem "pry"
 gem 'wicked_pdf'

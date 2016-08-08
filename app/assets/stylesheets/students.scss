@@ -8,6 +8,18 @@ $orange: #F0AD4E;
 
 //index
 
+.menu_underline_teacher_students{
+  position: fixed;
+  top: 62px;
+  z-index: +1;
+  background-color: $orange;
+  width: 327.5px;
+  height: 5px;
+  margin-left: 982.2px;
+  padding: 0px;
+
+}
+
 .student_content{
 
   .name {

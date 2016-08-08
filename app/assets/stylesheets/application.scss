@@ -1,3 +1,5 @@
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "welcome";
@@ -15,7 +17,12 @@ $red: #c0392b;
 $green: #16a085;
 $orange: #F0AD4E;
 
+.signed_in_as_text{
 
+  position: fixed;
+  top: 64px;
+  left: 5px;
+}
 
 
 .menusection {
@@ -28,6 +35,8 @@ $orange: #F0AD4E;
    .menuitem {
      width: 33%;
      text-align: center;
+     padding-left: 0px;
+     padding-right: 0px;
      h1, a {
        color: $white;
        margin-top: 0;
@@ -37,13 +46,17 @@ $orange: #F0AD4E;
        color: #ffffff;
        &:hover {
          text-decoration: none;
-         color: lighten($blue, 50%);
+         color: lighten($blue, 10%);
+         background-color: #ffffff;
+
        }
      }
    }
    .menuitem_teachers {
      width: 25%;
      text-align: center;
+     padding-left: 0px;
+     padding-right: 0px;
      h1, a {
        color: $white;
        margin-top: 0;
@@ -53,14 +66,16 @@ $orange: #F0AD4E;
        color: #ffffff;
        &:hover {
          text-decoration: none;
-         color: lighten($blue, 50%);
+         color: lighten($blue, 10%);
+         background-color: #ffffff;
+
        }
      }
    }
 }
 
 .menusection_placeholder{
-  height: 70px;
+  height: 90px;
 
 }
 

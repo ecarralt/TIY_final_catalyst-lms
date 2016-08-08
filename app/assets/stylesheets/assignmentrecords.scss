@@ -1,5 +1,19 @@
+$orange: #F0AD4E;
+
 
 //Grade
+
+.menu_underline_teacher_arecords{
+  position: fixed;
+  top: 62px;
+  z-index: +1;
+  background-color: $orange;
+  width: 327.5px;
+  height: 5px;
+  margin-left: 655px;
+  padding: 0px;
+
+}
 
 .arecord_content{
   // position: relative;
@@ -57,4 +71,10 @@
   a{
     line-height: 40px;
     }
+}
+
+.grade_margin{
+
+  margin-top: 300px;
+
 }

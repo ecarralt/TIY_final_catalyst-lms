@@ -1,3 +1,12 @@
+<div class="menu_underline_rail">
+  <div class= "menu_underline_white_rail"></div>
+  <% if @current_user.usertype == "teacher" %>
+    <div class= "menu_underline_teacher"></div>
+  <% elsif @current_user.usertype == "student" %>
+    <div class= "menu_underline_student_fb"></div>
+  <% end %>
+</div>
+
 <div class="container">
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
@@ -31,7 +40,7 @@
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
       <% if @prs == [] %>
-      
+
       <% else %>
         <h3 class= "feedback_subtitle">Your Progress Reports: </h3>
         <% @prs.each do |pr| %>

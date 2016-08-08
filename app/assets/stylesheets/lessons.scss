@@ -1,8 +1,64 @@
 $red: #c0392b;
 $orange: #F0AD4E;
+$grey: #bdc3c7;
 
 
 ///Student Dashboard
+
+.menu_underline_rail{
+  margin-left: -15px;
+  margin-right:-15px;
+
+  .menu_underline_white_rail{
+    position: fixed;
+    top: 60px;
+    z-index: +1;
+    height: 2px;
+    width: 2000px;
+    background-color: #ffffff;
+  }
+  .menu_underline_teacher_lessons{
+    position: fixed;
+    top: 62px;
+    z-index: +1;
+    background-color: $orange;
+    width: 327.5px;
+    height: 5px;
+    margin-left: 0px;
+    padding: 0px;
+
+  }
+
+  .menu_underline_student_db{
+    position: fixed;
+    top: 62px;
+    z-index: +1;
+    background-color: $orange;
+    width: 432.3px;
+    height: 5px;
+    margin-left: 432.23px;
+    padding: 0px;
+  }
+  .menu_underline_student_rev{
+    position: fixed;
+    top: 62px;
+    z-index: +1;
+    background-color: $orange;
+    width: 432.3px;
+    height: 5px;
+    margin-left: 864.6px;
+  }
+  .menu_underline_student_fb{
+    position: fixed;
+    top: 62px;
+    z-index: +1;
+    background-color: $orange;
+    width: 432.3px;
+    height: 5px;
+    margin-left: 0px;
+  }
+}
+
 
 .dashboard_title{
   text-align: center;

@@ -17,7 +17,12 @@ $red: #c0392b;
 $green: #16a085;
 $orange: #F0AD4E;
 
+.signed_in_as_text{
 
+  position: fixed;
+  top: 64px;
+  left: 5px;
+}
 
 
 .menusection {
@@ -70,7 +75,7 @@ $orange: #F0AD4E;
 }
 
 .menusection_placeholder{
-  height: 70px;
+  height: 90px;
 
 }
 

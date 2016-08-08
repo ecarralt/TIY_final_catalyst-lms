@@ -15,7 +15,8 @@ $blue: #2980b9;
   .welcome_title {
     margin-left: -15px;
     margin-top: 330px;
-    font-size: 40px;
+    margin-bottom: 35px;
+    font-size: 30px;
     color: $blue;
 
     small{
@@ -52,7 +53,7 @@ $blue: #2980b9;
 
   font-family: 'Poiret One', cursive;
   position: fixed;
-  bottom: 25px;
+  bottom: 30px;
   padding-left: 100px;
   color: $blue;
 }

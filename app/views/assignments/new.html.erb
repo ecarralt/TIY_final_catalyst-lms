@@ -1,41 +1,37 @@
-
-
-
-<div class="row">
-  <div class="col-sm-9 col-sm-offset-3 sign_in_title">
-    <h2>New assignment... <small> it's their turn!</small>
-    </h2 >
+<div class="container body">
+  <div class="row">
+    <div class="col-sm-9 col-sm-offset-2 sign_in_title">
+      <h2>New assignment... <small> it's their turn!</small>
+      </h2 >
+    </div>
   </div>
-</div>
+  <div class="row">
+    <div class="col-sm-9 col-sm-offset-2">
+      <div class="sign_up_form form-group">
 
+        <%= form_for @assignment, url: create_assignment_path do |f| %>
+          <div class="f_assignment_number">
+            <%= f.text_field :assignment_number, class: 'form-control', placeholder: "Assignment number (e.g. '1')"  %>
+          </div>
+          <div class="">
+            <%= f.text_field :title, class: 'form-control', placeholder: "Assignment Title"  %>
+          </div>
+          <div class="f_release_radio_btns">
+            <%= f.radio_button :released, '0', :checked => true %> Do not release this assignment yet
+            <br />
+            <%= f.radio_button :released, '1'%> Release as soon as created
+          </div>
+          <div class="">
+            <%= f.text_area :content,class: 'form-control', placeholder: "Content here...", size: "10x20"%>
+          </div>
+          <div class="f_create_assignment_buttons">
+            <%= f.submit "Create Assignment", class: "btn btn-primary"%>
+            or
+            <%= link_to 'Cancel', :back %>
+          </div>
 
-
-<div class="row">
-  <div class="col-sm-7 col-sm-offset-3">
-    <div class="sign_up_form form-group">
-
-      <%= form_for @assignment, url: create_assignment_path do |f| %>
-        <div class="f_assignment_number">
-          <%= f.text_field :assignment_number, class: 'form-control', placeholder: "Assignment number (e.g. '1')"  %>
-        </div>
-        <div class="">
-          <%= f.text_field :title, class: 'form-control', placeholder: "Assignment Title"  %>
-        </div>
-        <div class="f_release_radio_btns">
-          <%= f.radio_button :released, '0', :checked => true %> Do not release this assignment yet
-          <br />
-          <%= f.radio_button :released, '1'%> Release as soon as created
-        </div>
-        <div class="">
-          <%= f.text_area :content,class: 'form-control', placeholder: "Content here...", size: "10x20"%>
-        </div>
-        <div class="f_create_assignment_buttons">
-          <%= f.submit "Create Assignment", class: "btn btn-warning"%>
-          or
-          <%= link_to 'Cancel', :back %>
-        </div>
-
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

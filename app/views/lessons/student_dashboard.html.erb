@@ -1,4 +1,4 @@
-<!-- 
+<!--
 <div class="menu_underline_rail">
   <div class= "menu_underline_white_rail"></div>
   <% if @current_user.usertype == "teacher" %>
@@ -9,45 +9,9 @@
 </div> -->
 
 
-<div class="container">
+<div class="container body">
   <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
-      <% if @current_user.usertype == "teacher" %>
-      <h1 class= "dashboard_title_teachers"></h1>
-      <% else %>
-      <h1 class= "dashboard_title"></h1>
-      <% end %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-2">
-      <div class="list-group teacher_tools">
-        <div href="#" class="list-group-item active">
-        <%= icon('wrench') %> My Tools
-      </div>
-        <%= link_to new_lesson_path, class: "list-group-item tt_item" do %>
-          <%=icon('graduation-cap')%> Create Lesson
-        <% end %>
-        <%= link_to new_assignment_path, class: "list-group-item tt_item" do %>
-          <%=icon('pencil-square-o')%> Create Assignment
-        <% end %>
-        <%= link_to arecords_path, class: "list-group-item tt_item" do %>
-          <%=icon('check-square-o')%> Grade
-        <% end %>
-        <%= link_to arecords_path, class: "list-group-item tt_item" do %>
-          <%=icon('line-chart')%> Create Progress Report
-        <% end %>
-        <%= link_to students_path, class: "list-group-item tt_item" do %>
-          <%=icon('users')%> Students
-        <% end %>
-    </div>
-      <!-- <% if @current_user.usertype == "teacher" %>
-        <div class="new_lesson_btn btn">
-          <%= link_to "New Lesson", new_lesson_path, class: "btn btn-success" %>
-        </div>
-      <% end %> -->
-    </div>
-    <div class="col-sm-9 col-sm-offset-1 container_2">
+    <div class="col-sm-9 col-sm-offset-2">
       <% @lessons.each do |lesson| %>
         <div class="well lesson_content">
           <%= link_to lesson_path(id: lesson.id) do  %>

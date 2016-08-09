@@ -37,14 +37,18 @@ $orange: #F0AD4E;
 }
 
 .sign_in_title{
-  margin-top: 70px;
+  margin-top: 0px;
+  color: $blue;
+  h2{
+    margin-top: 0px;
+  }
   small{
-      color: lighten($orange, 0%)
+      color: lighten($blue, 20%)
   }
 }
 
 .sign_up_form{
-  margin-top: 25px;
+  margin-top: 0px;
   .sign_up_buttons{
     margin-top: 15px;
   }

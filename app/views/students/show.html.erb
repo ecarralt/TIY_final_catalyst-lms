@@ -1,14 +1,12 @@
-<div class="container">
+<div class="container body">
   <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
-      <h1 class= "dashboard_title"> <%= @student.full_name%></h1>
+    <div class="col-sm-9 col-sm-offset-2">
+      <h1 class= "lesson`_title"> <%= @student.full_name%></h1>
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-4 col-sm-offset-4">
+    <div class="col-sm-9 col-sm-offset-2">
       <div class="well performance_summary">
-
-
 
           <% @subm_arecords =[]
           @assignments_all = Assignment.all.where(released: "1").order(assignment_number: :asc)
@@ -38,9 +36,7 @@
 
   </div>
   <div class="row">
-    <div class="col-sm-2">
-    </div>
-    <div class="col-sm-8">
+    <div class="col-sm-9 col-sm-offset-2">
       <div class="section_header">
         <h2>Assignments: </h2>
       </div>
@@ -55,7 +51,7 @@
                   <div class="view_content_w_button">
                     <%= link_to "View assignment", assignment_path(id: assignment.id) %>
                     <%if @this_arecord.score == nil %>
-                      <%= link_to "Grade now", arecord_path(id: @this_arecord.id), class: "btn btn-primary" %>
+                      <%= link_to "Grade now", arecord_path(id: @this_arecord.id), class: "btn btn-danger" %>
                     <% else %>
                       <h5 class="graded_notice">
                         <%= link_to "Assignment graded", arecord_path(id: @this_arecord.id) %>
@@ -77,8 +73,8 @@
       </div>
     </div>
   </div>
-    <div class="row">
-      <div class="col-sm-8 col-sm-offset-2">
+  <div class="row">
+    <div class="col-sm-9 col-sm-offset-2">
         <div class="section_header">
           <h2>Lessons:</h2>
         </div>

@@ -1,41 +1,39 @@
 
 
-
-<div class="row">
-  <div class="col-sm-9 col-sm-offset-3 sign_in_title">
-    <h2>New lesson... <small> let's get teaching!</small>
-    </h2 >
+<div class="container body">
+  <div class="row">
+    <div class="col-sm-9 col-sm-offset-2 sign_in_title">
+      <h2>New lesson... <small> make it count!</small>
+      </h2 >
+    </div>
   </div>
-</div>
+  <div class="row">
+    <div class="col-sm-9 col-sm-offset-2">
+      <div class="sign_up_form form-group">
 
+        <%= form_for @lesson, url: create_lesson_path do |f| %>
+          <div class="f_lesson_number">
+            <%= f.text_field :lesson_number, class: 'form-control', placeholder: "Lesson number (e.g. '1')"  %>
+          </div>
+          <div class="">
+            <%= f.text_field :title, class: 'form-control', placeholder: "Lesson Title"  %>
+          </div>
+          <div class="f_release_radio_btns">
+            <%= f.radio_button :released, '0', :checked => true %> Do not release this lesson yet
+            <br />
+            <%= f.radio_button :released, '1'%> Release as soon as created
+          </div>
+          <div class="">
+            <%= f.text_area :content,class: 'form-control', placeholder: "Content here...", size: "10x20"%>
+          </div>
+          <div class="f_create_lesson_buttons">
+            <%= f.submit "Create Lesson", class: "btn btn-primary"%>
+            or
+            <%= link_to 'Cancel', :back %>
+          </div>
 
-
-<div class="row">
-  <div class="col-sm-7 col-sm-offset-3">
-    <div class="sign_up_form form-group">
-
-      <%= form_for @lesson, url: create_lesson_path do |f| %>
-        <div class="f_lesson_number">
-          <%= f.text_field :lesson_number, class: 'form-control', placeholder: "Lesson number (e.g. '1')"  %>
-        </div>
-        <div class="">
-          <%= f.text_field :title, class: 'form-control', placeholder: "Lesson Title"  %>
-        </div>
-        <div class="f_release_radio_btns">
-          <%= f.radio_button :released, '0', :checked => true %> Do not release this lesson yet
-          <br />
-          <%= f.radio_button :released, '1'%> Release as soon as created
-        </div>
-        <div class="">
-          <%= f.text_area :content,class: 'form-control', placeholder: "Content here...", size: "10x20"%>
-        </div>
-        <div class="f_create_lesson_buttons">
-          <%= f.submit "Create Lesson", class: "btn btn-warning"%>
-          or
-          <%= link_to 'Cancel', :back %>
-        </div>
-
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

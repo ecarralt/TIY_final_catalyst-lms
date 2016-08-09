@@ -32,10 +32,12 @@ class LessonsController < ApplicationController
     @lesson = Lesson.find_by id: params[:id]
     @current_l_number = @lesson.lesson_number
     @max_lesson_number = Lesson.maximum("lesson_number")
-    @next_lesson = Lesson.find_by lesson_number: (@current_l_number+1)
+    @next_lesson = Lesson.find_by lesson_number: (@current_l_number+1)##forces teachers to do right order
+
     student_lrecord = @lesson.lessonrecords.find_by(user_id: @current_user.id)
+
     if student_lrecord == nil || student_lrecord.complete == "no"
-    @lesson_type = "incomplete"
+      @lesson_type = "incomplete"
     elsif student_lrecord.complete == "yes"
       @lesson_type = "completed"
     end

@@ -6,20 +6,64 @@ $orange: #F0AD4E;
 
 
 .navbar.navbar-default{
-
+  width: 100%;
   background-color: $blue;
+  position: fixed;
+  z-index: +1;
 
+  .teacher_tools_box {
+    position: absolute;
+    top: 70px;
+    left:35px;
+    padding: 0px;
+
+  .teacher_tools{
+
+    width: 200px;
+    // position: fixed;
+    // top: 112px;
+    // left: 30px;
+    border-color: $blue;
+
+    .tt_title{
+      background-color: $blue;
+      color: #ffffff;
+    }
+
+    .list-group-item.active{
+      background-color: $blue;
+
+
+    }
+   .list-group-item.tt_item {
+      &:hover{
+        background-color: lighten($blue, 50%);
+      }
+    }
+  }
+ }
   .navbar-brand{
 
   color: $white;
 
   }
 
+  .navbar-toggle.collapsed{
+
+    border-color: lighten($blue, 50%);
+
+    .icon-bar{
+      background-color: lighten($blue, 50%)
+    }
+
+  }
+
+
   .nav.navbar-nav{
-    margin-left: 190px;
+    margin-left: 157px;
          .active{
            a{
-            background-color: lighten($blue, 40%);
+            background-color: lighten($blue, 50%);
             border-color: $blue;
             color: $blue;
           }
@@ -31,7 +75,7 @@ $orange: #F0AD4E;
   .nav.navbar-nav.navbar-right{
     .dropdown.open{
       >a{
-       background-color: lighten($blue, 40%);
+       background-color: lighten($blue, 50%);
        border-color: $blue;
        color: $blue;
      }
@@ -50,8 +94,6 @@ $orange: #F0AD4E;
   .dropdown-toggle{
 
     &:active{
-
-      background-color: lighten($blue, 40%);
 
     }
 

@@ -1,85 +1,88 @@
-<% if @arecord.errors.any? %>
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
-      <div class="errors">
-        <% @asrecord.errors.full_messages.each do |msg| %>
-          <p>
-            <%= msg %>
-          </p>
-        <% end %>
+<div class="container body">
+  <% if @arecord.errors.any? %>
+    <div class="row">
+      <div class="col-sm-9 col-sm-offset-2">
+        <div class="errors">
+          <% @asrecord.errors.full_messages.each do |msg| %>
+            <p>
+              <%= msg %>
+            </p>
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+  <div class="row">
+    <div class="col-sm-9 col-sm-offset-2">
+      <div class="lesson_title">
+        <h1>Assignment <%=@assignment.assignment_number%>: <%=@assignment.title %></h1>
+        <small>last update on: <%= @assignment.updated_at.to_formatted_s(:short) %> UTC </small>
 
-<div class="assignment_title">
-  <h1>Assignment <%=@assignment.assignment_number%>: <%=@assignment.title %></h1>
-  <small>last update on: <%= @assignment.updated_at.to_formatted_s(:short) %> UTC </small>
-
+      </div>
+    </div>
 </div>
-
-<div class="container">
-  <div class="row">
-    <div class="col-sm-2">
-      <% if @current_user.usertype == "teacher" %>
-        <div class="delete_assignment_btn btn">
-          <%= link_to "Delete Assignment", delete_assignment_path, method: :delete, class: "btn btn-danger" %>
-        </div>
-        <div class="update_assignment_btn btn">
-          <%= link_to "Update Assignment", edit_assignment_path(id: @assignment.id), method: :get, class: "btn btn-warning" %>
-        </div>
-      <% end %>
-    </div>
-    <div class="col-sm-8">
-      <p>
-        <% if false %>
-          <%= simple_format("#{@assignment.content}") %>
+    <div class="row">
+      <div class="col-sm-2">
+        <% if @current_user.usertype == "teacher" %>
+          <div class="delete_assignment_btn btn">
+            <%= link_to "Delete Assignment", delete_assignment_path, method: :delete, class: "btn btn-danger" %>
+          </div>
+          <div class="update_assignment_btn btn">
+            <%= link_to "Update Assignment", edit_assignment_path(id: @assignment.id), method: :get, class: "btn btn-warning" %>
+          </div>
         <% end %>
-        <%= markdown(@assignment.content) %>
-      </p>
-    </div>
-  </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-9 col-sm-offset-2">
+          <p>
+            <% if false %>
+              <%= simple_format("#{@assignment.content}") %>
+            <% end %>
+            <%= markdown(@assignment.content) %>
+          </p>
+        </div>
+      </div>
 
-<% if @current_user.usertype == "teacher" %>
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
-      <div class="back_to_assigments_btn">
-        <%= link_to "Back to Assignments", assignments_path, class: "btn btn-success" %>
+  <% if @current_user.usertype == "teacher" %>
+    <div class="row">
+      <div class="col-sm-9 col-sm-offset-2">
+        <div class="back_to_assigments_btn">
+          <%= link_to "Back to Assignments", assignments_path, class: "btn btn-primary" %>
+        </div>
       </div>
     </div>
-  </div>
-<% end %>
-
-  <% if @current_user.usertype == "student" %>
-  <div class="row">
-    <div class="col-sm-6 col-sm-offset-3">
-      <h3 class = "assignment_submit_title">Submit:</h3>
-      <% if @existing_record %>
-        <div class="well notice_box">
-          <h4 class ="submitted_assignment_notice">You have already submitted this assignment. To replace it with a new submission, you can re-submit
-          below</h4>
-        </div>
-      <% end %>
-      <%= form_for @arecord, url: create_arecord_path(a_id: @assignment.id) do |f| %>
-        <div class="f_assignmentrecord_file">
-          <%= f.label :contentfile, "Upload a MS Word or PDF file here:" %>
-          <%= f.attachment_field :contentfile %>
-        </div>
-        <div class="f_assignmentrecord_link">
-          <%= f.text_field :url_link, class: 'form-control', placeholder: "...or paste URL link here"  %>
-        </div>
-        <div class="f_assignmentrecord_comments">
-          <%= f.text_area :comments,class: 'form-control', placeholder: "... and add your comments here", size: "1x2"%>
-        </div>
-        <div class="f_assignmentrecord_buttons">
-          <%= f.submit "Submit Assignment", class: "btn btn-primary"%>
-          or
-          <%= link_to 'Cancel', :back %>
-        </div>
-      <% end %>
-    </div>
-
-  </div>
   <% end %>
 
+    <% if @current_user.usertype == "student" %>
+    <div class="row">
+      <div class="col-sm-9 col-sm-offset-2">
+        <h3 class = "assignment_submit_title">Submit:</h3>
+        <% if @existing_record %>
+          <div class="well notice_box">
+            <h4 class ="submitted_assignment_notice">You have already submitted this assignment. To replace it with a new submission, you can re-submit
+            below</h4>
+          </div>
+        <% end %>
+        <%= form_for @arecord, url: create_arecord_path(a_id: @assignment.id) do |f| %>
+          <div class="f_assignmentrecord_file">
+            <%= f.label :contentfile, "Upload a MS Word or PDF file here:" %>
+            <%= f.attachment_field :contentfile %>
+          </div>
+          <div class="f_assignmentrecord_link">
+            <%= f.text_field :url_link, class: 'form-control', placeholder: "...or paste URL link here"  %>
+          </div>
+          <div class="f_assignmentrecord_comments">
+            <%= f.text_area :comments,class: 'form-control', placeholder: "... and add your comments here", size: "1x2"%>
+          </div>
+          <div class="f_assignmentrecord_buttons">
+            <%= f.submit "Submit Assignment", class: "btn btn-primary"%>
+            or
+            <%= link_to 'Cancel', :back %>
+          </div>
+        <% end %>
+      </div>
+
+    </div>
+    <% end %>
+  </div>
 </div>

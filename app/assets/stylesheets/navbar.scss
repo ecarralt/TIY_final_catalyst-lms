@@ -1,0 +1,77 @@
+$white: #ffffff;
+$blue: #2980b9;
+$red: #c0392b;
+$green: #16a085;
+$orange: #F0AD4E;
+
+
+.navbar.navbar-default{
+
+  background-color: $blue;
+
+  .navbar-brand{
+
+  color: $white;
+
+  }
+
+  .nav.navbar-nav{
+    margin-left: 190px;
+         .active{
+           a{
+            background-color: lighten($blue, 40%);
+            border-color: $blue;
+            color: $blue;
+          }
+
+        }
+
+  }
+
+  .nav.navbar-nav.navbar-right{
+    .dropdown.open{
+      >a{
+       background-color: lighten($blue, 40%);
+       border-color: $blue;
+       color: $blue;
+     }
+
+   }
+
+
+  }
+
+
+  ul a{
+    color: $white;
+  }
+
+
+  .dropdown-toggle{
+
+    &:active{
+
+      background-color: lighten($blue, 40%);
+
+    }
+
+  }
+  .dropdown-menu{
+    background-color: lighten($blue, 50%);
+    padding-top: 0px;
+    padding-bottom: 0px;
+
+    li a{
+      color: black;
+
+
+      &:hover{
+        background-color: lighten($blue, 40%);
+      }
+
+    }
+
+  }
+
+
+}

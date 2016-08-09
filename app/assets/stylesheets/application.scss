@@ -9,6 +9,7 @@
 @import "assignmentrecords";
 @import "students";
 @import "progressreports";
+@import "navbar";
 
 
 $white: #ffffff;
@@ -19,7 +20,7 @@ $orange: #F0AD4E;
 
 
 body{
-  padding-right: 15px;
+  // padding-right: 15px;
 }
 .container{
   .container_2{
@@ -50,18 +51,12 @@ body{
     background-color: $blue;
     color: #ffffff;
 
-    &:hover{
-      background-color: $blue;
-      color: #ffffff;
-
-    }
   }
-   a, .list-group-item, .tt_item {
-
-    &:hover{
-      background-color: lighten($blue, 50%);
-    }
+ .list-group-item.tt_item {
+  &:hover{
+    background-color: lighten($blue, 50%);
   }
+}
 
 
 
@@ -74,6 +69,11 @@ body{
   border: 0px;
 }
 
+.menu_top{
+  padding-left: 0px;
+  padding-right: 0px;
+
+}
 
 .menusection {
    font-family: "Trirong", serif;
@@ -81,6 +81,22 @@ body{
    position: fixed;
    z-index: +1;
    width: 100%;
+
+   .logo{
+     text-align: center;
+     padding-left: 0px;
+     padding-right: 0px;
+     background-color: $white;
+
+     h1{
+       margin-top: 0px;
+       margin-bottom: 0px;
+       padding-top: 10px;
+       padding-bottom: 10px;
+       margin-left: 7.5px;
+       color: $blue;
+     }
+   }
 
    .menuitem {
      width: 33%;
@@ -143,9 +159,11 @@ body{
 //   width: 100%;
 // }
 
-.test {
+.row.test {
   height: 100px;
-  // margin: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+
   // width: 100%;
   background-color: $blue;
   .creditsbar {

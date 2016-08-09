@@ -21,10 +21,10 @@ $grey: #bdc3c7;
     position: fixed;
     top: 62px;
     z-index: +1;
-    background-color: $orange;
-    width: 321.25px;
+    background-color: $grey;
+    width: 294.467px;
     height: 5px;
-    margin-left: -15px;
+    margin-left: 92.083px;
     padding: 0px;
 
   }
@@ -72,6 +72,17 @@ $grey: #bdc3c7;
 }
 
 .lesson_content{
+
+  cursor: pointer;
+  &:hover{
+    background-color: lighten($blue, 40%)
+
+  }
+
+  h3{
+    margin-top: 0px;
+    color: $blue;
+  }
 
   .timestamp {
     // font-size: 33px;

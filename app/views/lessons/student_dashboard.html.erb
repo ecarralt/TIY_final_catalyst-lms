@@ -1,4 +1,4 @@
-
+<!-- 
 <div class="menu_underline_rail">
   <div class= "menu_underline_white_rail"></div>
   <% if @current_user.usertype == "teacher" %>
@@ -6,7 +6,7 @@
   <% elsif @current_user.usertype == "student"%>
     <div class= "menu_underline_student_db"></div>
   <% end %>
-</div>
+</div> -->
 
 
 <div class="container">
@@ -22,15 +22,25 @@
   <div class="row">
     <div class="col-sm-2">
       <div class="list-group teacher_tools">
-        <a href="#" class="list-group-item disabled tt_title">
+        <div href="#" class="list-group-item active">
         <%= icon('wrench') %> My Tools
-        </a>
-        <a href="#" class="list-group-item tt_item"><%=icon('graduation-cap')%> Create Lesson</a>
-        <a href="#" class="list-group-item tt_item"><%=icon('pencil-square-o')%> Create Assignment</a>
-        <a href="#" class="list-group-item tt_item"><%=icon('check-square-o')%> Grade</a>
-        <a href="#" class="list-group-item tt_item"><%=icon('file-text-o')%> Create Progress Report</a>
-        <a href="#" class="list-group-item tt_item"><%=icon('users')%> Students</a>
       </div>
+        <%= link_to new_lesson_path, class: "list-group-item tt_item" do %>
+          <%=icon('graduation-cap')%> Create Lesson
+        <% end %>
+        <%= link_to new_assignment_path, class: "list-group-item tt_item" do %>
+          <%=icon('pencil-square-o')%> Create Assignment
+        <% end %>
+        <%= link_to arecords_path, class: "list-group-item tt_item" do %>
+          <%=icon('check-square-o')%> Grade
+        <% end %>
+        <%= link_to arecords_path, class: "list-group-item tt_item" do %>
+          <%=icon('line-chart')%> Create Progress Report
+        <% end %>
+        <%= link_to students_path, class: "list-group-item tt_item" do %>
+          <%=icon('users')%> Students
+        <% end %>
+    </div>
       <!-- <% if @current_user.usertype == "teacher" %>
         <div class="new_lesson_btn btn">
           <%= link_to "New Lesson", new_lesson_path, class: "btn btn-success" %>
@@ -40,12 +50,9 @@
     <div class="col-sm-9 col-sm-offset-1 container_2">
       <% @lessons.each do |lesson| %>
         <div class="well lesson_content">
-          <% if @current_user.usertype == "teacher" %>
-              <h3>L<%= lesson.lesson_number %>.
-            <% else %>
-              <h3>
+          <%= link_to lesson_path(id: lesson.id) do  %>
+              <h3>L<%= lesson.lesson_number %>.<%= lesson.title %> </h3>
           <% end %>
-          <%= lesson.title %> </h3>
           <p>
             <%= lesson.content[0,200] %>...
           </p>

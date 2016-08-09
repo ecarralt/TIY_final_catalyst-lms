@@ -94,14 +94,14 @@ Rails.application.configure do
 
   config.assets.precompile += ['blueprint/screen.css', 'pdf.css', 'jquery.ui.datepicker.js', 'pdf.js']
 
-  # config.action_mailer.smtp_settings = {
-  #   address:              'smtp.sendgrid.net',
-  #   port:                 587,
-  #   domain:               'heroku.com',
-  #   user_name:            ENV["SENDGRID_USERNAME"],
-  #   password:             ENV["SENDGRID_PASSWORD"],
-  #   authentication:       "plain",
-  #   enable_starttls_auto: true  }
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.sendgrid.net',
+    port:                 587,
+    domain:               'heroku.com',
+    user_name:            ENV["SENDGRID_USERNAME"],
+    password:             ENV["SENDGRID_PASSWORD"],
+    authentication:       "plain",
+    enable_starttls_auto: true  }
 
   config.action_mailer.default_url_options = { host: 'tiy-finalproject-catalyst.herokuapp.com' }
 

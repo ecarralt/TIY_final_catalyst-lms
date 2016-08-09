@@ -115,6 +115,7 @@ $grey: #bdc3c7;
 .review_lesson_title{
   margin-top: 0px;
 
+
 }
 
 
@@ -173,6 +174,13 @@ $grey: #bdc3c7;
 .lesson_title{
 
   text-align: center;
+  h1{
+    margin-top: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: $blue;
+    background-color: lighten($blue, 50%)
+  }
 
 }
 
@@ -181,13 +189,13 @@ $grey: #bdc3c7;
 .delete_lesson_btn{
   position: fixed;
   left: 40px;
-  top: 120px;
+  top: 420px;
 }
 
 .update_lesson_btn{
   position: fixed;
   left: 40px;
-  top: 160px;
+  top: 460px;
 }
 
 .next_lesson_btn{

@@ -22,7 +22,8 @@ $orange: #F0AD4E;
 body{
   // padding-right: 15px;
 }
-.container{
+.container.body{
+  margin-top: 38px;
   .container_2{
     margin-left: 30px;
   }
@@ -39,28 +40,7 @@ body{
   left: 5px;
 }
 
-.teacher_tools{
 
-  width: 200px;
-  position: fixed;
-  top: 112px;
-  left: 30px;
-  border-color: $blue;
-
-  .tt_title{
-    background-color: $blue;
-    color: #ffffff;
-
-  }
- .list-group-item.tt_item {
-  &:hover{
-    background-color: lighten($blue, 50%);
-  }
-}
-
-
-
-}
 
 .well{
 
@@ -160,14 +140,14 @@ body{
 // }
 
 .row.test {
-  height: 100px;
+  height: 50px;
   margin-left: 0px;
   margin-right: 0px;
 
   // width: 100%;
   background-color: $blue;
   .creditsbar {
-    font-family: "Trirong", serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     background-color: $blue;
     text-align: center;
     color: #ffffff;
@@ -176,5 +156,16 @@ body{
     h6 {
       margin: 0px;
     }
+  }
+}
+
+.row.alert{
+
+  margin-left: 0px;
+  margin-right: 0px;
+  .alert.alert-info.alert-dismissible{
+    padding-top: 70px;
+    z-index: +5;
+
   }
 }

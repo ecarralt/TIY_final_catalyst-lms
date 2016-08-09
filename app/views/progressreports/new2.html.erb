@@ -1,15 +1,14 @@
 
 
-<div class="container">
-
+<div class="container body">
   <div class="row">
-    <div class="col-sm-9 col-sm-offset-3 sign_in_title">
+    <div class="col-sm-9 col-sm-offset-2 sign_in_title">
       <h2>New Progress Report...<small> review and grade!</small>
       </h2 >
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-7 col-sm-offset-3">
+    <div class="col-sm-9 col-sm-offset-2">
       <h4 class = "student_stats_title">  <%= @student.full_name %>'s stats so far: </h4>
 
       <div class="well lesson_content">
@@ -25,14 +24,14 @@
 
 
   <div class="row">
-    <div class="col-sm-9 col-sm-offset-3">
+    <div class="col-sm-9 col-sm-offset-2">
       <h4 class="pr_input_title">Your input for this report...<small></small>
       </h4>
     </div>
   </div>
 
   <div class="row">
-      <div class="col-sm-7 col-sm-offset-3">
+      <div class="col-sm-9 col-sm-offset-2">
         <div class="form-group new">
 
           <%= form_for @pr, url: create_pr_path(st_id: @pr.student_id) do |f| %>
@@ -68,7 +67,7 @@
             </div>
             <div class="caveat_notice">
               <p>
-                <strong class="important">IMPORTANT: </strong> pressing the "Create Progress Report" button, will generate a report and send an email to <strong><%= @student.full_name %></strong> for review
+                <strong class="important">IMPORTANT: </strong> pressing the "Create Progress Report" button will generate a report and send an email to <strong><%= @student.full_name %></strong> for review
               </p>
             </div>
           <% end %>
@@ -77,8 +76,8 @@
     </div>
   </div>
 </div>
-<div class="row">
-  <div class="col-sm-8 col-sm-offset-2">
+<div class="row alert">
+  <div class="col-sm-9 col-sm-offset-2">
     <% if notice %>
       <div class="alert alert-warning">  <%= notice %>  </p>
     <% end %>

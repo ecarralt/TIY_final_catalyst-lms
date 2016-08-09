@@ -1,7 +1,10 @@
 <div class="container body">
   <div class="row">
-    <div class="col-sm-9 col-sm-offset-2">
-      <h1 class= "lesson`_title"> <%= @student.full_name%></h1>
+    <div class="col-sm-9 col-sm-offset-2 student_profile_title_section">
+      <div class="student_picture">
+        <%= image_tag("student_avatar.jpg", size: "160x160") %>
+      </div>
+      <h1><%= @student.full_name%></h1>
     </div>
   </div>
   <div class="row">
@@ -67,9 +70,11 @@
         </div>
       <%end %>
     </div>
-    <div class="col-sm-2">
-      <div class="pr_btn_student">
-        <%= link_to "Create PR for #{@student.first_name}", new2_pr_path(student:{id: @student.id}), class: "btn btn-success" %>
+    <div class="row">
+      <div class="col-sm-2">
+        <div class="pr_btn_student">
+          <%= link_to "Create PR for #{@student.first_name}", new2_pr_path(student:{id: @student.id}), class: "btn btn-success" %>
+        </div>
       </div>
     </div>
   </div>

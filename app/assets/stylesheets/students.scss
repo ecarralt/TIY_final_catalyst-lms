@@ -38,10 +38,38 @@ $orange: #F0AD4E;
 
 
 //show
+
+.student_profile_title_section{
+
+  // width: 500px;
+  padding: 0px;
+  align-items: center;
+  text-align: center;
+
+  .student_picture{
+    display: block;
+
+    // align-content: center;
+    // align-items: center;
+    img{
+      display:block;
+      margin:auto;
+     }
+  }
+  h1{
+    color: $blue;
+    margin-bottom: 20px;
+  }
+
+}
 .section_header{
   color: $blue;
 }
 
+.performance_summary{
+
+  text-align: center;
+}
 
 .pr_btn_student{
 

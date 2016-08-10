@@ -1,21 +1,10 @@
-<!--
-<div class="menu_underline_rail">
-  <div class= "menu_underline_white_rail"></div>
-  <% if @current_user.usertype == "teacher" %>
-    <div class= "menu_underline_teacher_lessons"></div>
-  <% elsif @current_user.usertype == "student"%>
-    <div class= "menu_underline_student_db"></div>
-  <% end %>
-</div> -->
-
-
 <div class="container body">
   <div class="row">
     <div class="col-sm-9 col-sm-offset-2">
       <% @lessons.each do |lesson| %>
         <div class="well lesson_content">
           <%= link_to lesson_path(id: lesson.id) do  %>
-              <h3>L<%= lesson.lesson_number %>.<%= lesson.title %> </h3>
+              <h3>L<%= lesson.lesson_number %>. <%= lesson.title %></h3>
           <% end %>
           <p>
             <%= lesson.content[0,200] %>...
@@ -36,27 +25,28 @@
       <%end %>
     </div>
   </div>
+
   <% if (@current_user.usertype == "student" && @assignments != []) %>
     <div class="row">
-      <div class="col-sm-8 col-sm-offset-2">
+      <div class="col-sm-9 col-sm-offset-2">
         <div class="assignment_due_title">
           <h2>Assignments due:</h2>
         </div>
         <% @assignments.each do |assignment| %>
           <div class="well lesson_content">
-            <h3><%= assignment.title %> </h3>
+            <h3>A<%= assignment.assignment_number %>. <%= assignment.title %> </h3>
             <p>
               <%= assignment.content[0,200] %>...
             </p>
             <%= link_to "View", assignment_path(id: assignment.id) %>
           </div>
         <% end %>
-        <div class="margin">
-
-        </div>
     </div>
   <% end %>
 
   </div>
-
+  <div class="row">
+    <div class="margin_review_feedback">
+    </div>
+  </div>
 </div>

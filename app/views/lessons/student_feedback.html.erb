@@ -1,21 +1,14 @@
-<div class="container">
+<div class="container body">
   <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
-      <h1 class= "dashboard_title">Feedback</h1>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
+    <div class="col-sm-9 col-sm-offset-2">
       <% if @arecords == [] %>
         <div class="well no_graded_arecords_notice">
-
           <h3 class = ""> You don't have any assignments graded yet.</h3>
-
         </div>
       <% else %>
         <% @arecords.each do |arecord| %>
           <div class="well arecord_content">
-            <h3 class="feedback_arecord_title">  <%= arecord.assignment.title %> </h3>
+            <h3 class="feedback_arecord_title">A<%= arecord.assignment.assignment_number %>. <%= arecord.assignment.title %> </h3>
             <p> <strong>Score: </strong> <%= arecord.score %> </p>
             <p> <strong>Instructor Feeback: </strong> <%= arecord.instructor_feedback %> </p>
             <div class="arecord_bottom_links">
@@ -29,9 +22,8 @@
 
   </div>
   <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
+    <div class="col-sm-9 col-sm-offset-2">
       <% if @prs == [] %>
-
       <% else %>
         <h3 class= "feedback_subtitle">Your Progress Reports: </h3>
         <% @prs.each do |pr| %>
@@ -45,5 +37,8 @@
       <% end %>
     </div>
   </div>
-
+  <div class="row">
+    <div class="margin_review_feedback">
+    </div>
+  </div>
 </div>

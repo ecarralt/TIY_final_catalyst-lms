@@ -10,7 +10,104 @@
 </head>
 <body>
 
-<div class="menusection">
+
+  <nav class="navbar navbar-default">
+    <div class="col-sm-2 teacher_tools_box">
+      <div class="list-group teacher_tools">
+        <div href="#" class="list-group-item active">
+          <%= icon('signal') %> My Stats
+        </div>
+        <div class="list-group-item">
+          <% if @current_user.assignmentrecords != nil %>
+            <%= @current_user.assignmentrecords.count %> assignments completed
+            <% else %>
+            0 assignments completed
+          <% end %>
+        </div>
+        <div class="list-group-item">
+          <% if @current_user.lessonrecords != nil %>
+            <%= @current_user.lessonrecords.where(complete: "yes").count %> lessons completed
+            <% else %>
+            0 lessons completed
+            <% end %>
+        </div>
+    </div>
+      <!-- <% if @current_user.usertype == "teacher" %>
+        <div class="new_lesson_btn btn">
+          <%= link_to "New Lesson", new_lesson_path, class: "btn btn-success" %>
+        </div>
+      <% end %> -->
+  </div>
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><%= icon('flask')%> Catalyst</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="<%= 'active' if current_page?(lessons_path) %>">
+            <%= link_to lessons_path do%>
+              <%=icon('tachometer')%> Dashboard
+            <% end %>
+          </li>
+          <li class="<%= 'active' if current_page?(student_review_path) %>">
+            <%= link_to student_review_path do%>
+              <%=icon('book')%> Review
+            <% end %>
+          </li>
+          <li class="<%= 'active' if current_page?(student_feedback_path) %>">
+            <%= link_to student_feedback_path do%>
+              <%=icon('tasks')%> Feedback
+            <% end %>
+          </li>
+          <!-- <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">One more separated link</a></li>
+            </ul>
+          </li> -->
+        </ul>
+        <!-- <form class="navbar-form navbar-left">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form> -->
+        <ul class="nav navbar-nav navbar-right">
+          <!-- <li><a href="#">Link</a></li> -->
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <%= icon("user") %> <%= @current_user.first_name %> <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <!-- <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li> -->
+              <!-- <li role="separator" class="divider"></li> -->
+              <li><%= link_to sign_out_path do %>
+                  Log-out
+              <% end %>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+<!-- <div class="menusection">
   <div class="row">
     <%= link_to student_feedback_path do  %>
       <div class="col-sm-4 menuitem">
@@ -41,10 +138,10 @@
         <% end  %>
       </div>
     </div>
-  </div>
+  </div> -->
 
 
-  <div class="row">
+  <div class="row alert">
     <div class="col-sm-9 col-sm-offset-2">
       <% if notice %>
         <div class="alert alert-info alert-dismissible" role="alert">
@@ -53,11 +150,6 @@
       <% end %>
       </div>
     </div>
-  </div>
-
-
-  <div class="logout_button btn">
-    <%= link_to "Log Out", sign_out_path, class: "btn btn-warning" %>
   </div>
 
 

@@ -1,20 +1,6 @@
-<div class="menu_underline_rail">
-  <div class= "menu_underline_white_rail"></div>
-  <% if @current_user.usertype == "teacher" %>
-    <div class= "menu_underline_teacher"></div>
-  <% elsif @current_user.usertype == "student" %>
-    <div class= "menu_underline_student_rev"></div>
-  <% end %>
-</div>
-
-<div class="container">
+<div class="container body">
   <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
-      <h1 class= "dashboard_title">Review</h1>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
+    <div class="col-sm-9 col-sm-offset-2">
       <% if @lessons == [] %>
         <div class="well no_completed_lessons_notice">
 
@@ -23,20 +9,24 @@
         </div>
       <% else %>
         <% @lessons.each do |lesson| %>
-          <div class="well lesson_content">
-          <h3 class = "review_lesson_title">  <%= lesson.title %> </h3>
-            <p>
-              <%= lesson.content[0,200] %>...
-            </p>
-            <%= link_to "View", lesson_path(id: lesson.id) %>
-          </div>
+        <div class="well lesson_content">
+          <%= link_to lesson_path(id: lesson.id) do  %>
+              <h3>L<%= lesson.lesson_number %>.<%= lesson.title %> </h3>
+          <% end %>
+          <p>
+            <%= lesson.content[0,200] %>...
+          </p>
+          <%= link_to "View", lesson_path(id: lesson.id) %>
+        </div>
         <% end %>
       <% end %>
     </div>
 
   </div>
-  <div class="margin">
-
+  <div class="row">
+    <div class="margin_review_feedback">
+    </div>
   </div>
+
 
 </div>

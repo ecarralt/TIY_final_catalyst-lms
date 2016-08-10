@@ -74,6 +74,21 @@
               <%=icon('users')%> Students
             <% end %>
           </li>
+          <li class="<%= 'active' if current_page?(new_lesson_path) %>tt_item_res">
+            <%= link_to new_lesson_path do%>
+              <%=icon('graduation-cap')%> New Lesson
+            <% end %>
+          </li>
+          <li class="<%= 'active' if current_page?(new_assignment_path) %>tt_item_res">
+            <%= link_to new_assignment_path do%>
+            <%=icon('pencil-square-o')%> New Assignment
+            <% end %>
+          </li>
+          <li class="<%= 'active' if current_page?(new_pr_path) %>tt_item_res">
+            <%= link_to new_pr_path do%>
+              <%=icon('line-chart')%> New PR
+            <% end %>
+          </li>
           <!-- <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
             <ul class="dropdown-menu">

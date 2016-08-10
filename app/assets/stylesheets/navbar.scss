@@ -45,7 +45,8 @@ $orange: #F0AD4E;
   .navbar-brand{
 
   color: $white;
-  font-family: 'Poiret One'
+  font-family: 'Poiret One';
+  margin-right: 155px;
 
 
   }
@@ -62,7 +63,7 @@ $orange: #F0AD4E;
 
 
   .nav.navbar-nav{
-    margin-left: 157px;
+    // margin-left: 157px;
          .active{
            a{
             background-color: lighten($blue, 50%);
@@ -116,6 +117,23 @@ $orange: #F0AD4E;
     }
 
   }
+}
 
 
+@media screen and (max-width: 1175px) {
+
+  .teacher_tools_box{
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1176px) {
+  li.tt_item_res{
+    display: none;
+  }
+}
+@media screen and (max-width: 1175px) and (min-width: 768px) {
+  div.container.body_all{
+    margin-top: 100px;
+  }
 }

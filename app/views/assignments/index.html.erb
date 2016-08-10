@@ -4,7 +4,8 @@
   <div class="row">
     <div class="col-sm-9 col-sm-offset-2">
       <% @assignments.each do |assignment| %>
-        <div class="well lesson_content">
+      <%= link_to assignment_path(id: assignment.id) do %>
+        <div class="well lesson_content fade-in">
           <h3>A<%= assignment.assignment_number %>. <%= assignment.title %> </h3>
           <p>
             <%= assignment.content[0,200] %>...
@@ -17,9 +18,9 @@
           <small class= "timestamp">
             created <%= time_ago_in_words(assignment.created_at)%> ago
           </small>
-          <%= link_to "View", assignment_path(id: assignment.id) %>
-          <%= link_to "Edit", edit_assignment_path(id: assignment.id) %>
+          <h4><%= link_to "Edit", edit_assignment_path(id: assignment.id) %>   </h4>
         </div>
+      <% end %>
       <%end %>
     </div>
   </div>

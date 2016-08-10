@@ -2,12 +2,12 @@
   <div class="row">
     <div class="col-sm-9 col-sm-offset-2">
       <% if @arecords == [] %>
-        <div class="well no_graded_arecords_notice">
+        <div class="well no_graded_arecords_notice fade-in">
           <h3 class = ""> You don't have any assignments graded yet.</h3>
         </div>
       <% else %>
         <% @arecords.each do |arecord| %>
-          <div class="well arecord_content">
+          <div class="well arecord_content fade-in">
             <h3 class="feedback_arecord_title">A<%= arecord.assignment.assignment_number %>. <%= arecord.assignment.title %> </h3>
             <p> <strong>Score: </strong> <%= arecord.score %> </p>
             <p> <strong>Instructor Feeback: </strong> <%= arecord.instructor_feedback %> </p>
@@ -25,9 +25,9 @@
     <div class="col-sm-9 col-sm-offset-2">
       <% if @prs == [] %>
       <% else %>
-        <h3 class= "feedback_subtitle">Your Progress Reports: </h3>
+        <h3 class= "feedback_subtitle fade-in two">My Progress Reports: </h3>
         <% @prs.each do |pr| %>
-          <div class="well pr_content">
+          <div class="well pr_content fade-in two">
             <h3 class="feedback_arecord_title">  <%= pr.title %> </h3>
             <p> <strong>Progress score: </strong> <%= pr.progress_score %> </p>
             <p> <strong>Instructor feeback: </strong> <%= pr.instructor_feedback %> </p>

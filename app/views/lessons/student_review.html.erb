@@ -1,23 +1,21 @@
 <div class="container body_all">
   <div class="row">
     <div class="col-sm-9 col-sm-offset-2">
-      <% if @lessons == [] %>
-        <div class="well no_completed_lessons_notice">
-
+      <% if @lessons == [] || @lessons == nil %>
+        <div class="well no_completed_lessons_notice fade-in">
           <h3 class = ""> You don't have any lessons completed yet.</h3>
-
         </div>
       <% else %>
         <% @lessons.each do |lesson| %>
-        <div class="well lesson_content">
-          <%= link_to lesson_path(id: lesson.id) do  %>
-              <h3>L<%= lesson.lesson_number %>.<%= lesson.title %> </h3>
-          <% end %>
-          <p>
-            <%= lesson.content[0,200] %>...
-          </p>
-          <%= link_to "View", lesson_path(id: lesson.id) %>
-        </div>
+        <%= link_to lesson_path(id: lesson.id) do  %>
+          <div class="well lesson_content fade-in">
+                <h3>L<%= lesson.lesson_number %>.<%= lesson.title %> </h3>
+            <p>
+              <%= lesson.content[0,200] %>...
+            </p>
+            <%= link_to "View", lesson_path(id: lesson.id) %>
+          </div>
+        <% end %>
         <% end %>
       <% end %>
     </div>

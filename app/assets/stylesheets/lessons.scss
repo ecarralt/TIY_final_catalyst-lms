@@ -1,9 +1,17 @@
 $red: #c0392b;
 $orange: #F0AD4E;
 $grey: #bdc3c7;
+$white: #ffffff;
 
 
 ///Student Dashboard
+
+.well-link{
+  &:hover{
+    text-decoration: none;
+  }
+}
+
 
 .menu_underline_rail{
   // margin-left: -15px;
@@ -15,7 +23,7 @@ $grey: #bdc3c7;
     z-index: +1;
     height: 2px;
     width: 2000px;
-    background-color: #ffffff;
+    background-color: $white;
   }
   .menu_underline_teacher_lessons{
     position: fixed;
@@ -71,25 +79,52 @@ $grey: #bdc3c7;
 
 }
 
-.lesson_content{
+.well.lesson_content{
 
   cursor: pointer;
+  text-decoration: none;
   &:hover{
-    background-color: lighten($blue, 40%)
+    background-color: lighten($blue, 40%);
+    text-decoration: none;
+  }
 
+  a{
+    color: black;
+    &:hover{
+      text-decoration: none;
+    }
   }
 
   h3{
     margin-top: 0px;
     color: $blue;
+    &:hover{
+      text-decoration: none;
+    }
   }
-
   .timestamp {
     // font-size: 33px;
     position: absolute;
     right: 0px;
     width: 200px;
     // background-color: #b0e0e6;
+  }
+
+  h4{
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
+
+  p{
+    text-decoration: none;
+    color: black;
+    &:hover{
+      text-decoration: none;
+    }
+  }
+
+  h4 a{
+    color: $blue;
   }
 }
 

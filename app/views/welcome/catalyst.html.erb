@@ -1,33 +1,4 @@
-<div class="jumbo">
-  <div class="row">
-    <div class="col-xs-4 col-xs-offset-2 sign_in_box">
-      <h5 class= "welcome_title">Start learning...<small></small>
-      </h5>
-      <div class="sign_in_form">
-        <%= form_tag ({:class => 'form-group'}) do %>
-          <div class="row">
-            <%= label_tag :username %>
-            <%= text_field_tag :username,"",class: 'form-control'%>
-          </div>
-          <div class="row">
-            <%= label_tag :password %>
-            <%= password_field_tag :password,"",class: 'form-control'%>
-          </div>
-          <div class="row sign_in_buttons">
-            <%= submit_tag "Sign In", class: "btn btn-primary" %>
-            <!-- or
-            <%= link_to 'Sign Up', welcome_path%> -->
-          </div>
-        <% end %>
-      </div>
-    </div>
-    <div class="col-sm-3 col-sm-offset-9">
-      <div class="catalyst_title">
-        <h1> Catalyst</h1>
-      </div>
-
-    </div>
-  </div>
+<div class="container jumbo">
   <div class="row">
     <div class="col-sm-9 col-sm-offset-2">
       <% if notice %>
@@ -36,6 +7,40 @@
           <%= notice %>
         </div>
       <% end %>
+    </div>
+  </div>
+  <div class="row welcome_space_between">
+  </div>
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-2 sign_in_box">
+      <h5 class= "welcome_title">Start learning...<small></small>
+      </h5>
+      <div class="sign_in_form">
+        <%= form_tag ({:class => 'form-group'}) do %>
+          <div class="">
+            <%= label_tag :username %>
+            <%= text_field_tag :username,"",class: 'form-control'%>
+          </div>
+          <div class="">
+            <%= label_tag :password %>
+            <%= password_field_tag :password,"",class: 'form-control'%>
+          </div>
+          <div class=" sign_in_buttons">
+            <%= submit_tag "Sign In", class: "btn btn-primary" %>
+            <!-- or
+            <%= link_to 'Sign Up', welcome_path%> -->
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-sm-2 col-sm-offset-4">
+      <div class="catalyst_title_space">
+
+      </div>
+      <div class="catalyst_title">
+        <h1> Catalyst</h1>
+      </div>
+
     </div>
   </div>
 </div>

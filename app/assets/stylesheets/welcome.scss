@@ -3,19 +3,30 @@ $blue: #2980b9;
 $orange: #F0AD4E;
 
 .jumbo{
-    height: 100vh; //visual height units
+    // height: 100vh; //visual height units
     // border: 1px solid #000000;
     background: image_url("puzzle.jpg");
     background-size: cover; // scale as the .jumbo grows and shrinks
-    background-position: center; // center the bg instead of putting at top-left
+    background-position: center center; // center the bg instead of putting at top-left
+
+    .welcome_space_between{
+
+      height: 50vh;
+
+    }
+
+    .catalyst_title_space{
+
+      height: 150px;
+    }
 }
 
 .sign_in_box{
 
-  position: fixed;
+  // position: fixed;
   .welcome_title {
     margin-left: -15px;
-    margin-top: 330px;
+    // margin-top: 330px;
     margin-bottom: 35px;
     font-size: 30px;
     color: $blue;
@@ -57,8 +68,11 @@ $orange: #F0AD4E;
 .catalyst_title{
 
   font-family: 'Poiret One', cursive;
-  position: fixed;
-  bottom: 30px;
-  padding-left: 100px;
+  // position: fixed;
+  // bottom: 30px;
+  // padding-left: 100px;
   color: $blue;
+  // margin-top: 530px;
+  padding-right: 30px;
+
 }

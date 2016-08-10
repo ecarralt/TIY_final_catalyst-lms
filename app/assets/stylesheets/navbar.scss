@@ -68,6 +68,13 @@ $orange: #F0AD4E;
 
   }
 
+button.navbar-toggle{
+          &:hover{
+
+            background-color: lighten($blue, 50%);
+          }
+  }
+
 
   .nav.navbar-nav{
     // margin-left: 157px;

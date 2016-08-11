@@ -1,11 +1,15 @@
 
-$blue: #2980b9;
+$blue: #002C8B;
 $orange: #F0AD4E;
+$white: #ecf0f1;
 
 .jumbo{
     // height: 100vh; //visual height units
     // border: 1px solid #000000;
-    background: image_url("puzzle.jpg");
+    // background: image_url("puzzle.jpg");
+    // background: image_url("catalyst.jpg");
+    background: image_url("blueberries.jpg");
+
     background-size: cover; // scale as the .jumbo grows and shrinks
     // object-fit: cover; // use with 190px catalyst_title_space
     background-position: center center; // center the bg instead of putting at top-left
@@ -27,11 +31,11 @@ $orange: #F0AD4E;
   padding-right: 40px;
   margin-bottom: 50px;
   .welcome_title {
-    margin-left: -15px;
+    margin-left: 0px;
     // margin-top: 330px;
     margin-bottom: 35px;
     font-size: 30px;
-    color: $blue;
+    color: $white;
 
     small{
 
@@ -73,7 +77,7 @@ $orange: #F0AD4E;
   // position: fixed;
   // bottom: 30px;
   // padding-left: 100px;
-  color: $blue;
+  color: $white;
   // margin-top: 530px;
   padding-right: 50px;
   padding-left: 10px;

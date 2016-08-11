@@ -15,7 +15,7 @@
 
 
 $white: #ecf0f1;
-$blue: #2980b9;
+$blue: #002C8B;
 $red: #c0392b;
 $green: #16a085;
 $orange: #F0AD4E;
@@ -170,4 +170,9 @@ body{
     z-index: +5;
 
   }
+}
+
+.btn.btn-primary{
+
+  background-color: $blue;
 }

@@ -11,9 +11,15 @@
             <%= assignment.content[0,200] %>...
           </p>
           <% if @current_user.usertype == "teacher" %>
-            <div class="">
-              <small> Released to students? <%= assignment.released_display %></small>
-            </div>
+          <% if assignment.released_display == "Yes"  %>
+            <h4 class="assignment_submitted">
+              Released to students
+            </h4>
+            <% else %>
+            <h4 class="assignment_not_submitted">
+              Not Released
+            </h4>
+            <% end %>
           <% end %>
           <small class= "timestamp">
             created <%= time_ago_in_words(assignment.created_at)%> ago

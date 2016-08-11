@@ -12,7 +12,7 @@
   </div>
   <% end %>
 
-  <div class="row">
+  <div class="row fade-in">
     <div class="col-sm-9 col-sm-offset-2">
       <div class="lesson_title">
         <h1>Assignment <%=@arecord.assignment.assignment_number%>: <%=@arecord.assignment.title %>
@@ -22,7 +22,7 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row fade-in">
     <div class="col-sm-9 col-sm-offset-2">
         <h4> <%= @arecord.user.full_name %>'s submission:</h4>
         <div class="well">
@@ -65,7 +65,7 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="row fade-in two">
       <div class="col-sm-9 col-sm-offset-2">
         <h3 class = "grading_title">Grade this assignment:</h3>
         <% if @existing_grade %>

@@ -1,7 +1,7 @@
 <div class="container body_all">
   <div class="row">
     <div class="col-sm-9 col-sm-offset-2">
-      <% if @arecords == [] %>
+      <% if @arecords == [] || @arecords == nil %>
         <div class="well no_graded_arecords_notice fade-in">
           <h3 class = ""> You don't have any assignments graded yet.</h3>
         </div>

@@ -1,18 +1,24 @@
 <div class="container body_all">
   <div class="row">
     <div class="col-sm-9 col-sm-offset-2">
-      <% @arecords.each do |arecord| %>
-      <%= link_to arecord_path(id: arecord.id), class:"well-link" do  %>
-        <div class="well lesson_content fade-in">
-          <h3>A<%= arecord.assignment.assignment_number %>. <%= arecord.assignment.title %> </h3>
-          <p> Submitted by: <%= arecord.user.full_name %></p>
-          <small class= "timestamp">
-            submitted <%= time_ago_in_words(arecord.created_at)%> ago
-          </small>
-          <h4><%= link_to "Grade", arecord_path(id: arecord.id) %></h4>
+      <% if @arecords == [] || @arecords == nil %>
+        <div class="well no_graded_arecords_notice fade-in">
+          <h3 class = ""> You have graded all your assignments for today.</h3>
         </div>
-      <%end %>
-      <%end %>
+      <% else %>
+        <% @arecords.each do |arecord| %>
+          <%= link_to arecord_path(id: arecord.id), class:"well-link" do  %>
+            <div class="well lesson_content fade-in">
+              <h3>A<%= arecord.assignment.assignment_number %>. <%= arecord.assignment.title %> </h3>
+              <p> Submitted by: <%= arecord.user.full_name %></p>
+              <small class= "timestamp">
+                submitted <%= time_ago_in_words(arecord.created_at)%> ago
+              </small>
+              <h4><%= link_to "Grade", arecord_path(id: arecord.id) %></h4>
+            </div>
+          <%end %>
+        <%end %>
+      <% end %>
     </div>
   </div>
 </div>

@@ -19,7 +19,15 @@
             <div class="well lesson_content fade-in">
               <h3>L<%= lesson.lesson_number %>. <%= lesson.title %></h3>
               <p><%= lesson.content[0,200] %>...</p>
-                <small> Released to students? <%= lesson.released_display %></small>
+                <% if lesson.released_display == "Yes"  %>
+                  <h4 class="assignment_submitted">
+                    Released to students
+                  </h4>
+                  <% else %>
+                  <h4 class="assignment_not_submitted">
+                    Not Released
+                  </h4>
+                  <% end %>
                 <small class= "timestamp">
                     created <%= time_ago_in_words(lesson.created_at)%> ago
                 </small>

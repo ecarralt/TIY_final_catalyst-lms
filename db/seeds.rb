@@ -43,7 +43,7 @@ The basic HTML code structure is shown below:
 </body>
 </html>
 
-he paragraph element consists of the start tag '<p>' and the closing tag '</p>'. The following example shows a paragraph contained within the HTML paragraph element. Remember that your browser will not display more than one space character in a row.
+The paragraph element consists of the start tag '<p>' and the closing tag '</p>'. The following example shows a paragraph contained within the HTML paragraph element. Remember that your browser will not display more than one space character in a row.
 
 <p>You are beginning to learn HTML.</p>"
 lesson3.save!
@@ -103,7 +103,7 @@ We can also change the appearance of words on the screen. This shows some differ
 That was also an example of a nested command."
 assignment.save!
 
-assignment2 = Assignment.new assignment_number: 2, title: "Create a website", released: "1", user_id: user3.id, author: "Harry Potter", content: "Your job is to create a web site that shows the following elements.  Make sure all of your code is arranged properly and cleanly.  This is comparable to a test so I will NOT be giving very much help if any. For this first assignment you will have the tutorial to use for help, so it will be your main tool.
+assignment2 = Assignment.new assignment_number: 2, title: "Create a website", released: "0", user_id: user3.id, author: "Harry Potter", content: "Your job is to create a web site that shows the following elements.  Make sure all of your code is arranged properly and cleanly.  This is comparable to a test so I will NOT be giving very much help if any. For this first assignment you will have the tutorial to use for help, so it will be your main tool.
 
 
 -ALL of this information can be found in HTML Chapters 1-7

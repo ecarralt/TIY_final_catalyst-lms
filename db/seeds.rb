@@ -148,6 +148,11 @@ arecord2.save!
 
 Lessonrecord.delete_all
 
+lrecord = Lessonrecord.new complete: "yes", user_id: user.id, lesson_id: lesson.id
+lrecord.save!
+lrecord2 = Lessonrecord.new complete: "yes", user_id: user.id, lesson_id: lesson2.id
+lrecord2.save!
+
 Progressreport.delete_all
 pr = Progressreport.new title: "Your first Progress Report", progress_score: "satisfactory", instructor_feedback: "You are doing great, keep it up!!!", total_lessons: 10, completed_lessons: 10, total_assignments: 4, completed_assignments: 3, student_id: user.id, student_name: user.full_name, pr_number: 1, user_id: user3.id
 pr.save!

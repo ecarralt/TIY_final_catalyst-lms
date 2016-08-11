@@ -37,8 +37,10 @@
             or
             <%= link_to 'Cancel', :back %>
           </div>
-
         <% end %>
+        <div class="delete_assignment_btn_res btn">
+          <%= link_to "Delete assignment", delete_assignment_path, method: :delete, class: "btn btn-danger" %>
+        </div>
       </div>
     </div>
   </div>

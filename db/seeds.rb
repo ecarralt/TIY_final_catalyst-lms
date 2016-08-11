@@ -7,14 +7,14 @@ user2 = User.new username: "george", password: "12345678", email: "george@gggmai
 user2.save!
 user3 = User.new username: "harry", password: "12345678", email: "harry@gggmail.com", first_name: "Harry", last_name: "Potter", usertype: "teacher"
 user3.save!
-user4 = User.new username: "teacher", password: "test", email: "teacher@gggmail.com", first_name: "Teacher", last_name: "Test", usertype: "teacher"
+user4 = User.new username: "teacher", password: "12345678", email: "teacher@gggmail.com", first_name: "Teacher", last_name: "Test", usertype: "teacher"
 user4.save!
-user5 = User.new username: "student", password: "test", email: "student@gggmail.com", first_name: "Student", last_name: "Test", usertype: "student"
+user5 = User.new username: "student", password: "12345678", email: "student@gggmail.com", first_name: "Student", last_name: "Test", usertype: "student"
 user5.save!
 
 Lesson.delete_all
 
-lesson = Lesson.new lesson_number: 1, title: "Introduction to HTML", released: "0", user_id: user3.id, author: "© 2005-2016 Mozilla Developer Network and individual contributors", content: "Most fundamentally, when you look at a webpage in a Web browser, you see words. But most of the time webpages contain styled text rather than plain text.  Nowadays, webpage designers have access to hundreds of different fonts, font sizes, colors, and even alphabets (e.g. Spanish, Japanese, Russian), and browsers can for the most part display them accurately. Webpages may also contain images, video clips, and background music. They may include drop-down menus, search boxes, or links you can follow to access other pages (whether on the same site or another site). Some websites even let visitors customize the page display to accommodate their preferences and challenges (e.g., sight challenges, deafness, or color blindness). Often a page contains content boxes that move (scroll) while the rest of the page remains static.
+lesson = Lesson.new lesson_number: 1, title: "Introduction to HTML", released: "1", user_id: user3.id, author: "© 2005-2016 Mozilla Developer Network and individual contributors", content: "Most fundamentally, when you look at a webpage in a Web browser, you see words. But most of the time webpages contain styled text rather than plain text.  Nowadays, webpage designers have access to hundreds of different fonts, font sizes, colors, and even alphabets (e.g. Spanish, Japanese, Russian), and browsers can for the most part display them accurately. Webpages may also contain images, video clips, and background music. They may include drop-down menus, search boxes, or links you can follow to access other pages (whether on the same site or another site). Some websites even let visitors customize the page display to accommodate their preferences and challenges (e.g., sight challenges, deafness, or color blindness). Often a page contains content boxes that move (scroll) while the rest of the page remains static.
 
 A typical webpage depends on several technologies (such as CSS, JavaScript, AJAX, JSON) to control what the end-user sees, but most fundamentally, developers write webpages in HTML, without which there can be no webpages. To display the page on the client-side device, a browser starts out by reading the HTML.
 
@@ -49,7 +49,7 @@ he paragraph element consists of the start tag '<p>' and the closing tag '</p>'.
 lesson3.save!
 
 
-lesson4 = Lesson.new lesson_number: 4, title: "HTML Tags", released: "1", user_id: user3.id, author: "© 2005-2016 Mozilla Developer Network and individual contributors", content: "HTML documents are written in plain text. You can write HTML in any text editor that lets you save content as plain text (e.g. Notepad, Notepad++, or Sublime Text),  but most HTML authors prefer to use a specialized editor that highlights syntax and shows the DOM. You may use uppercase for tag names, but the W3C (the global consortium that maintains the HTML standard) recommends using lower case (and XHTML requires lower case).
+lesson4 = Lesson.new lesson_number: 4, title: "HTML Tags", released: "0", user_id: user3.id, author: "© 2005-2016 Mozilla Developer Network and individual contributors", content: "HTML documents are written in plain text. You can write HTML in any text editor that lets you save content as plain text (e.g. Notepad, Notepad++, or Sublime Text),  but most HTML authors prefer to use a specialized editor that highlights syntax and shows the DOM. You may use uppercase for tag names, but the W3C (the global consortium that maintains the HTML standard) recommends using lower case (and XHTML requires lower case).
 
 HTML attaches special meaning to anything that starts with the less-than sign ('<') and ends with the greater-than sign ('>'). Such markup is called a tag. Make sure to close the tag, as some tags are closed by default, whereas others might produce unexpected errors if you forget the end tag.
 

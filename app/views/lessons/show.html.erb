@@ -10,9 +10,9 @@
   <div class="row">
     <div class="col-sm-9 col-sm-offset-2">
       <% if @current_user.usertype == "teacher" %>
-        <div class="delete_lesson_btn btn">
+        <!-- <div class="delete_lesson_btn btn">
           <%= link_to "Delete Lesson", delete_lesson_path, method: :delete, class: "btn btn-danger" %>
-        </div>
+        </div> -->
         <div class="update_lesson_btn btn">
           <%= link_to "Update Lesson", edit_lesson_path(id: @lesson.id), method: :get, class: "btn btn-warning" %>
         </div>
@@ -50,12 +50,15 @@
     <% if @current_user.usertype == "teacher" %>
       <div class="row">
         <div class="col-sm-9 col-sm-offset-2">
-          <div class="next_lesson_btn margin_btns">
+          <div class="next_lesson_btn">
             <% if @current_l_number < @max_lesson_number %>
               <%= link_to "Next Lesson", lesson_path(id: @next_lesson.id), class: "btn btn-primary" %>
             <% else %>
               <%= link_to "Back to Lessons", lessons_path, class: "btn btn-primary" %>
             <% end %>
+          </div>
+          <div class="update_lesson_btn_res btn margin_btns">
+            <%= link_to "Update Lesson", edit_lesson_path(id: @lesson.id), method: :get, class: "btn btn-warning" %>
           </div>
         </div>
       </div>

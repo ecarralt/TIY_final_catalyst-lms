@@ -3,7 +3,7 @@
 User.delete_all
 user = User.new username: "ecarralt", password: "12345678", email: "kiksdev@gmail.com", first_name: "Enrique", last_name: "Carral", usertype: "student"
 user.save!
-user2 = User.new username: "george", password: "12345678", email: "george@gggmail.com", first_name: "George", last_name: "Clooney", usertype: "student"
+user2 = User.new username: "marie", password: "12345678", email: "marie@gggmail.com", first_name: "Marie", last_name: "Curie", usertype: "student"
 user2.save!
 user3 = User.new username: "harry", password: "12345678", email: "harry@gggmail.com", first_name: "Harry", last_name: "Potter", usertype: "teacher"
 user3.save!
@@ -11,6 +11,21 @@ user4 = User.new username: "teacher", password: "12345678", email: "teacher@gggm
 user4.save!
 user5 = User.new username: "student", password: "12345678", email: "student@gggmail.com", first_name: "Student", last_name: "Test", usertype: "student"
 user5.save!
+user6 = User.new username: "dmitri", password: "12345678", email: "dmitri@gggmail.com", first_name: "Dmitri", last_name: "Mendeleev", usertype: "student"
+user6.save!
+user7 = User.new username: "linus", password: "12345678", email: "linus@gggmail.com", first_name: "Linus", last_name: "Pauling", usertype: "student"
+user7.save!
+user8 = User.new username: "john", password: "12345678", email: "john@gggmail.com", first_name: "John", last_name: "Dalton", usertype: "student"
+user8.save!
+user9 = User.new username: "erwin", password: "12345678", email: "erwin@gggmail.com", first_name: "Erwin", last_name: "Schrödinger", usertype: "student"
+user9.save!
+user10 = User.new username: "mario", password: "12345678", email: "mario@gggmail.com", first_name: "Mario", last_name: "Molina", usertype: "student"
+user10.save!
+user11 = User.new username: "ernest", password: "12345678", email: "ernest@gggmail.com", first_name: "Ernest", last_name: "Rutherford", usertype: "student"
+user11.save!
+
+
+
 
 Lesson.delete_all
 
@@ -134,7 +149,7 @@ assignment2.save!
 
 Assignmentrecord.delete_all
 
-arecord = Assignmentrecord.new user_id: user.id, assignment_id: assignment2.id, comments: "This is my 1st assingment submission. Looking forward to my feedback!", url_link: "https://www.linkedin.com/in/ecarralt"
+arecord = Assignmentrecord.new user_id: user.id, assignment_id: assignment.id, comments: "This is my 1st assingment submission. Looking forward to my feedback!", url_link: "https://www.linkedin.com/in/ecarralt"
 File.open("#{Rails.root}/app/assets/others/20160726_AssignmentSubmit_ecarralt.docx", "rb") do |file|
   arecord.contentfile = file
 end

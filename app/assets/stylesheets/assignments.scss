@@ -69,7 +69,7 @@
 .update_assignment_btn{
   position: fixed;
   left: 40px;
-  top: 460px;
+  top: 300px;
 }
 
 .assignment_submit_title{
@@ -107,8 +107,12 @@
     float: right;
     margin-top: 20px;
   }
+}
 
+.update_assignment_btn_res{
 
+  padding-left: 0px;
+  margin-top: 13px;
 }
 
 //edit
@@ -116,5 +120,5 @@
 .delete_assignment_btn_res{
 
   padding-left: 0px;
-  
+
 }

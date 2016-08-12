@@ -48,13 +48,14 @@
           <h2 class="fade-in two">Assignments due:</h2>
         </div>
         <% @assignments.each do |assignment| %>
+        <%= link_to assignment_path(id: assignment.id), class:'well-link'  do  %>
           <div class="well lesson_content fade-in two">
             <h3>A<%= assignment.assignment_number %>. <%= assignment.title %> </h3>
             <p>
               <%= assignment.content[0,200] %>...
             </p>
-            <%= link_to "View", assignment_path(id: assignment.id) %>
           </div>
+          <% end %>
         <% end %>
     </div>
   <% end %>

@@ -147,19 +147,30 @@ button.navbar-toggle{
 }
 
 @media screen and (max-width: 815px) {
-  .delete_assignment_btn, .delete_lesson_btn{
+.delete_lesson_btn, .update_lesson_btn{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .delete_assignment_btn, .update_assignment_btn{
     display: none;
   }
 }
 
 @media screen and (min-width: 816px) {
-  .delete_assignment_btn_res{
-    display: none;
-  }
-  .delete_lesson_btn_res{
+  .delete_lesson_btn_res, .update_lesson_btn_res{
     display: none;
   }
 }
+
+@media screen and (min-width: 1051px) {
+  .delete_assignment_btn_res, .update_assignment_btn_res{
+    display: none;
+  }
+}
+
+
 
 @media screen and (min-width: 1176px) {
   li.tt_item_res{

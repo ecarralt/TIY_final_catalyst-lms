@@ -7,13 +7,12 @@
         </div>
       <% else %>
         <% @lessons.each do |lesson| %>
-        <%= link_to lesson_path(id: lesson.id) do  %>
+        <%= link_to lesson_path(id: lesson.id), class: "well-link" do  %>
           <div class="well lesson_content fade-in">
                 <h3>L<%= lesson.lesson_number %>.<%= lesson.title %> </h3>
             <p>
               <%= lesson.content[0,200] %>...
             </p>
-            <%= link_to "View", lesson_path(id: lesson.id) %>
           </div>
         <% end %>
         <% end %>

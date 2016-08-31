@@ -7,9 +7,9 @@ user2 = User.new username: "marie", password: "12345678", email: "marie@gggmail.
 user2.save!
 user3 = User.new username: "harry", password: "12345678", email: "harry@gggmail.com", first_name: "Harry", last_name: "Potter", usertype: "teacher"
 user3.save!
-user4 = User.new username: "teacher", password: "12345678", email: "teacher@gggmail.com", first_name: "Teacher", last_name: "Test", usertype: "teacher"
+user4 = User.new username: "teacher", password: "87654321", email: "teacher@gggmail.com", first_name: "Teacher", last_name: "Test", usertype: "teacher"
 user4.save!
-user5 = User.new username: "student", password: "12345678", email: "student@gggmail.com", first_name: "Student", last_name: "Test", usertype: "student"
+user5 = User.new username: "student", password: "87654321", email: "student@gggmail.com", first_name: "Student", last_name: "Test", usertype: "student"
 user5.save!
 user6 = User.new username: "dmitri", password: "12345678", email: "dmitri@gggmail.com", first_name: "Dmitri", last_name: "Mendeleev", usertype: "student"
 user6.save!
